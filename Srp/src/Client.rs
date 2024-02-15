@@ -1,6 +1,9 @@
-use std::hash;
 
-const a: u32 = crypto.keygen; //¯\_(ツ)_/¯;  //generate new session secret
+use hacspec_sha256::*;
+// use std::hash;
+// use core::ptr::hash;
+
+const a: u32 = 5; //¯\_(ツ)_/¯;  //generate new session secret
 
 fn client(s: salt, P: password) {
     let g = 5;
