@@ -1,12 +1,12 @@
 
 use hacspec_sha256::*;
-// use std::hash;
-// use core::ptr::hash;
+use hacspec_lib::*;
 
-const a: u32 = 5; //¯\_(ツ)_/¯;  //generate new session secret
+const a: U32 = 5; //¯\_(ツ)_/¯;  //generate new session secret
 
-fn client(s: salt, P: password) {
+fn client(salt: &ByteSeq, P: password) {
     let g = 5;
+    let x = hash((salt, P));
     let A = g.pow(a); //create new session public key
     send(A);
     let (B, u) = recieve();
@@ -17,7 +17,7 @@ fn client(s: salt, P: password) {
     let M2 = hash((&A, &M1, &K));
     let M2recieved = recieve();
     if (M2 == M2recieved) {
-        setSessionkey(K);
+        setSessionkey(K); 
     }
 }
 
@@ -32,3 +32,11 @@ fn recieve() -> _ {
 fn setSessionkey(k: _) -> _ { 
     todo!()
 }
+
+
+/*
+change list:
+- const a u32 -> U32 (hacspec secret u32)
+- salt is now a &ByteSeq (hacspec/examples/hkdf.rs l. 18)
+- let x added, is a hash of salt and P as per diagram.
+ */

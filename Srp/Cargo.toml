@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 hacspec-lib = { path = "../../hacspec/lib" }
+secret_integers = { path = "../../hacspec/utils/secret-integers" }
 hacspec-sha256 = { path = "../../hacspec/examples/sha256" }
