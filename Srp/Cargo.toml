@@ -6,5 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-hacspec-lib = { path = "../../Hacspec/lib" }
-hacspec-sha256 = { path = "../../Hacspec/examples/sha256" }
+hacspec-lib = { path = "../../hacspec/lib" }
+hacspec-sha256 = { path = "../../hacspec/examples/sha256" }

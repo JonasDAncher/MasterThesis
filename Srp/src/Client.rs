@@ -14,7 +14,7 @@ fn client(s: salt, P: password) {
     let K = hash(&S);
     let M1 = hash((&A, &B, &K));
     send(M1);
-    let M2 = hash(&A, &M1, &K);
+    let M2 = hash((&A, &M1, &K));
     let M2recieved = recieve();
     if (M2 == M2recieved) {
         setSessionkey(K);
@@ -29,6 +29,6 @@ fn recieve() -> _ {
     todo!()
 }
 
-fn setSessionkey(k: _) -> _ {
+fn setSessionkey(k: _) -> _ { 
     todo!()
 }
