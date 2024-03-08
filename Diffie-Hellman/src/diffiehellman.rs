@@ -9,26 +9,28 @@ pub type KeyPair = (PK, SK);
 pub type SessionKey = DiffInt;
 
 
-fn generate_group() -> (BigInt, BigInt) {
-    // let mut rng = rand::prelude::thread_rng();
-    // let g = rng.gen_bigint(1000).abs();
-    // let q = rng.gen_bigint(1000).abs();
-    let g = 10000.to_bigint().unwrap();
-    let q = 1156651.to_bigint().unwrap();
+fn generate_group() -> (BigUint, BigUint) {
+    let mut rng = rand::prelude::thread_rng();
+    let g = rng.gen_biguint(1000);
+    let q = rng.gen_biguint(1000);
+    // let g = 10000.to_biguint().unwrap();
+    // let q = 1156651.to_biguint().unwrap();
     (g, q)
 }
 
-fn diff_key_gen(g: BigInt, q: BigInt) -> (SK, PK) {
+fn diff_key_gen(g: BigUint, q: BigUint) -> (SK, PK) {
     let sk = generate_private_key(&q);
-    (sk, calculate_pub_key(DiffInt::from(g), DiffInt::from(q), sk))
+    let gd = DiffInt::from(g);
+    let qd = DiffInt::from(q.clone());
+    (sk, calculate_pub_key(gd, qd, sk))
 }
 
-fn generate_private_key(q: &BigInt) -> SK {
-    // let mut rng = rand::prelude::thread_rng();
-    // let sk = rng.gen_bigint_range(&One::one(), &q);
-    let sk = 1315000.to_bigint().unwrap();
-    let asd = DiffInt::from(sk) as SK;
-    asd
+fn generate_private_key(q: &BigUint) -> SK {
+    let mut rng = rand::prelude::thread_rng();
+    let sk = rng.gen_biguint_range(&One::one(), &q);
+    // let sk = 1315000.to_biguint().unwrap();
+    let asf = DiffInt::from(sk);
+    asf
 }
 
 pub fn calculate_pub_key(g: DiffInt, q: DiffInt, sk: SK) -> PK {
@@ -37,7 +39,7 @@ pub fn calculate_pub_key(g: DiffInt, q: DiffInt, sk: SK) -> PK {
 
 pub fn calculates_shared_key(sk: SK, pk: PK) -> SessionKey {
     let (_g, q, pz) = pk;
-    let hab = pz.pow_mod(sk, q);
+    let hab:SessionKey = pz.pow_mod(sk, q);
     hab
 }
 
