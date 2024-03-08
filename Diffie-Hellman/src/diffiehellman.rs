@@ -36,24 +36,21 @@ mod tests {
         let mut rng = rand::prelude::thread_rng();
         let g = rng.gen_biguint(1000);
         let q = rng.gen_biguint(1000);
-        // let g = 10000.to_biguint().unwrap();
-        // let q = 1156651.to_biguint().unwrap();
         (g, q)
     }
     
     fn diff_key_gen(g: BigUint, q: BigUint) -> (SK, PK) {
         let sk = generate_private_key(&q);
-        let gd = DiffInt::from(g);
-        let qd = DiffInt::from(q.clone());
-        (sk, calculate_pub_key(gd, qd, sk))
+        let diffg = DiffInt::from(g);
+        let diffq = DiffInt::from(q);
+        (sk, calculate_pub_key(diffg, diffq, sk))
     }
     
     fn generate_private_key(q: &BigUint) -> SK {
         let mut rng = rand::prelude::thread_rng();
         let sk = rng.gen_biguint_range(&One::one(), &q);
-        // let sk = 1315000.to_biguint().unwrap();
-        let asf = DiffInt::from(sk);
-        asf
+        let diffsk = DiffInt::from(sk);
+        diffsk
     }
     
 }
