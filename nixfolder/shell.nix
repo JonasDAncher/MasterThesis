@@ -4,8 +4,8 @@ in pkgs.stdenv.mkDerivation {
   name = "ssprove-shell";
   buildInputs = [
     pkgs.glibcLocales
-    pkgs.coqide
     pkgs.ssprove
+    pkgs.hacspec-ssprove
     (pkgs.vim_configurable.customize {
         name = "vim";
         vimrcConfig = {

@@ -1,17 +1,28 @@
 let
   pkgs = import ./pin.nix { };
   coqPackages = pkgs.coqPackages.overrideScope' (cfinal: cprev: {
-      coq = cprev.coq.override { version = "8.16.1"; };
-      mathcomp = cprev.mathcomp.override { version = "1.15.0"; };
-      mathcomp-analysis = cprev.mathcomp-analysis.override { version = "0.5.3"; };
-      
-      # Trying to add hacspec dependencies to the environment
-      # compcert = cprev.compcert.override { version = "3.13.1"; };
-      # coqprime = cprev.coqprime.override { version = "8.18"; };
-      # QuickChick = cprev.QuickChick.override { version = "v2.0.2"; };
+      coq = cprev.coq.override { version = "8.15.2"; };
+      mathcomp = cprev.mathcomp.override { version = "1.13.0"; };
+      mathcomp-analysis = cprev.mathcomp-analysis.override { version = "0.3.13"; };
+      mathcomp-word = cprev.mathcomp-word.override { version = "2.0"; };
   });
-  coqDeps = with coqPackages;
-    [ deriving equations extructures mathcomp.ssreflect mathcomp-analysis compcert coqprime QuickChick pkgs.rust-bindgen pkgs.jasmin.xseq ];
+  jasmin-src = {
+    owner = "jasmin-lang";
+    repo = "jasmin";
+    rev = "3d40bc89a3426fd1b0c4f2fd6fb2767dbdf48554";
+    sha256 = "rnfC9wo7KAV0OFCIKkj1TullXDXcntn/8ewASFacPao=";
+  };
+  jasmin-proofs = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
+    stdenv.mkDerivation {
+      name = "coq${coq.coq-version}-jasmin";
+      src = fetchFromGitHub jasmin-src + "/proofs";
+
+      propagatedBuildInputs = [ coq ] ++ (with coqPackages;
+        [ mathcomp.ssreflect mathcomp.algebra mathcomp-word ]);
+      enableParallelBuilding = true;
+      installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
+    }
+  ) { } ;
   ssprove = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
     stdenv.mkDerivation {
       name = "coq${coq.coq-version}-ssprove";
@@ -19,14 +30,34 @@ let
       src = fetchFromGitHub {
         owner = "SSProve";
         repo = "ssprove";
-        rev = "e903a2a85634889121b70e27b7a4503a7e64b10a";
-        sha256 = "E8Xt7SQWveJGC1ELC/BrgcWcspyIGIs6ICwullIt7uw=";
+        rev = "bead4e76acbb69b3ecf077cece56cd3fbde501e3";
+        sha256 = "sv69x3OqHilOXN9uzATsQxmzK8Z1k6V3ZZMq2dzbo1M=";
       };
 
-      propagatedBuildInputs = [ coq ] ++ coqDeps;
+      propagatedBuildInputs = [ coq jasmin-proofs ] ++ (with coqPackages;
+        [ deriving equations extructures mathcomp.ssreflect mathcomp-analysis mathcomp-word mathcomp-zify ]);
       enableParallelBuilding = true;
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;
-  coqide = coqPackages.coqide;
-in pkgs // { inherit ssprove coqide; }
+  hacspec-src = {
+    owner = "hacspec";
+    repo = "hacspec";
+    rev = "4ecc847fc944fe996e19423aa41f002f2039dab0";
+    sha256 = "65rPusiDe54DVO0ApLm/+vwAOc+mD5JOU7KUPJaJbSU=";
+  };
+  hacspec-ssprove = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
+    stdenv.mkDerivation {
+      name = "coq${coq.coq-version}-hacspec-ssprove";
+      src = fetchFromGitHub hacspec-src + "/coq_ssprove"; 
+
+      patchPhase = ''
+        coq_makefile -f _CoqProject -o Makefile
+      '';
+
+      propagatedBuildInputs = with coqPackages; [ coq ssprove mathcomp-word pkgs.ppl ];
+      enableParallelBuilding = true;
+      installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
+    }
+  ) { } ;
+in pkgs // { inherit ssprove hacspec-ssprove; }
