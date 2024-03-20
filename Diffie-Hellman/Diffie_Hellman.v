@@ -1,14 +1,12 @@
 (** This file was automatically generated using Hacspec **)
 Set Warnings "-notation-overridden,-ambiguous-paths".
+Require Import libfolder.Hacspec_Lib.
 Require Import Hacspec_Lib MachineIntegers.
 From Coq Require Import ZArith.
 Import List.ListNotations.
 Open Scope Z_scope.
 Open Scope bool_scope.
 Open Scope hacspec_scope.
-Require Import Num_Bigint.
-
-Require Import Hacspec_Lib.
 
 Definition diff_int_t := nat_mod pow2 2048.
 

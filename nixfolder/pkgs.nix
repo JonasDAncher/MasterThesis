@@ -2,7 +2,7 @@ let
   pkgs = import ./pin.nix { };
   coqPackages = pkgs.coqPackages.overrideScope' (cfinal: cprev: {
       coq = cprev.coq.override { version = "8.15.2"; };
-      mathcomp = cprev.mathcomp.override { version = "1.13.0"; };
+      mathcomp = cprev.mathcomp.override { 	version = "1.13.0"; };
       mathcomp-analysis = cprev.mathcomp-analysis.override { version = "0.3.13"; };
       mathcomp-word = cprev.mathcomp-word.override { version = "2.0"; };
   });
@@ -46,6 +46,7 @@ let
     rev = "4ecc847fc944fe996e19423aa41f002f2039dab0";
     sha256 = "65rPusiDe54DVO0ApLm/+vwAOc+mD5JOU7KUPJaJbSU=";
   };
+  
   hacspec-ssprove = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
     stdenv.mkDerivation {
       name = "coq${coq.coq-version}-hacspec-ssprove";
@@ -60,4 +61,20 @@ let
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;
-in pkgs // { inherit ssprove hacspec-ssprove; }
+  
+  hacspec-coq = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
+    stdenv.mkDerivation {
+      name = "coq${coq.coq-version}-hacspec-coq";
+      src = fetchFromGitHub hacspec-src + "/coq"; 
+
+      patchPhase = ''
+        coq_makefile -f _CoqProject -o Makefile						# Is this necessary?
+      '';
+
+      propagatedBuildInputs = with coqPackages; [ coq coqprime pkgs.ppl compcert QuickChick ];
+      enableParallelBuilding = true;
+      installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
+    }
+  ) { } ;
+  coqide = coqPackages.coqide;
+in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq; }

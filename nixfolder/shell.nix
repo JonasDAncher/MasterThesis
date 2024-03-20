@@ -4,6 +4,8 @@ in pkgs.stdenv.mkDerivation {
   name = "ssprove-shell";
   buildInputs = [
     pkgs.glibcLocales
+    pkgs.coqide
+    pkgs.hacspec-coq
     pkgs.ssprove
     pkgs.hacspec-ssprove
     (pkgs.vim_configurable.customize {
@@ -17,7 +19,7 @@ in pkgs.stdenv.mkDerivation {
             syntax on
             colorscheme default
             let &t_ut='''
-            set relativenumber
+            set number
             set tabstop=2
             set shiftwidth=2
             set softtabstop=2

@@ -1,4 +1,3 @@
-use num_bigint::*;
 use hacspec_lib::*;
 
 unsigned_public_integer!(DiffInt, 2048);
@@ -22,7 +21,8 @@ pub fn calculates_shared_key(sk: SK, pk: PK) -> SessionKey {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+    use num_bigint::*;
+
     #[test]
     fn diff() {
         let (g, q) = generate_group();
