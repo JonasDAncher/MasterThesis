@@ -1,0 +1,8 @@
+-docroot "~/Documents/MasterThesisProject"
+-R ../../hacspec/coq/src/ Hacspec
+-Q . Diffie
+#-arg -w						# Shows warnings
+#-arg all
+../../hacspec/coq/src/Hacspec_Lib.v
+../../hacspec/coq/src/MachineIntegers.v
+DiffieHellman.v

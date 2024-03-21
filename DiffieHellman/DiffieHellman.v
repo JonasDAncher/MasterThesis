@@ -1,6 +1,6 @@
 (** This file was automatically generated using Hacspec **)
 Set Warnings "-notation-overridden,-ambiguous-paths".
-Require Import libfolder.Hacspec_Lib.
+Require Import Hacspec_Lib.
 Require Import Hacspec_Lib MachineIntegers.
 From Coq Require Import ZArith.
 Import List.ListNotations.

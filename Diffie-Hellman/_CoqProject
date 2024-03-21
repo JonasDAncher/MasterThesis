@@ -1,6 +1,0 @@
--R ../../hacspec/coq/src/ Hacspec
--arg -w
--arg all
-../../hacspec/coq/src/Hacspec_Lib.v
-../../hacspec/coq/src/MachineIntegers.v
-

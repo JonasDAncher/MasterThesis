@@ -1,0 +1,9 @@
+DIGEST 8e004d05ceb19bbe2802f98604b43030
+FDiffie.DiffieHellman
+R129:139 Hacspec.Hacspec_Lib <> <> lib
+R157:167 Hacspec.Hacspec_Lib <> <> lib
+R169:183 Hacspec.MachineIntegers <> <> lib
+R210:215 Coq.ZArith.ZArith <> <> lib
+R225:242 Coq.Lists.List ListNotations <> mod
+def 326:335 <> diff_int_t
+R340:346 Hacspec.Hacspec_Lib <> nat_mod def
