@@ -7,7 +7,6 @@ pub type SK = DiffInt;
 pub type KeyPair = (PK, SK);
 pub type SessionKey = DiffInt;
 
-
 pub fn calculate_pub_key(g: DiffInt, q: DiffInt, sk: SK) -> PK {
     (g, q, g.pow_mod(sk, q))
 }

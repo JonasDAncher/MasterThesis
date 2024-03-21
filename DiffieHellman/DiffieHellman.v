@@ -8,7 +8,7 @@ Open Scope Z_scope.
 Open Scope bool_scope.
 Open Scope hacspec_scope.
 
-Definition diff_int_t := nat_mod pow2 2048.
+Definition diff_int_t := nat_mod 4294967296.
 
 Notation "'pk_t'" := ((diff_int_t '× diff_int_t '× diff_int_t
 )) : hacspec_scope.
