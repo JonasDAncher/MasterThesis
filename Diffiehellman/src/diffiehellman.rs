@@ -9,17 +9,18 @@ pub type KeyPair = (PK, SK);
 pub type SessionKey = DiffInt;
 
 pub fn calculate_pub_key(g: u128, q: u128, sk: SK) -> PK {
-    let Ug = U128::from_literal(g);
-    let Uq = U128::from_literal(q);
+    let Ug = U128(g);
+    let Uq = U128(q);
     let Usk = U128_from_le_bytes(U128Word::from_seq(&sk));
     let Ugz = Ug.pow_mod(Usk,Uq);
-    (g, q, u128::from(Ugz))
+    let gz = u128::from(Ugz);
+    (g, q, gz)
 }
 
 pub fn calculates_shared_key(sk: SK, pk: PK) -> SessionKey {
     let (_g, q, pz) = pk;
-    let Uq = U128::from_literal(q);
-    let Upz = U128::from_literal(pz);
+    let Uq = U128(q);
+    let Upz = U128(pz);
     let Usk = U128_from_le_bytes(U128Word::from_seq(&sk));
     let hab = Upz.pow_mod(Usk, Uq);
     DiffInt::from_seq(&U128_to_be_bytes(hab))
