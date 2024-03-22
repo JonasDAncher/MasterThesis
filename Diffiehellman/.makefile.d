@@ -4,6 +4,6 @@
 ../../hacspec/coq/src/MachineIntegers.vo ../../hacspec/coq/src/MachineIntegers.glob ../../hacspec/coq/src/MachineIntegers.v.beautified ../../hacspec/coq/src/MachineIntegers.required_vo: ../../hacspec/coq/src/MachineIntegers.v 
 ../../hacspec/coq/src/MachineIntegers.vio: ../../hacspec/coq/src/MachineIntegers.v 
 ../../hacspec/coq/src/MachineIntegers.vos ../../hacspec/coq/src/MachineIntegers.vok ../../hacspec/coq/src/MachineIntegers.required_vos: ../../hacspec/coq/src/MachineIntegers.v 
-DiffieHellman.vo DiffieHellman.glob DiffieHellman.v.beautified DiffieHellman.required_vo: DiffieHellman.v ../../hacspec/coq/src/Hacspec_Lib.vo ../../hacspec/coq/src/MachineIntegers.vo
-DiffieHellman.vio: DiffieHellman.v ../../hacspec/coq/src/Hacspec_Lib.vio ../../hacspec/coq/src/MachineIntegers.vio
-DiffieHellman.vos DiffieHellman.vok DiffieHellman.required_vos: DiffieHellman.v ../../hacspec/coq/src/Hacspec_Lib.vos ../../hacspec/coq/src/MachineIntegers.vos
+Diffiehellman.vo Diffiehellman.glob Diffiehellman.v.beautified Diffiehellman.required_vo: Diffiehellman.v ../../hacspec/coq/src/Hacspec_Lib.vo ../../hacspec/coq/src/MachineIntegers.vo
+Diffiehellman.vio: Diffiehellman.v ../../hacspec/coq/src/Hacspec_Lib.vio ../../hacspec/coq/src/MachineIntegers.vio
+Diffiehellman.vos Diffiehellman.vok Diffiehellman.required_vos: Diffiehellman.v ../../hacspec/coq/src/Hacspec_Lib.vos ../../hacspec/coq/src/MachineIntegers.vos

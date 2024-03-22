@@ -1,0 +1,39 @@
+DIGEST 7bbffd00013180a7987252433a18b781
+FDiffie.Diffiehellman
+R129:139 Hacspec.Hacspec_Lib <> <> lib
+R141:155 Hacspec.MachineIntegers <> <> lib
+R182:187 Coq.ZArith.ZArith <> <> lib
+R197:214 Coq.Lists.List ListNotations <> mod
+R301:311 Hacspec.Hacspec_Lib <> <> lib
+def 326:335 <> diff_int_t
+R340:343 Hacspec.Hacspec_Lib <> nseq def
+R346:350 Hacspec.Hacspec_Lib <> uint8 def
+R354:358 Hacspec.Hacspec_Lib <> usize meth
+R416:420 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R401:405 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R391:400 Diffie.Diffiehellman <> diff_int_t def
+R406:415 Diffie.Diffiehellman <> diff_int_t def
+R421:430 Diffie.Diffiehellman <> diff_int_t def
+not 377:377 <> ::hacspec_scope:'pk_t'
+R475:484 Diffie.Diffiehellman <> diff_int_t def
+not 462:462 <> ::hacspec_scope:'sk_t'
+R538:542 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R534:537 Diffie.Diffiehellman <> ::hacspec_scope:'pk_t' not
+R543:546 Diffie.Diffiehellman <> ::hacspec_scope:'sk_t' not
+not 514:514 <> ::hacspec_scope:'key_pair_t'
+R599:608 Diffie.Diffiehellman <> diff_int_t def
+not 577:577 <> ::hacspec_scope:'session_key_t'
+def 640:656 <> calculate_pub_key
+R667:676 Diffie.Diffiehellman <> diff_int_t def
+binder 661:663 <> g_0:1
+R688:697 Diffie.Diffiehellman <> diff_int_t def
+binder 682:684 <> q_1:2
+R710:713 Diffie.Diffiehellman <> ::hacspec_scope:'sk_t' not
+binder 703:706 <> sk_2:3
+R723:726 Diffie.Diffiehellman <> ::hacspec_scope:'pk_t' not
+R733:733 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R737:738 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R742:743 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R776:776 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R734:736 Diffie.Diffiehellman <> g_0:1 var
+R739:741 Diffie.Diffiehellman <> q_1:2 var
