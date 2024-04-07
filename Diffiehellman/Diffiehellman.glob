@@ -1,4 +1,4 @@
-DIGEST 7bbffd00013180a7987252433a18b781
+DIGEST d6fc4cdd0d2f8446da155aaaabc78b51
 FDiffie.Diffiehellman
 R129:139 Hacspec.Hacspec_Lib <> <> lib
 R141:155 Hacspec.MachineIntegers <> <> lib
@@ -9,31 +9,40 @@ def 326:335 <> diff_int_t
 R340:343 Hacspec.Hacspec_Lib <> nseq def
 R346:350 Hacspec.Hacspec_Lib <> uint8 def
 R354:358 Hacspec.Hacspec_Lib <> usize meth
-R416:420 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R401:405 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R391:400 Diffie.Diffiehellman <> diff_int_t def
-R406:415 Diffie.Diffiehellman <> diff_int_t def
-R421:430 Diffie.Diffiehellman <> diff_int_t def
+R408:412 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R397:401 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R391:396 Hacspec.MachineIntegers <> int128 def
+R402:407 Hacspec.MachineIntegers <> int128 def
+R413:418 Hacspec.MachineIntegers <> int128 def
 not 377:377 <> ::hacspec_scope:'pk_t'
-R475:484 Diffie.Diffiehellman <> diff_int_t def
-not 462:462 <> ::hacspec_scope:'sk_t'
-R538:542 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R534:537 Diffie.Diffiehellman <> ::hacspec_scope:'pk_t' not
-R543:546 Diffie.Diffiehellman <> ::hacspec_scope:'sk_t' not
-not 514:514 <> ::hacspec_scope:'key_pair_t'
-R599:608 Diffie.Diffiehellman <> diff_int_t def
-not 577:577 <> ::hacspec_scope:'session_key_t'
-def 640:656 <> calculate_pub_key
-R667:676 Diffie.Diffiehellman <> diff_int_t def
-binder 661:663 <> g_0:1
-R688:697 Diffie.Diffiehellman <> diff_int_t def
-binder 682:684 <> q_1:2
-R710:713 Diffie.Diffiehellman <> ::hacspec_scope:'sk_t' not
-binder 703:706 <> sk_2:3
-R723:726 Diffie.Diffiehellman <> ::hacspec_scope:'pk_t' not
-R733:733 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R737:738 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R742:743 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R776:776 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R734:736 Diffie.Diffiehellman <> g_0:1 var
-R739:741 Diffie.Diffiehellman <> q_1:2 var
+R462:471 Diffie.Diffiehellman <> diff_int_t def
+not 449:449 <> ::hacspec_scope:'sk_t'
+R525:529 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R521:524 Diffie.Diffiehellman <> ::hacspec_scope:'pk_t' not
+R530:533 Diffie.Diffiehellman <> ::hacspec_scope:'sk_t' not
+not 501:501 <> ::hacspec_scope:'key_pair_t'
+R586:595 Diffie.Diffiehellman <> diff_int_t def
+not 564:564 <> ::hacspec_scope:'session_key_t'
+def 627:643 <> calculate_pub_key
+R654:659 Hacspec.MachineIntegers <> int128 def
+binder 648:650 <> g_0:1
+R671:676 Hacspec.MachineIntegers <> int128 def
+binder 665:667 <> q_1:2
+R689:692 Diffie.Diffiehellman <> ::hacspec_scope:'sk_t' not
+binder 682:685 <> sk_2:3
+R702:705 Diffie.Diffiehellman <> ::hacspec_scope:'pk_t' not
+R753:758 Hacspec.MachineIntegers <> int128 def
+R738:743 Hacspec.Hacspec_Lib <> secret prfax
+R746:748 Diffie.Diffiehellman <> g_0:1 var
+R723:729 Hacspec.Hacspec_Lib <> uint128 def
+binder 716:719 <> ug_3:4
+R807:812 Hacspec.MachineIntegers <> int128 def
+R792:797 Hacspec.Hacspec_Lib <> secret prfax
+R800:802 Diffie.Diffiehellman <> q_1:2 var
+R777:783 Hacspec.Hacspec_Lib <> uint128 def
+binder 770:773 <> uq_4:5
+R847:867 Hacspec.Hacspec_Lib <> uint128_from_be_bytes prfax
+R870:883 Hacspec.Hacspec_Lib <> array_from_seq def
+R891:894 Diffie.Diffiehellman <> sk_2:3 var
+R832:838 Hacspec.Hacspec_Lib <> uint128 def
+binder 824:828 <> usk_5:6
