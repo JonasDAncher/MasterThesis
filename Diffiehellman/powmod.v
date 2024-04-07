@@ -12,4 +12,8 @@ Definition pow_mod
   (n_2: int128)
 
   : int128 :=
-  Z.mod(Z.pow (g_0 x_1) n_2).
+  
+  (** ZArith.mod(ZArith.pow (g_0 x_1) n_2). **)
+
+
+  ZArith.powm(g_0 x_1 n_2).
