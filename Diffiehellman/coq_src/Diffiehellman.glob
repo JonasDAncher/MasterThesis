@@ -1,94 +1,41 @@
-DIGEST 097cadb84cd1bc589a3a9c18aa6a4aea
+DIGEST 37348fc3222ed2c8a00ecf4091c10a8b
 FDiffie.coq_src.Diffiehellman
 R129:139 Hacspec.Hacspec_Lib <> <> lib
 R141:155 Hacspec.MachineIntegers <> <> lib
 R182:187 Coq.ZArith.ZArith <> <> lib
 R197:214 Coq.Lists.List ListNotations <> mod
 R301:311 Hacspec.Hacspec_Lib <> <> lib
-R341:346 Diffie.coq_src.powmod <> <> lib
-def 361:370 <> diff_int_t
-R375:378 Hacspec.Hacspec_Lib <> nseq def
-R381:385 Hacspec.Hacspec_Lib <> uint8 def
-R389:393 Hacspec.Hacspec_Lib <> usize meth
-R443:447 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R432:436 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R426:431 Hacspec.MachineIntegers <> int128 def
-R437:442 Hacspec.MachineIntegers <> int128 def
-R448:453 Hacspec.MachineIntegers <> int128 def
-not 412:412 <> ::hacspec_scope:'pk_t'
-def 486:502 <> calculate_pub_key
-R513:518 Hacspec.MachineIntegers <> int128 def
-binder 507:509 <> g_0:1
-R530:535 Hacspec.MachineIntegers <> int128 def
-binder 524:526 <> q_1:2
-R548:557 Diffie.coq_src.Diffiehellman <> diff_int_t def
-binder 541:544 <> sk_2:3
-R567:570 Diffie.coq_src.Diffiehellman <> ::hacspec_scope:'pk_t' not
-R618:623 Hacspec.MachineIntegers <> int128 def
-R603:608 Hacspec.Hacspec_Lib <> secret prfax
-R611:613 Diffie.coq_src.Diffiehellman <> g_0:1 var
-R588:594 Hacspec.Hacspec_Lib <> uint128 def
-binder 581:584 <> ug_3:4
-R672:677 Hacspec.MachineIntegers <> int128 def
-R657:662 Hacspec.Hacspec_Lib <> secret prfax
-R665:667 Diffie.coq_src.Diffiehellman <> q_1:2 var
-R642:648 Hacspec.Hacspec_Lib <> uint128 def
-binder 635:638 <> uq_4:5
-R712:732 Hacspec.Hacspec_Lib <> uint128_from_be_bytes prfax
-R735:748 Hacspec.Hacspec_Lib <> array_from_seq def
-R756:767 Hacspec.Hacspec_Lib <> array_to_seq def
-R770:773 Diffie.coq_src.Diffiehellman <> sk_2:3 var
-R697:703 Hacspec.Hacspec_Lib <> uint128 def
-binder 689:693 <> usk_5:6
-R811:825 Diffie.coq_src.powmod <> uint128_pow_mod def
-R828:831 Diffie.coq_src.Diffiehellman <> ug_3:4 var
-R835:839 Diffie.coq_src.Diffiehellman <> usk_5:6 var
-R843:846 Diffie.coq_src.Diffiehellman <> uq_4:5 var
-R796:802 Hacspec.Hacspec_Lib <> uint128 def
-binder 788:792 <> ugz_6:7
-R880:897 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R900:904 Diffie.coq_src.Diffiehellman <> ugz_6:7 var
-R866:871 Hacspec.MachineIntegers <> int128 def
-binder 859:862 <> gz_7:8
-R913:913 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R917:918 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R922:923 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R928:928 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R914:916 Diffie.coq_src.Diffiehellman <> g_0:1 var
-R919:921 Diffie.coq_src.Diffiehellman <> q_1:2 var
-R924:927 Diffie.coq_src.Diffiehellman <> gz_7:8 var
-def 943:963 <> calculates_shared_key
-R975:984 Diffie.coq_src.Diffiehellman <> diff_int_t def
-binder 968:971 <> sk_8:9
-R997:1000 Diffie.coq_src.Diffiehellman <> ::hacspec_scope:'pk_t' not
-binder 990:993 <> pk_9:10
-R1010:1019 Diffie.coq_src.Diffiehellman <> diff_int_t def
-R1058:1061 Diffie.coq_src.Diffiehellman <> pk_9:10 var
-R1031:1031 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1036:1037 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1042:1043 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1049:1049 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1112:1117 Hacspec.MachineIntegers <> int128 def
-R1096:1101 Hacspec.Hacspec_Lib <> secret prfax
-R1081:1087 Hacspec.Hacspec_Lib <> uint128 def
-binder 1073:1077 <> uq_13:12
-R1170:1175 Hacspec.MachineIntegers <> int128 def
-R1153:1158 Hacspec.Hacspec_Lib <> secret prfax
-R1138:1144 Hacspec.Hacspec_Lib <> uint128 def
-binder 1129:1134 <> upz_14:13
-R1211:1231 Hacspec.Hacspec_Lib <> uint128_from_be_bytes prfax
-R1234:1247 Hacspec.Hacspec_Lib <> array_from_seq def
-R1255:1266 Hacspec.Hacspec_Lib <> array_to_seq def
-R1269:1272 Diffie.coq_src.Diffiehellman <> sk_8:9 var
-R1196:1202 Hacspec.Hacspec_Lib <> uint128 def
-binder 1187:1192 <> usk_15:14
-R1311:1325 Diffie.coq_src.powmod <> uint128_pow_mod def
-R1328:1333 Diffie.coq_src.Diffiehellman <> upz_14:13 var
-R1337:1342 Diffie.coq_src.Diffiehellman <> usk_15:14 var
-R1346:1350 Diffie.coq_src.Diffiehellman <> uq_13:12 var
-R1296:1302 Hacspec.Hacspec_Lib <> uint128 def
-binder 1287:1292 <> hab_16:15
-R1359:1372 Hacspec.Hacspec_Lib <> array_from_seq def
-R1382:1393 Hacspec.Hacspec_Lib <> array_to_seq def
-R1396:1414 Hacspec.Hacspec_Lib <> uint128_to_be_bytes prfax
-R1417:1422 Diffie.coq_src.Diffiehellman <> hab_16:15 var
+def 326:335 <> diff_int_t
+R340:343 Hacspec.Hacspec_Lib <> nseq def
+R346:350 Hacspec.Hacspec_Lib <> uint8 def
+R354:358 Hacspec.Hacspec_Lib <> usize meth
+R408:412 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R397:401 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R391:396 Hacspec.MachineIntegers <> int128 def
+R402:407 Hacspec.MachineIntegers <> int128 def
+R413:418 Hacspec.MachineIntegers <> int128 def
+not 377:377 <> ::hacspec_scope:'pk_t'
+def 451:467 <> calculate_pub_key
+R478:483 Hacspec.MachineIntegers <> int128 def
+binder 472:474 <> g_0:1
+R495:500 Hacspec.MachineIntegers <> int128 def
+binder 489:491 <> q_1:2
+R513:522 Diffie.coq_src.Diffiehellman <> diff_int_t def
+binder 506:509 <> sk_2:3
+R532:535 Diffie.coq_src.Diffiehellman <> ::hacspec_scope:'pk_t' not
+R583:588 Hacspec.MachineIntegers <> int128 def
+R568:573 Hacspec.Hacspec_Lib <> secret prfax
+R576:578 Diffie.coq_src.Diffiehellman <> g_0:1 var
+R553:559 Hacspec.Hacspec_Lib <> uint128 def
+binder 546:549 <> ug_3:4
+R637:642 Hacspec.MachineIntegers <> int128 def
+R622:627 Hacspec.Hacspec_Lib <> secret prfax
+R630:632 Diffie.coq_src.Diffiehellman <> q_1:2 var
+R607:613 Hacspec.Hacspec_Lib <> uint128 def
+binder 600:603 <> uq_4:5
+R677:697 Hacspec.Hacspec_Lib <> uint128_from_be_bytes prfax
+R700:713 Hacspec.Hacspec_Lib <> array_from_seq def
+R721:732 Hacspec.Hacspec_Lib <> array_to_seq def
+R735:738 Diffie.coq_src.Diffiehellman <> sk_2:3 var
+R662:668 Hacspec.Hacspec_Lib <> uint128 def
+binder 654:658 <> usk_5:6

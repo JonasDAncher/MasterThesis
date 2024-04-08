@@ -1,5 +1,5 @@
 use hacspec_lib::*;
-
+//mod powmod;
 // unsigned_public_integer!(DiffInt, 2048); // Doesn't work
 bytes!(DiffInt, 2048); 
 // bytes!(SK, 2048); 

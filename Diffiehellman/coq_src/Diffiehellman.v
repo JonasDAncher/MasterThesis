@@ -7,7 +7,6 @@ Open Scope Z_scope.
 Open Scope bool_scope.
 Open Scope hacspec_scope.
 Require Import Hacspec_Lib.
-From Diffie Require Import powmod.
 
 Definition diff_int_t := nseq (uint8) (usize 2048).
 

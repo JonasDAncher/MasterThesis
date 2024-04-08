@@ -8,6 +8,7 @@ in pkgs.stdenv.mkDerivation {
     pkgs.hacspec-coq
     pkgs.ssprove
     pkgs.hacspec-ssprove
+    pkgs.powm
     (pkgs.vim_configurable.customize {
         name = "vim";
         vimrcConfig = {

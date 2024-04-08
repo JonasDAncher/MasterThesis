@@ -76,5 +76,28 @@ let
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;
+  powm = coqPackages.callPackage ( {coq, stdenv, lib}:
+    let 
+   	fs = lib.fileset;
+    	sourceFiles = fs.unions [
+    	../../hacspec/coq/src/Hacspec_Lib.v
+    	../Diffiehellman/coq_src/powmod.v
+    	];
+    in
+    fs.trace sourceFiles
+    stdenv.mkDerivation {
+      name = "powm";
+      src = fs.toSource {
+      	root = ../..;
+      	fileset = sourceFiles;
+      };
+      #src = ../Diffiehellman;
+      propagatedBuildInputs = with coqPackages; [ coq pkgs.ppl hacspec-coq ];
+      enableParallelBuilding = true;
+  #    patchPhase = ''
+  #      coq_makefile -f _CoqProject -o Makefile
+  #    '';
+    }
+  ) { } ;
   coqide = coqPackages.coqide;
-in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq; }
+in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq powm; }
