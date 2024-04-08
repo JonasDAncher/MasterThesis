@@ -7,18 +7,11 @@ Open Scope Z_scope.
 Open Scope bool_scope.
 Open Scope hacspec_scope.
 Require Import Hacspec_Lib.
+From Diffie Require Import powmod.
 
 Definition diff_int_t := nseq (uint8) (usize 2048).
 
 Notation "'pk_t'" := ((int128 '× int128 '× int128)) : hacspec_scope.
-
-Definition pow_mod
-  (g_0: int128)
-  (x_1: int128)
-  (n_2: int128)
-
-  : int128 :=
-    (g_0 ^ x_1) mod n_2.
 
 Definition calculate_pub_key
   (g_0 : int128)
@@ -33,7 +26,7 @@ Definition calculate_pub_key
   let usk_5 : uint128 :=
     uint128_from_be_bytes (array_from_seq (16) (array_to_seq (sk_2))) in 
   let ugz_6 : uint128 :=
-    pow_mod (ug_3) (usk_5) (uq_4) in 
+    uint128_pow_mod (ug_3) (usk_5) (uq_4) in 
   let gz_7 : int128 :=
     uint128_declassify (ugz_6) in 
   (g_0, q_1, gz_7).
@@ -52,6 +45,6 @@ Definition calculates_shared_key
   let usk_15 : uint128 :=
     uint128_from_be_bytes (array_from_seq (16) (array_to_seq (sk_8))) in 
   let hab_16 : uint128 :=
-    pow_mod (upz_14) (usk_15) (uq_13) in 
+    uint128_pow_mod (upz_14) (usk_15) (uq_13) in 
   array_from_seq (2048) (array_to_seq (uint128_to_be_bytes (hab_16))).
 

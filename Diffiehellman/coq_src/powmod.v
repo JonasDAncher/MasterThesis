@@ -6,7 +6,7 @@ Open Scope bool_scope.
 Open Scope hacspec_scope.
 Require Import Hacspec_Lib.
 
-Definition pow_mod
+Definition uint128_pow_mod
   (g_0: int128)
   (x_1: int128)
   (n_2: int128)

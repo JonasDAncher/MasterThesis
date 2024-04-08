@@ -1,21 +1,21 @@
-DIGEST 51d538adea084c3ce00c3decd108dfce
+DIGEST 9a5ba351a1da2786859a1dd5b90fbc93
 FDiffie.coq_src.powmod
 R15:25 Hacspec.Hacspec_Lib <> <> lib
 R27:41 Hacspec.MachineIntegers <> <> lib
 R68:73 Coq.ZArith.ZArith <> <> lib
 R83:100 Coq.Lists.List ListNotations <> mod
 R187:197 Hacspec.Hacspec_Lib <> <> lib
-def 212:218 <> pow_mod
-R228:233 Hacspec.MachineIntegers <> int128 def
-binder 223:225 <> g_0:1
-R244:249 Hacspec.MachineIntegers <> int128 def
-binder 239:241 <> x_1:2
-R260:265 Hacspec.MachineIntegers <> int128 def
-binder 255:257 <> n_2:3
-R273:278 Hacspec.MachineIntegers <> int128 def
-R287:287 Coq.ZArith.BinInt <> ::Z_scope:x_'mod'_x not
-R297:302 Coq.ZArith.BinInt <> ::Z_scope:x_'mod'_x not
-R291:293 Coq.ZArith.BinInt <> ::Z_scope:x_'^'_x not
-R288:290 Diffie.coq_src.powmod <> g_0:1 var
-R294:296 Diffie.coq_src.powmod <> x_1:2 var
-R303:305 Diffie.coq_src.powmod <> n_2:3 var
+def 212:226 <> uint128_pow_mod
+R236:241 Hacspec.MachineIntegers <> int128 def
+binder 231:233 <> g_0:1
+R252:257 Hacspec.MachineIntegers <> int128 def
+binder 247:249 <> x_1:2
+R268:273 Hacspec.MachineIntegers <> int128 def
+binder 263:265 <> n_2:3
+R281:286 Hacspec.MachineIntegers <> int128 def
+R295:295 Coq.ZArith.BinInt <> ::Z_scope:x_'mod'_x not
+R305:310 Coq.ZArith.BinInt <> ::Z_scope:x_'mod'_x not
+R299:301 Coq.ZArith.BinInt <> ::Z_scope:x_'^'_x not
+R296:298 Diffie.coq_src.powmod <> g_0:1 var
+R302:304 Diffie.coq_src.powmod <> x_1:2 var
+R311:313 Diffie.coq_src.powmod <> n_2:3 var
