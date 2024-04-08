@@ -2,13 +2,14 @@ use hacspec_lib::*;
 
 // unsigned_public_integer!(DiffInt, 2048); // Doesn't work
 bytes!(DiffInt, 2048); 
+// bytes!(SK, 2048); 
+// bytes!(SessionKey, 2048); 
 
 pub type PK = (u128, u128, u128);
 // pub type SK = DiffInt;
-//pub type KeyPair = (PK, SK);
-pub type SessionKey = DiffInt;
+// pub type SessionKey = DiffInt;
 
-pub fn calculate_pub_key(g: u128, q: u128, sk: DiffInt) -> PK {
+pub fn calculate_pub_key(g: u128, q: u128, sk: DiffInt) -> PK { //sk should be type SK
     let Ug = U128(g);
     let Uq = U128(q);
     let Usk = U128_from_be_bytes(U128Word::from_seq(&sk));
@@ -17,7 +18,7 @@ pub fn calculate_pub_key(g: u128, q: u128, sk: DiffInt) -> PK {
     (g, q, gz)
 }
 
-pub fn calculates_shared_key(sk: DiffInt, pk: PK) -> SessionKey {
+pub fn calculates_shared_key(sk: DiffInt, pk: PK) -> DiffInt { //returns a session key and sk should be type SK
     let (_g, q, pz) = pk;
     let Uq = U128(q);
     let Upz = U128(pz);
@@ -30,7 +31,9 @@ pub fn calculates_shared_key(sk: DiffInt, pk: PK) -> SessionKey {
 // mod tests {
 //     use super::*;
 //     use num_bigint::*;
-
+//
+//     pub type KeyPair = (PK, SK);
+//
 //     #[test]
 //     fn diff() {
 //         let (g, q) = generate_group();
