@@ -1,10 +1,5 @@
 Require Import Hacspec_Lib MachineIntegers.
 From Coq Require Import ZArith.
-Import List.ListNotations.
-Open Scope Z_scope.
-Open Scope bool_scope.
-Open Scope hacspec_scope.
-Require Import Hacspec_Lib.
 
 Definition uint128_pow_mod
   (g_0: int128)
