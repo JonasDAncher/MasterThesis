@@ -1,0 +1,8 @@
+# Refresh makefile based on _CoqProject
+coq_makefile -f _CoqProject -o makefile
+
+# Compile and prove all .v files
+make
+
+# Hacspec: convert .rs to .v and place in ./coq_src
+cargo hacspec --dir ./coq_src -e v

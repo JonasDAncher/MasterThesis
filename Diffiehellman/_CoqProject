@@ -3,7 +3,7 @@
 -Q . Diffie
 -arg -w
 -arg all
-powmod.v
+coq_src/powmod.v
 ../../hacspec/coq/src/Hacspec_Lib.v
 ../../hacspec/coq/src/MachineIntegers.v
-Diffiehellman.v
+coq_src/Diffiehellman.v

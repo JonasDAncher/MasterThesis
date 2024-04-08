@@ -12,8 +12,6 @@ Definition diff_int_t := nseq (uint8) (usize 2048).
 
 Notation "'pk_t'" := ((int128 '× int128 '× int128)) : hacspec_scope.
 
-Notation "'session_key_t'" := (diff_int_t) : hacspec_scope.
-
 Definition pow_mod
   (g_0: int128)
   (x_1: int128)
@@ -21,7 +19,6 @@ Definition pow_mod
 
   : int128 :=
     (g_0 ^ x_1) mod n_2.
-
 
 Definition calculate_pub_key
   (g_0 : int128)
@@ -45,7 +42,7 @@ Definition calculates_shared_key
   (sk_8 : diff_int_t)
   (pk_9 : pk_t)
   
-  : session_key_t :=
+  : diff_int_t :=
   let '(g_10, q_11, pz_12) :=
     pk_9 in 
   let uq_13 : uint128 :=

@@ -1,5 +1,5 @@
 DIGEST 51d538adea084c3ce00c3decd108dfce
-FDiffie.powmod
+FDiffie.coq_src.powmod
 R15:25 Hacspec.Hacspec_Lib <> <> lib
 R27:41 Hacspec.MachineIntegers <> <> lib
 R68:73 Coq.ZArith.ZArith <> <> lib
@@ -16,6 +16,6 @@ R273:278 Hacspec.MachineIntegers <> int128 def
 R287:287 Coq.ZArith.BinInt <> ::Z_scope:x_'mod'_x not
 R297:302 Coq.ZArith.BinInt <> ::Z_scope:x_'mod'_x not
 R291:293 Coq.ZArith.BinInt <> ::Z_scope:x_'^'_x not
-R288:290 Diffie.powmod <> g_0:1 var
-R294:296 Diffie.powmod <> x_1:2 var
-R303:305 Diffie.powmod <> n_2:3 var
+R288:290 Diffie.coq_src.powmod <> g_0:1 var
+R294:296 Diffie.coq_src.powmod <> x_1:2 var
+R303:305 Diffie.coq_src.powmod <> n_2:3 var
