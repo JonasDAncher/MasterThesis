@@ -1,0 +1,10 @@
+[package]
+name = "ElGamal"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "rs_src/elgamal.rs"
+
+[dependencies]
+hacspec_lib = { path = "../../hacspec/lib" }
