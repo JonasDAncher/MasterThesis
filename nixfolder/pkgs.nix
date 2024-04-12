@@ -46,6 +46,34 @@ let
     rev = "4ecc847fc944fe996e19423aa41f002f2039dab0";
     sha256 = "65rPusiDe54DVO0ApLm/+vwAOc+mD5JOU7KUPJaJbSU=";
   };
+
+  hacspec-coq = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
+    stdenv.mkDerivation {
+      name = "coq${coq.coq-version}-hacspec-coq";
+      src = fetchFromGitHub hacspec-src + "/coq"; 
+
+        patchPhase = ''
+          coq_makefile -f _CoqProject -o Makefile
+   #       cat - >> ./src/Hacspec_Lib.v <<EOF
+    #      
+   #       Locate "^".
+ #         Definition uint128_pow_mod
+ #           (g_0: int128)
+  #          (x_1: int128)
+#            (n_2: int128)
+#
+ #           : int128 :=
+ #             (g_0 ^ x_1) mod n_2.
+  #        EOF
+ #         cat ./src/Hacspec_Lib.v
+        '';
+      
+
+      propagatedBuildInputs = with coqPackages; [ coq coqprime pkgs.ppl compcert QuickChick ];
+      enableParallelBuilding = true;
+      installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
+    }
+  ) { } ;  
   
   hacspec-ssprove = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
     stdenv.mkDerivation {
@@ -54,6 +82,17 @@ let
 
       patchPhase = ''
         coq_makefile -f _CoqProject -o Makefile
+ #       cat - >> ./src/Hacspec_Lib.v <<EOF
+ #       
+ #       Definition uint128_pow_mod
+ #         (g_0: int128)
+ #         (x_1: int128)
+ #         (n_2: int128)
+#
+ #         : int128 :=
+ #           (g_0 ^ x_1) mod n_2.
+ #       EOF
+ #       cat ./src/Hacspec_Lib.v
       '';
 
       propagatedBuildInputs = with coqPackages; [ coq ssprove mathcomp-word pkgs.ppl ];
@@ -62,42 +101,6 @@ let
     }
   ) { } ;
   
-  hacspec-coq = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub }:
-    stdenv.mkDerivation {
-      name = "coq${coq.coq-version}-hacspec-coq";
-      src = fetchFromGitHub hacspec-src + "/coq"; 
 
-      patchPhase = ''
-        coq_makefile -f _CoqProject -o Makefile						# Is this necessary?
-      '';
-
-      propagatedBuildInputs = with coqPackages; [ coq coqprime pkgs.ppl compcert QuickChick ];
-      enableParallelBuilding = true;
-      installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
-    }
-  ) { } ;
-  powm = coqPackages.callPackage ( {coq, stdenv, lib}:
-    let 
-   	fs = lib.fileset;
-    	sourceFiles = fs.unions [
-    	../../hacspec/coq/src/Hacspec_Lib.v
-    	../Diffiehellman/coq_src/powmod.v
-    	];
-    in
-    fs.trace sourceFiles
-    stdenv.mkDerivation {
-      name = "powm";
-      src = fs.toSource {
-      	root = ../..;
-      	fileset = sourceFiles;
-      };
-      #src = ../Diffiehellman;
-      propagatedBuildInputs = with coqPackages; [ coq pkgs.ppl hacspec-coq ];
-      enableParallelBuilding = true;
-  #    patchPhase = ''
-  #      coq_makefile -f _CoqProject -o Makefile
-  #    '';
-    }
-  ) { } ;
   coqide = coqPackages.coqide;
-in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq powm; }
+in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq; }
