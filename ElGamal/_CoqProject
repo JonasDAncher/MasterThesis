@@ -6,4 +6,4 @@
 coq_src/powmod.v
 #../../hacspec/coq/src/Hacspec_Lib.v
 #../../hacspec/coq/src/MachineIntegers.v
-coq_src/Elgamal.v
+coq_src/El_Gamal.v
