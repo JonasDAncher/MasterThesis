@@ -7,4 +7,4 @@ edition = "2021"
 path = "rs_src/elgamal.rs"
 
 [dependencies]
-hacspec_lib = { path = "../../hacspec/lib" }
+hacspec-lib = { path = "../../hacspec/lib" }
