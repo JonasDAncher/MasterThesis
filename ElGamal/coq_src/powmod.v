@@ -19,4 +19,4 @@ Definition pow
     g_3 ^ x_4.
     
     
-Notation "A .^^ B" := (pow A B) (at level 80).
+Notation "A .^^ B" := (pow A B) (at level 80). 
