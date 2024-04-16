@@ -21,16 +21,16 @@ pub fn enc_aux(source_sk: ElInt, target_pk: u128, m: u128) -> (u128, u128) {
     (secret_c1.declassify(),secret_c2.declassify())
 }
 
-pub fn enc(target_pk: u128, m: u128) -> (u128, u128){
-	let (_gy,y) = gen();
-    enc_aux(y,target_pk,m)
-}
-
-pub fn gen() -> (u128, ElInt){
+pub fn keygen() -> (u128, ElInt){
 	let secret_sk = U128::classify(4u128);
     let pk = (U128::classify(g) ^ secret_sk).declassify();
 	let sk = ElInt::from_seq(&U128_to_be_bytes(secret_sk));
     (pk,sk)
+}
+
+pub fn enc(target_pk: u128, m: u128) -> (u128, u128){
+	let (_gy,y) = keygen();
+    enc_aux(y,target_pk,m)
 }
 
 pub fn dec(target_sk: ElInt, c: (u128,u128)) -> u128 {

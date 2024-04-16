@@ -31,27 +31,27 @@ Definition enc_aux
   let secret_m_6 : uint128 :=
     uint128_classify (m_2) in 
   let secret_s_7 : uint128 :=
-    (secret_target_pk_3) .^^ (secret_source_sk_4) in 
+    (secret_target_pk_3) .^ (secret_source_sk_4) in 
   let secret_c1_8 : uint128 :=
-    (secret_g_5) .^^ (secret_source_sk_4) in 
+    (secret_g_5) .^ (secret_source_sk_4) in 
   let secret_c2_9 : uint128 :=
     (secret_m_6) .* (secret_s_7) in 
   (uint128_declassify (secret_c1_8), uint128_declassify (secret_c2_9)).
 
-Definition enc (target_pk_10 : int128) (m_11 : int128)  : (int128 '× int128) :=
-  let '(gy_12, y_13) :=
-    gen  in 
-  enc_aux (y_13) (target_pk_10) (m_11).
-
-Definition gen   : (int128 '× el_int_t) :=
-  let secret_sk_14 : uint128 :=
+Definition keygen   : (int128 '× el_int_t) :=
+  let secret_sk_10 : uint128 :=
     uint128_classify (@repr WORDSIZE128 4) in 
-  let pk_15 : int128 :=
-    uint128_declassify ((uint128_classify (g_v)) .^^ (secret_sk_14)) in 
-  let sk_16 : el_int_t :=
+  let pk_11 : int128 :=
+    uint128_declassify ((uint128_classify (g_v)) .^ (secret_sk_10)) in 
+  let sk_12 : el_int_t :=
     array_from_seq (2048) (array_to_seq (uint128_to_be_bytes (
-        secret_sk_14))) in 
-  (pk_15, sk_16).
+        secret_sk_10))) in 
+  (pk_11, sk_12).
+
+Definition enc (target_pk_13 : int128) (m_14 : int128)  : (int128 '× int128) :=
+  let '(gy_15, y_16) :=
+    keygen  in 
+  enc_aux (y_16) (target_pk_13) (m_14).
 
 Definition dec
   (target_sk_17 : el_int_t)
@@ -70,7 +70,7 @@ Definition dec
   let secret_c2_24 : uint128 :=
     uint128_classify (c2_21) in 
   let secret_s_inverse_25 : uint128 :=
-    (secret_c1_23) .^^ ((secret_q_19) .- (secret_target_sk_22)) in 
+    (secret_c1_23) .^ ((secret_q_19) .- (secret_target_sk_22)) in 
   let secret_m_26 : uint128 :=
     (secret_c2_24) .* (secret_s_inverse_25) in 
   let m_27 : int128 :=
