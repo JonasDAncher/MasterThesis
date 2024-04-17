@@ -18,5 +18,12 @@ Definition pow
   : int128 :=
     g_3 ^ x_4.
     
+Definition uint128_modulo
+	(n_5: int128)
+	(n_6: int128)
+	
+	: int128 :=
+		n_5 mod n_6.
+    
     
 Notation "A .^^ B" := (pow A B) (at level 80). 
