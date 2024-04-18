@@ -6,6 +6,12 @@ let
       mathcomp-analysis = cprev.mathcomp-analysis.override { version = "0.3.13"; };
       mathcomp-word = cprev.mathcomp-word.override { version = "2.0"; };
   });
+  jasmin-word = {
+    owner = "jasmin-lang";
+    repo = "coqword";
+    rev = "3d40bc89a3426fd1b0c4f2fd6fb2767dbdf48554";
+    sha256 = "rnfC9wo7KAV0OFCIKkj1TullXDXcntn/8ewASFacPao=";
+  };
   jasmin-src = {
     owner = "jasmin-lang";
     repo = "jasmin";

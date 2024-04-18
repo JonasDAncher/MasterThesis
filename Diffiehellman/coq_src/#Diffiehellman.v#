@@ -1,0 +1,53 @@
+(** This file was automatically generated using Hacspec **)
+Set Warnings "-notation-overridden,-ambiguous-paths".
+Require Import Hacspec_Lib MachineIntegers.
+From Coq Require Import ZArith.
+Import List.ListNotations.
+Open Scope Z_scope.
+Open Scope bool_scope.
+Open Scope hacspec_scope.
+Require Import Hacspec_Lib.
+
+Definition diff_int_t := nseq (uint8) (usize 2048).
+
+Notation "'pk_t'" := ((int128 '× int128 '× int128)) : hacspec_scope.
+
+Search "uint128_".
+
+Definition calculate_pub_key
+  (g_0 : int128)
+  (q_1 : int128)
+  (sk_2 : diff_int_t)
+  
+  : pk_t :=
+  let ug_3 : uint128 :=
+    secret (g_0) : int128 in 
+  let uq_4 : uint128 :=
+    secret (q_1) : int128 in 
+  let usk_5 : uint128 :=
+    uint128_from_be_bytes (array_from_seq (16) (array_to_seq (sk_2))) in 
+  let ugz_6 : uint128 :=
+    uint128_pow_mod (ug_3) (usk_5) (uq_4) in 
+  let asd_7 : uint128 :=
+    (ug_3) .* (ug_3) in 
+  let gz_8 : int128 :=
+    uint128_declassify (ugz_6) in 
+  (g_0, q_1, gz_8).
+
+Definition calculates_shared_key
+  (sk_9 : diff_int_t)
+  (pk_10 : pk_t)
+  
+  : diff_int_t :=
+  let '(g_11, q_12, pz_13) :=
+    pk_10 in 
+  let uq_14 : uint128 :=
+    secret (q_12) : int128 in 
+  let upz_15 : uint128 :=
+    secret (pz_13) : int128 in 
+  let usk_16 : uint128 :=
+    uint128_from_be_bytes (array_from_seq (16) (array_to_seq (sk_9))) in 
+  let hab_17 : uint128 :=
+    uint128_pow_mod (upz_15) (usk_16) (uq_14) in 
+  array_from_seq (2048) (array_to_seq (uint128_to_be_bytes (hab_17))).
+
