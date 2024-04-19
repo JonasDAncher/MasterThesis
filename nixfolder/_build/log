@@ -1,0 +1,6 @@
+# dune build
+# OCAMLPARAM: unset
+# Workspace root: /home/x/Documents/MasterThesisProject/MasterThesis/nixfolder
+$ /usr/bin/nproc > /tmp/dune3c7735.output 2> /dev/null
+# Auto-detected concurrency: 6
+# disable binary cache

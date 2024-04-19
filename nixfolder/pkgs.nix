@@ -6,12 +6,31 @@ let
       mathcomp-analysis = cprev.mathcomp-analysis.override { version = "0.3.13"; };
       mathcomp-word = cprev.mathcomp-word.override { version = "2.0"; };
   });
-  jasmin-word = {
-    owner = "jasmin-lang";
-    repo = "coqword";
-    rev = "3d40bc89a3426fd1b0c4f2fd6fb2767dbdf48554";
-    sha256 = "rnfC9wo7KAV0OFCIKkj1TullXDXcntn/8ewASFacPao=";
-  };
+
+	mathword = {
+		owner = "jasmin-lang";
+		repo = "coqword";
+		rev = "960a955210b5fe08a610e868070ef61f35cb9a0b";
+		sha256 = "Qu9tNgPC0nCu6C5HTR/S7AUGzuLFwErJ6q8M0St6w2Q=";
+	};
+
+ coqword = coqPackages.callPackage ( { coq, stdenv, fetchFromGitHub, hierarchy-builder }:
+    stdenv.mkDerivation {
+      name = "coq${coq.coq-version}-coqword";
+
+      src = fetchFromGitHub mathword;
+
+      propagatedBuildInputs = [ coq pkgs.ocaml pkgs.dune_2 ] ++ (with coqPackages;
+        [ deriving equations extructures mathcomp.ssreflect mathcomp-analysis mathcomp-word mathcomp-zify]);
+      patchPhase = ''
+          coq_makefile -f _CoqProject -o Makefile
+      '';
+      enableParallelBuilding = true;
+      dontDetectOcamlConflicts = true;
+      installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
+    }
+  ) { } ;
+  
   jasmin-src = {
     owner = "jasmin-lang";
     repo = "jasmin";
@@ -26,6 +45,7 @@ let
       propagatedBuildInputs = [ coq ] ++ (with coqPackages;
         [ mathcomp.ssreflect mathcomp.algebra mathcomp-word ]);
       enableParallelBuilding = true;
+      dontDetectOcamlConflicts = true;
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;
@@ -43,6 +63,7 @@ let
       propagatedBuildInputs = [ coq jasmin-proofs ] ++ (with coqPackages;
         [ deriving equations extructures mathcomp.ssreflect mathcomp-analysis mathcomp-word mathcomp-zify ]);
       enableParallelBuilding = true;
+      dontDetectOcamlConflicts = true;
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;
@@ -77,6 +98,7 @@ let
 
       propagatedBuildInputs = with coqPackages; [ coq coqprime pkgs.ppl compcert QuickChick ];
       enableParallelBuilding = true;
+      dontDetectOcamlConflicts = true;
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;  
@@ -103,10 +125,11 @@ let
 
       propagatedBuildInputs = with coqPackages; [ coq ssprove mathcomp-word pkgs.ppl ];
       enableParallelBuilding = true;
+      dontDetectOcamlConflicts = true;
       installFlags = [ "COQLIB=$(out)/lib/coq/${coq.coq-version}/" ];
     }
   ) { } ;
   
 
   coqide = coqPackages.coqide;
-in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq; }
+in pkgs // { inherit ssprove hacspec-ssprove coqide hacspec-coq coqword; }
