@@ -117,7 +117,7 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   Proof.
     unfold Cipher. rewrite card_prod.
     exact _.
-  Qed.
+  Qed. 
 
   Definition chPlain  : choice_type := 'fin #|gT|.
   Definition chPubKey : choice_type := 'fin #|gT|.
@@ -143,7 +143,12 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   Definition i_sk := #|SecKey|.
   Definition i_bool := 2.
 
+  Definition h {d} `{p:Positive d} : nat -> 'I_d := fun n => Ordinal (ltn_pmod n p).
 
+  Definition f : nat -> MachineIntegers.int128 := fun x => Hacspec_Lib.cast x. 
+
+  Definition g {n} `{Positive n} : 'fin n -> MachineIntegers.int128 := fun x => f ((fto x)). 
+ 
   (** Key Generation algorithm *)
   Definition KeyGen {L : {fset Location}} :
     code L [interface] (chPubKey × chSecKey) :=
@@ -169,11 +174,13 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
       ret (fto ((fst (otf c))^-(otf sk) * ((snd (otf c)))))
     }.
 
+
+
   Definition hacspec_dec {L : {fset Location}} (sk : chSecKey) (c : chCipher) :
     code L [interface] chPlain :=
     {code
-       fto (Hacspec_Lib.cast _ (El_Gamal.dec (Hacspec_Lib.cast _ sk) (Hacspec_Lib.cast _ (otf c)))))
-    }. 
+       ret (fto (Hacspec_Lib.cast _ (El_Gamal.dec (Hacspec_Lib.cast Hacspec_Lib.uint128 sk) (Hacspec_Lib.cast Hacspec_Lib.uint128 (otf c)))))
+    }.
 
   Search MachineIntegers.int128. 
 
