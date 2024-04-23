@@ -19,6 +19,8 @@ From Crypt Require Import Axioms ChoiceAsOrd SubDistr Couplings
   pkg_core_definition choice_type pkg_composition pkg_rhl Package Prelude
   AsymScheme.
 
+From Diffie Require Import El_Gamal.
+
 From Coq Require Import Utf8.
 From extructures Require Import ord fset fmap.
 
@@ -167,6 +169,14 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
       ret (fto ((fst (otf c))^-(otf sk) * ((snd (otf c)))))
     }.
 
+  Definition hacspec_dec {L : {fset Location}} (sk : chSecKey) (c : chCipher) :
+    code L [interface] chPlain :=
+    {code
+       fto (Hacspec_Lib.cast _ (El_Gamal.dec (Hacspec_Lib.cast _ sk) (Hacspec_Lib.cast _ (otf c)))))
+    }. 
+
+  Search MachineIntegers.int128. 
+
   Notation " 'plain " :=
     chPlain
     (in custom pack_type at level 2).
@@ -218,6 +228,20 @@ Definition Enc_Dec_real :
       }
     ].
 
+Definition Hacspec_Enc_Dec_real :
+  package fset0 [interface]
+    [interface #val #[10] : 'plain → 'plain ] :=
+    [package
+      #def #[10] (m : 'plain) : 'plain
+      {
+        '(pk, sk) ← El_Gamal.keygen ;;
+        c ← enc pk m ;;
+        m ← dec sk c ;;
+        ret m
+      }
+    ].
+
+
 Definition Enc_Dec_ideal :
   package fset0 [interface]
     [interface #val #[10] : 'plain → 'plain ] :=
@@ -231,6 +255,7 @@ Definition Enc_Dec_ideal :
 Lemma Enc_Dec_Perfect :
   Enc_Dec_real ≈₀ Enc_Dec_ideal.
 Proof.
+  Search "eq_rel_perf".
   eapply eq_rel_perf_ind_eq.
   simplify_eq_rel m.
   apply r_const_sample_L.
