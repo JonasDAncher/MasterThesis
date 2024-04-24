@@ -143,12 +143,30 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   Definition i_sk := #|SecKey|.
   Definition i_bool := 2.
 
-  Definition h {d} `{p:Positive d} : nat -> 'I_d := fun n => Ordinal (ltn_pmod n p).
 
-  Definition f : nat -> MachineIntegers.int128 := fun x => Hacspec_Lib.cast x. 
+  (* nat to ordinal *)
+  Definition NatToOrd {d} `{p:Positive d} : nat -> 'I_d := fun n => Ordinal (ltn_pmod n p).
 
-  Definition g {n} `{Positive n} : 'fin n -> MachineIntegers.int128 := fun x => f ((fto x)). 
+  (* nat to MachineIntegers version of int128 *)
+  Definition NatToInt : nat -> MachineIntegers.int128 := fun x => Hacspec_Lib.cast x. 
+
+  (* 'fin to MachineIntegers version of int128 *)
+  Definition FinToInt {n} `{Positive n} : 'fin n -> MachineIntegers.int128 := fun x => NatToInt ((fto x)). 
  
+  (* Ordinal to nat *)
+  Definition OrdToNat {d} `{p:Positive d} : 'I_d -> nat := fun n => (nat_of_ord n) .
+
+  (* MachineIntergers version of int128 to nat *)
+  Definition IntToNat : MachineIntegers.int128 -> nat := fun x => Hacspec_Lib.cast x .
+
+  (* MachineIntergers version of int128 to 'fin *)
+  Definition IntToFin {n} `{Positive n} : MachineIntegers.int128 -> 'fin n := fun x => NatToOrd (IntToNat x) .
+
+
+  Definition IntToOrd (n: MachineIntegers.int128) (p: MachineIntegers.int128) `{(IntToNat n) < (IntToNat p)} : 'I_(IntToNat p) := _.
+  
+
+
   (** Key Generation algorithm *)
   Definition KeyGen {L : {fset Location}} :
     code L [interface] (chPubKey × chSecKey) :=
