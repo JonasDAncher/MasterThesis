@@ -161,10 +161,34 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
 
   (* MachineIntergers version of int128 to 'fin *)
   Definition IntToFin {n} `{Positive n} : MachineIntegers.int128 -> 'fin n := fun x => NatToOrd (IntToNat x) .
-
-
-  Definition IntToOrd (n: MachineIntegers.int128) (p: MachineIntegers.int128) `{(IntToNat n) < (IntToNat p)} : 'I_(IntToNat p) := _.
   
+  Definition hacspec_gen {L : {fset Location}} :
+    code L [interface] (chPubKey × chSecKey) :=
+    {code
+      let '(c1int,c2int) := El_Gamal.keygen in
+      let c1key := IntToFin c1int in
+      let c2key := IntToFin c2int in
+      ret (c1key,c2key)
+    }.
+
+  Definition hacspec_enc {L : {fset Location}} (pk : chPubKey) (m : chPlain) :
+    code L [interface] chCipher :=
+    {code
+            
+
+
+      
+      y ← sample uniform i_sk ;;
+      let y := otf y in
+      ret (fto (g^+y, (otf pk)^+y * (otf m)))
+    }.
+
+  Definition IntToOrd 
+    (n: MachineIntegers.int128) (p: MachineIntegers.int128) 
+    `{ltn (IntToNat p)} 
+      : MachineIntegers.int128 := _.
+
+  'I_(IntToNat p)
 
 
   (** Key Generation algorithm *)
