@@ -142,7 +142,7 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   Definition i_pk := #|PubKey|.
   Definition i_sk := #|SecKey|.
   Definition i_bool := 2.
-
+ 
 
   (* nat to ordinal *)
   Definition NatToOrd {d} `{p:Positive d} : nat -> 'I_d := fun n => Ordinal (ltn_pmod n p).
@@ -158,7 +158,7 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
 
   (* MachineIntergers version of int128 to nat *)
   Definition IntToNat : MachineIntegers.int128 -> nat := fun x => Hacspec_Lib.cast x .
-
+ 
   (* MachineIntergers version of int128 to 'fin *)
   Definition IntToFin {n} `{Positive n} : MachineIntegers.int128 -> 'fin n := fun x => NatToOrd (IntToNat x) .
   
@@ -324,12 +324,73 @@ Proof.
   reflexivity.
 Qed.
 
+
+Lemma FinToInt_IntToFin_Eq {k} `{Positive k} :
+  ∀ {n: MachineIntegers.int128}, @FinToInt k _ (IntToFin n) = n.  (* mod k *)
+Proof.
+  move => n.
+  unfold FinToInt, IntToFin.
+  unfold NatToInt, NatToOrd, IntToNat.
+  simpl.
+  unfold fto.
+  rewrite enum_rank_ord.
+  simpl.
+  Arguments Hacspec_Lib.cast _ _ _.
+  Search BinInt.Z.to_nat.
+  Search "to_nat".
+
+Admitted.
+
+Lemma Declassify_Classify_Eq  :
+  ∀ {n: MachineIntegers.int128}, 
+    Hacspec_Lib.uint128_classify(Hacspec_Lib.uint128_declassify(n)) = n.
+
+Admitted.
+
+Lemma Remove_Classify  :
+  ∀ {n: MachineIntegers.int128}, 
+    Hacspec_Lib.uint128_classify(n) = n.
+
+Admitted.
+
+Lemma Remove_Declassify  :
+  ∀ {n: MachineIntegers.int128}, 
+    Hacspec_Lib.uint128_declassify(n) = n.
+
+Admitted.
+
+Search MachineIntegers.mul.
+About MachineIntegers.modu_divu.
+
 Lemma Hacspec_Enc_Dec_Perfect :
   Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
 Proof.
   eapply eq_rel_perf_ind_eq.
   simplify_eq_rel m.
+  apply r_ret.
+  intros s0 s1.
+  intros e1.
+  split.
+  2: apply e1.
+  repeat rewrite otf_fto.
+  repeat rewrite fto_otf.
+  repeat rewrite FinToInt_IntToFin_Eq.
+  repeat rewrite Declassify_Classify_Eq.
+  repeat rewrite Remove_Declassify.
+  repeat rewrite Remove_Classify.
+
+
+  unfold IntToFin, NatToOrd. IntToNat, FinToInt, 
+    OrdToNat, NatToInt.
+
+  Search "ordinal".
+Qed.
+
+
+(*
+  ordinal_finType_inhabited 
   
+*)
 
 Definition DH_loc := fset [:: pk_loc ; sk_loc].
 
