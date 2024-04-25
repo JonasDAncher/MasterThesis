@@ -162,34 +162,40 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   (* MachineIntergers version of int128 to 'fin *)
   Definition IntToFin {n} `{Positive n} : MachineIntegers.int128 -> 'fin n := fun x => NatToOrd (IntToNat x) .
   
+  (* ElGamal translated from rust to coq with Hacspec: Key generation algorithm *)
   Definition hacspec_gen {L : {fset Location}} :
     code L [interface] (chPubKey × chSecKey) :=
     {code
-      let '(c1int,c2int) := El_Gamal.keygen in
-      let c1key := IntToFin c1int in
-      let c2key := IntToFin c2int in
-      ret (c1key,c2key)
+      let '(c1Int,c2Int) := El_Gamal.keygen in
+      let c1Key := IntToFin c1Int in
+      let c2Key := IntToFin c2Int in
+      ret (c1Key,c2Key)
     }.
-
-  Definition hacspec_enc {L : {fset Location}} (pk : chPubKey) (m : chPlain) :
-    code L [interface] chCipher :=
+  
+  (* ElGamal translated from rust to coq with Hacspec: Encryption algorithm *)
+  Definition hacspec_enc {L : {fset Location}} (pkKey : chPubKey) (m : chPlain) :
+    code L [interface] chCipher := 
     {code
-            
-
-
-      
-      y ← sample uniform i_sk ;;
-      let y := otf y in
-      ret (fto (g^+y, (otf pk)^+y * (otf m)))
+      let pkInt     := FinToInt pkKey in
+      let mInt      := FinToInt m in
+      let cipherInt := El_Gamal.enc pkInt mInt in
+      let cipher    := fto(
+                        otf (IntToFin cipherInt.1),
+                        otf (IntToFin cipherInt.2)) in
+      ret cipher
     }.
-
-  Definition IntToOrd 
-    (n: MachineIntegers.int128) (p: MachineIntegers.int128) 
-    `{ltn (IntToNat p)} 
-      : MachineIntegers.int128 := _.
-
-  'I_(IntToNat p)
-
+  
+  (* ElGamal translated from rust to coq with Hacspec: Decryption algorithm *)
+  Definition hacspec_dec {L : {fset Location}} (skKey : chSecKey) (cipher : chCipher) :
+    code L [interface] chPlain :=
+    {code
+      let skInt  := FinToInt skKey in
+      let cipher := (
+                      FinToInt (fto (fst (otf cipher))),
+                      FinToInt (fto (snd (otf cipher)))) in
+      let mInt   := El_Gamal.dec skInt cipher in
+      ret (IntToFin(mInt))
+    }.
 
   (** Key Generation algorithm *)
   Definition KeyGen {L : {fset Location}} :
@@ -215,16 +221,6 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
     {code
       ret (fto ((fst (otf c))^-(otf sk) * ((snd (otf c)))))
     }.
-
-
-
-  Definition hacspec_dec {L : {fset Location}} (sk : chSecKey) (c : chCipher) :
-    code L [interface] chPlain :=
-    {code
-       ret (fto (Hacspec_Lib.cast _ (El_Gamal.dec (Hacspec_Lib.cast Hacspec_Lib.uint128 sk) (Hacspec_Lib.cast Hacspec_Lib.uint128 (otf c)))))
-    }.
-
-  Search MachineIntegers.int128. 
 
   Notation " 'plain " :=
     chPlain
@@ -283,9 +279,9 @@ Definition Hacspec_Enc_Dec_real :
     [package
       #def #[10] (m : 'plain) : 'plain
       {
-        '(pk, sk) ← El_Gamal.keygen ;;
-        c ← enc pk m ;;
-        m ← dec sk c ;;
+        '(pk, sk) ← hacspec_gen ;;
+        c ← hacspec_enc pk m ;;
+        m ← hacspec_dec sk c ;;
         ret m
       }
     ].
@@ -304,7 +300,6 @@ Definition Enc_Dec_ideal :
 Lemma Enc_Dec_Perfect :
   Enc_Dec_real ≈₀ Enc_Dec_ideal.
 Proof.
-  Search "eq_rel_perf".
   eapply eq_rel_perf_ind_eq.
   simplify_eq_rel m.
   apply r_const_sample_L.
@@ -329,6 +324,12 @@ Proof.
   reflexivity.
 Qed.
 
+Lemma Hacspec_Enc_Dec_Perfect :
+  Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
+Proof.
+  eapply eq_rel_perf_ind_eq.
+  simplify_eq_rel m.
+  
 
 Definition DH_loc := fset [:: pk_loc ; sk_loc].
 

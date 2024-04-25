@@ -1,4 +1,4 @@
-DIGEST 6c74c9951086b177a05ab2fcdbad4eb2
+DIGEST 85b4b84d086038ee51c56cbab78ca735
 FDiffie.coq_src.ElGamal
 R128:148 Relational.OrderEnrichedCategory <> <> lib
 R150:167 Relational.GenericRulesSimple <> <> lib
@@ -376,16 +376,67 @@ binder 4727:4727 <> x:22
 R4732:4739 Diffie.coq_src.ElGamal ElGamal.MyAlg NatToOrd def
 R4742:4749 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToNat def
 R4751:4751 Diffie.coq_src.ElGamal <> x:22 var
-def 4771:4778 ElGamal.MyAlg IntToOrd
-R4784:4805 Hacspec.MachineIntegers <> int128 def
-binder 4781:4781 <> n:23
-R4812:4833 Hacspec.MachineIntegers <> int128 def
-binder 4809:4809 <> p:24
-R4838:4838 mathcomp.algebra.ssrnum Num.Syntax ::ring_scope:x_'<'_x not
-R4849:4853 mathcomp.algebra.ssrnum Num.Syntax ::ring_scope:x_'<'_x not
-R4864:4864 mathcomp.algebra.ssrnum Num.Syntax ::ring_scope:x_'<'_x not
-R4839:4846 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToNat def
-R4848:4848 Diffie.coq_src.ElGamal <> n:23 var
-R4854:4861 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToNat def
-R4863:4863 Diffie.coq_src.ElGamal <> p:24 var
-binder 4838:4864 <> H:25
+def 4772:4782 ElGamal.MyAlg hacspec_gen
+R4789:4794 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R4803:4803 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R4795:4802 Crypt.package.pkg_core_definition <> Location def
+binder 4785:4785 <> L:23
+R4812:4815 Crypt.package.pkg_core_definition <> code rec
+R4840:4843 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'×'_x not
+R4832:4839 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+R4844:4851 Diffie.coq_src.ElGamal ElGamal.MyAlg chSecKey def
+R4819:4829 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R4817:4817 Diffie.coq_src.ElGamal <> L:23 var
+R4861:4872 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5011:5016 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R4895:4909 Diffie.coq_src.El_Gamal <> keygen def
+R4878:4878 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4884:4884 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4890:4890 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4933:4940 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+binder 4924:4928 <> c1Key:24
+R4970:4977 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+binder 4961:4965 <> c2Key:25
+R4994:4996 Crypt.package.pkg_core_definition <> ret constr
+R4998:4998 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5004:5004 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5010:5010 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4999:5003 Diffie.coq_src.ElGamal <> c1Key:24 var
+R5005:5009 Diffie.coq_src.ElGamal <> c2Key:25 var
+def 5033:5043 ElGamal.MyAlg hacspec_enc
+R5050:5055 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R5064:5064 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R5056:5063 Crypt.package.pkg_core_definition <> Location def
+binder 5046:5046 <> L:26
+R5076:5083 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+binder 5068:5072 <> pkKey:27
+R5091:5097 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+binder 5087:5087 <> m:28
+R5106:5109 Crypt.package.pkg_core_definition <> code rec
+R5125:5132 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+R5113:5123 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R5111:5111 Diffie.coq_src.ElGamal <> L:26 var
+R5141:5152 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5345:5350 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5166:5173 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R5175:5179 Diffie.coq_src.ElGamal <> pkKey:27 var
+binder 5157:5161 <> pkInt:29
+R5203:5210 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R5212:5212 Diffie.coq_src.ElGamal <> m:28 var
+binder 5194:5197 <> mInt:30
+R5239:5250 Diffie.coq_src.El_Gamal <> enc def
+R5252:5256 Diffie.coq_src.ElGamal <> pkInt:29 var
+R5258:5261 Diffie.coq_src.ElGamal <> mInt:30 var
+R5228:5228 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5231:5231 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5234:5234 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5282:5289 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+binder 5276:5277 <> c1:31
+R5313:5320 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+binder 5307:5308 <> c2:32
+R5334:5336 Crypt.package.pkg_core_definition <> ret constr
+R5338:5338 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5341:5341 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5344:5344 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5339:5340 Diffie.coq_src.ElGamal <> c1:31 var
+R5342:5343 Diffie.coq_src.ElGamal <> c2:32 var
