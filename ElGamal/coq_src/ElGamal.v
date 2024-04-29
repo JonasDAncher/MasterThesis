@@ -324,23 +324,50 @@ Proof.
   reflexivity.
 Qed.
 
-
 Lemma FinToInt_IntToFin_Eq {k} `{Positive k} :
-  ∀ {n: MachineIntegers.int128}, @FinToInt k _ (IntToFin n) = n.  (* mod k *)
+  ∀ {n: MachineIntegers.int128}, @FinToInt k _ (IntToFin n) = NatToInt(modn (IntToNat n) k).  (* mod k *)
 Proof.
   move => n.
-  unfold FinToInt, IntToFin.
-  unfold NatToInt, NatToOrd, IntToNat.
+  unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
   simpl.
-  unfold fto.
   rewrite enum_rank_ord.
   simpl.
-  Arguments Hacspec_Lib.cast _ _ _.
-  Search BinInt.Z.to_nat.
-  Search "to_nat".
+  reflexivity.
+Qed.
 
-Admitted.
+Lemma NatToInt_IntToNat_Eq  :
+  ∀ {n: MachineIntegers.int128}, NatToInt (IntToNat n) = n.  (* mod k *)
+Proof.
+  move => n.
+  unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
+  simpl.
+  unfold Hacspec_Lib.cast, Hacspec_Lib.cast_transitive, Hacspec_Lib.cast_int_to_nat, 
+  Hacspec_Lib.cast_nat_to_N, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_Z_to_int.
+  rewrite Znat.nat_N_Z.
+  Search BinInt.Z.of_nat BinInt.Z.to_nat.
+  apply Znat.Z2Nat.id.
+  eapply MachineIntegers.repr_signed.
 
+  
+
+
+
+  rewrite enum_rank_ord.
+  simpl.
+  reflexivity.
+Qed.
+
+(* 
+  unfold Hacspec_Lib.cast, Hacspec_Lib.cast_int_to_nat, Hacspec_Lib.cast_transitive,
+   Hacspec_Lib.cast_Z_to_int, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_nat_to_N.
+  rewrite Znat.nat_N_Z.
+  unfold MachineIntegers.signed.
+  rewrite Coqlib.zlt_true.
+  Set Printing All.
+  1: rewrite ZifyInst.Op_Z_to_nat.
+BinInt.Z.to_nat
+
+ *)
 Lemma Declassify_Classify_Eq  :
   ∀ {n: MachineIntegers.int128}, 
     Hacspec_Lib.uint128_classify(Hacspec_Lib.uint128_declassify(n)) = n.
