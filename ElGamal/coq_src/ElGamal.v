@@ -334,9 +334,28 @@ Proof.
   simpl.
   reflexivity.
 Qed.
+
+Lemma The_Elequent_solution {k} :
+  forall {n: MachineIntegers.int128}, NatToInt (IntToNat n %% k) = MachineIntegers.mods n (NatToInt k).
+Proof.
+  intros n.
+  unfold NatToInt, IntToNat.
+  unfold Hacspec_Lib.cast, Hacspec_Lib.cast_transitive, Hacspec_Lib.cast_int_to_nat, 
+  Hacspec_Lib.cast_nat_to_N, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_Z_to_int.
+  rewrite Znat.nat_N_Z.
+  rewrite ssrZ.modnZE.
+  2: admit.
+  rewrite -(MachineIntegers.repr_unsigned (MachineIntegers.repr _)).
+  Search MachineIntegers.repr BinInt.Z.modulo.
+  rewrite MachineIntegers.unsigned_repr_eq.
+  Set Printing All.
+  rewrite Znat.Z2Nat.id.
+Qed.
+
 From Coq Require Import Lia.
 Lemma NatToInt_IntToNat_Eq  :
-  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).  (* mod k *)
+  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
+  (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).  (* mod k *)
 Proof.
   move => n.
   unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
@@ -347,11 +366,7 @@ Proof.
   split.
   2: apply H.
   rewrite Znat.Z2Nat.id.
-  1: rewrite MachineIntegers.repr_signed.
-  1: simpl.
-  1: reflexivity.
-  Search BinInt.Z.le BinInt.Z.ge BinNums.Z.
-  Search OrdersEx.Z_as_OT.le BinInt.Z.le BinNums.Z.
+  1: apply MachineIntegers.repr_signed.
   eapply OrdersEx.Z_as_DT.ge_le.
   apply H.  
 Qed.
@@ -367,26 +382,14 @@ Qed.
 BinInt.Z.to_nat
 
  *)
-Lemma Declassify_Classify_Eq  :
-  ∀ {n: MachineIntegers.int128}, 
-    Hacspec_Lib.uint128_classify(Hacspec_Lib.uint128_declassify(n)) = n.
 
-Admitted.
-
-Lemma Remove_Classify  :
+Axiom Remove_Classify  :
   ∀ {n: MachineIntegers.int128}, 
     Hacspec_Lib.uint128_classify(n) = n.
 
-Admitted.
-
-Lemma Remove_Declassify  :
+Axiom Remove_Declassify  :
   ∀ {n: MachineIntegers.int128}, 
     Hacspec_Lib.uint128_declassify(n) = n.
-
-Admitted.
-
-Search MachineIntegers.mul.
-About MachineIntegers.modu_divu.
 
 Lemma Hacspec_Enc_Dec_Perfect :
   Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
@@ -404,6 +407,8 @@ Proof.
   repeat rewrite Declassify_Classify_Eq.
   repeat rewrite Remove_Declassify.
   repeat rewrite Remove_Classify.
+  Set Printing All.
+  Search MachineIntegers.mods.
 
 
   unfold IntToFin, NatToOrd. IntToNat, FinToInt, 

@@ -1,4 +1,4 @@
-DIGEST 03e1ec6c4c608447609f58335bc4adf7
+DIGEST a4cc1925bb5eb5ffa691c2304fb07051
 FDiffie.coq_src.ElGamal
 R128:148 Relational.OrderEnrichedCategory <> <> lib
 R150:167 Relational.GenericRulesSimple <> <> lib
@@ -794,112 +794,170 @@ R8711:8715 mathcomp.fingroup.fingroup <> mul1g thm
 R8728:8734 Crypt.package.pkg_distr <> fto_otf thm
 R8728:8734 Crypt.package.pkg_distr <> fto_otf thm
 R8728:8734 Crypt.package.pkg_distr <> fto_otf thm
-prf 8765:8784 ElGamal FinToInt_IntToFin_Eq
-binder 8787:8787 <> k:63
-R8792:8799 Crypt.Prelude <> Positive class
-R8801:8801 Diffie.coq_src.ElGamal <> k:63 var
-binder 8792:8801 <> H:64
-R8808:8812 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R8838:8840 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R8816:8837 Hacspec.MachineIntegers <> int128 def
-binder 8813:8813 <> n:65
-R8867:8869 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8842:8849 Diffie.coq_src.ElGamal ElGamal FinToInt def
-R8851:8851 Diffie.coq_src.ElGamal <> k:63 var
-R8856:8863 Diffie.coq_src.ElGamal ElGamal IntToFin def
-R8865:8865 Diffie.coq_src.ElGamal <> n:65 var
-R8870:8870 Diffie.coq_src.ElGamal <> n:65 var
-R8915:8922 Diffie.coq_src.ElGamal ElGamal FinToInt def
-R8925:8932 Diffie.coq_src.ElGamal ElGamal IntToFin def
-R8944:8951 Diffie.coq_src.ElGamal ElGamal NatToInt def
-R8954:8961 Diffie.coq_src.ElGamal ElGamal NatToOrd def
-R8964:8971 Diffie.coq_src.ElGamal ElGamal IntToNat def
+prf 8764:8783 ElGamal FinToInt_IntToFin_Eq
+binder 8786:8786 <> k:63
+R8791:8798 Crypt.Prelude <> Positive class
+R8800:8800 Diffie.coq_src.ElGamal <> k:63 var
+binder 8791:8800 <> H:64
+R8807:8811 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R8837:8839 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R8815:8836 Hacspec.MachineIntegers <> int128 def
+binder 8812:8812 <> n:65
+R8866:8868 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8841:8848 Diffie.coq_src.ElGamal ElGamal FinToInt def
+R8850:8850 Diffie.coq_src.ElGamal <> k:63 var
+R8855:8862 Diffie.coq_src.ElGamal ElGamal IntToFin def
+R8864:8864 Diffie.coq_src.ElGamal <> n:65 var
+R8869:8876 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R8878:8881 mathcomp.ssreflect.div <> modn def
+R8896:8896 Diffie.coq_src.ElGamal <> k:63 var
+R8884:8891 Diffie.coq_src.ElGamal ElGamal IntToNat def
+R8893:8893 Diffie.coq_src.ElGamal <> n:65 var
+R8942:8949 Diffie.coq_src.ElGamal ElGamal FinToInt def
+R8952:8959 Diffie.coq_src.ElGamal ElGamal IntToFin def
+R8962:8969 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R8972:8979 Diffie.coq_src.ElGamal ElGamal NatToOrd def
+R8982:8989 Diffie.coq_src.ElGamal ElGamal IntToNat def
 R8992:8994 Crypt.package.pkg_distr <> fto def
-R9007:9019 mathcomp.ssreflect.fintype <> enum_rank_ord thm
-R9007:9019 mathcomp.ssreflect.fintype <> enum_rank_ord thm
-R9007:9019 mathcomp.ssreflect.fintype <> enum_rank_ord thm
-R9043:9058 Hacspec.Hacspec_Lib <> cast def
-R9076:9090 Coq.ZArith.BinInt Z to_nat def
-prf 9130:9151 ElGamal Declassify_Classify_Eq
-R9158:9162 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R9188:9195 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R9166:9187 Hacspec.MachineIntegers <> int128 def
-binder 9163:9163 <> n:66
-R9259:9261 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9196:9223 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R9225:9254 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R9256:9256 Diffie.coq_src.ElGamal <> n:66 var
-R9262:9262 Diffie.coq_src.ElGamal <> n:66 var
-prf 9283:9297 ElGamal Remove_Classify
-R9304:9308 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R9334:9341 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R9312:9333 Hacspec.MachineIntegers <> int128 def
-binder 9309:9309 <> n:67
-R9373:9375 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9342:9369 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R9371:9371 Diffie.coq_src.ElGamal <> n:67 var
-R9376:9376 Diffie.coq_src.ElGamal <> n:67 var
-prf 9397:9413 ElGamal Remove_Declassify
-R9420:9424 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R9450:9457 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
-R9428:9449 Hacspec.MachineIntegers <> int128 def
-binder 9425:9425 <> n:68
-R9491:9493 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9458:9487 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R9489:9489 Diffie.coq_src.ElGamal <> n:68 var
-R9494:9494 Diffie.coq_src.ElGamal <> n:68 var
-R9516:9534 Hacspec.MachineIntegers <> mul def
-R9543:9567 Hacspec.MachineIntegers <> modu_divu thm
-prf 9577:9599 ElGamal Hacspec_Enc_Dec_Perfect
-R9625:9632 Crypt.package.pkg_advantage <> ::package_scope:x_'≈₀'_x not
-R9605:9624 Diffie.coq_src.ElGamal ElGamal Hacspec_Enc_Dec_real def
-R9633:9645 Diffie.coq_src.ElGamal ElGamal Enc_Dec_ideal def
-R9664:9681 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
-R9664:9681 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
+R9016:9028 mathcomp.ssreflect.fintype <> enum_rank_ord thm
+R9016:9028 mathcomp.ssreflect.fintype <> enum_rank_ord thm
+R9016:9028 mathcomp.ssreflect.fintype <> enum_rank_ord thm
+R9084:9086 Coq.micromega.Lia <> <> lib
+prf 9095:9114 ElGamal NatToInt_IntToNat_Eq
+R9121:9125 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R9206:9208 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R9129:9150 Hacspec.MachineIntegers <> int128 def
+binder 9126:9126 <> n:66
+R9156:9166 Coq.ZArith.BinInt Z ge def
+R9169:9190 Hacspec.MachineIntegers <> signed def
+R9192:9192 Diffie.coq_src.ElGamal <> n:66 var
+R9195:9204 Coq.Numbers.BinNums <> Z0 constr
+binder 9155:9205 <> H:67
+R9209:9209 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R9235:9241 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R9291:9291 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R9231:9233 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9210:9217 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R9220:9227 Diffie.coq_src.ElGamal ElGamal IntToNat def
+R9229:9229 Diffie.coq_src.ElGamal <> n:66 var
+R9234:9234 Diffie.coq_src.ElGamal <> n:66 var
+R9242:9252 Coq.ZArith.BinInt Z ge def
+R9255:9276 Hacspec.MachineIntegers <> signed def
+R9278:9278 Diffie.coq_src.ElGamal <> n:66 var
+R9281:9290 Coq.Numbers.BinNums <> Z0 constr
+R9336:9343 Diffie.coq_src.ElGamal ElGamal FinToInt def
+R9346:9353 Diffie.coq_src.ElGamal ElGamal IntToFin def
+R9356:9363 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R9366:9373 Diffie.coq_src.ElGamal ElGamal NatToOrd def
+R9376:9383 Diffie.coq_src.ElGamal ElGamal IntToNat def
+R9386:9388 Crypt.package.pkg_distr <> fto def
+R9409:9424 Hacspec.Hacspec_Lib <> cast def
+R9427:9453 Hacspec.Hacspec_Lib <> cast_transitive inst
+R9456:9482 Hacspec.Hacspec_Lib <> cast_int_to_nat inst
+R9488:9512 Hacspec.Hacspec_Lib <> cast_nat_to_N inst
+R9515:9537 Hacspec.Hacspec_Lib <> cast_N_to_Z inst
+R9540:9564 Hacspec.Hacspec_Lib <> cast_Z_to_int inst
+R9577:9588 Coq.ZArith.Znat <> nat_N_Z thm
+R9577:9588 Coq.ZArith.Znat <> nat_N_Z thm
+R9577:9588 Coq.ZArith.Znat <> nat_N_Z thm
+R9624:9636 Coq.ZArith.Znat Z2Nat id thm
+R9624:9636 Coq.ZArith.Znat Z2Nat id thm
+R9624:9636 Coq.ZArith.Znat Z2Nat id thm
+R9652:9678 Hacspec.MachineIntegers <> repr_signed thm
+R9652:9678 Hacspec.MachineIntegers <> repr_signed thm
+R9652:9678 Hacspec.MachineIntegers <> repr_signed thm
+R9720:9730 Coq.ZArith.BinInt Z le def
+R9732:9742 Coq.ZArith.BinInt Z ge def
+R9744:9752 Coq.Numbers.BinNums <> Z ind
+R9764:9782 Coq.Structures.OrdersEx Z_as_OT le def
+R9784:9794 Coq.ZArith.BinInt Z le def
+R9796:9804 Coq.Numbers.BinNums <> Z ind
+R9816:9837 Coq.Structures.OrdersEx Z_as_DT ge_le thm
+R9816:9837 Coq.Structures.OrdersEx Z_as_DT ge_le thm
+prf 10196:10217 ElGamal Declassify_Classify_Eq
+R10224:10228 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R10254:10261 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R10232:10253 Hacspec.MachineIntegers <> int128 def
+binder 10229:10229 <> n:68
+R10325:10327 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10262:10289 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R10291:10320 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R10322:10322 Diffie.coq_src.ElGamal <> n:68 var
+R10328:10328 Diffie.coq_src.ElGamal <> n:68 var
+prf 10349:10363 ElGamal Remove_Classify
+R10370:10374 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R10400:10407 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R10378:10399 Hacspec.MachineIntegers <> int128 def
+binder 10375:10375 <> n:69
+R10439:10441 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10408:10435 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R10437:10437 Diffie.coq_src.ElGamal <> n:69 var
+R10442:10442 Diffie.coq_src.ElGamal <> n:69 var
+prf 10463:10479 ElGamal Remove_Declassify
+R10486:10490 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R10516:10523 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R10494:10515 Hacspec.MachineIntegers <> int128 def
+binder 10491:10491 <> n:70
+R10557:10559 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10524:10553 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R10555:10555 Diffie.coq_src.ElGamal <> n:70 var
+R10560:10560 Diffie.coq_src.ElGamal <> n:70 var
+R10582:10600 Hacspec.MachineIntegers <> mul def
+R10609:10633 Hacspec.MachineIntegers <> modu_divu thm
+prf 10643:10665 ElGamal Hacspec_Enc_Dec_Perfect
+R10691:10698 Crypt.package.pkg_advantage <> ::package_scope:x_'≈₀'_x not
+R10671:10690 Diffie.coq_src.ElGamal ElGamal Hacspec_Enc_Dec_real def
+R10699:10711 Diffie.coq_src.ElGamal ElGamal Enc_Dec_ideal def
+R10730:10747 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
+R10730:10747 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
 R3720:3722 mathcomp.ssreflect.eqtype <> eqP thm
-R9713:9717 Crypt.package.pkg_rhl <> r_ret thm
-R9713:9717 Crypt.package.pkg_rhl <> r_ret thm
-R9790:9796 Crypt.package.pkg_distr <> otf_fto thm
-R9790:9796 Crypt.package.pkg_distr <> otf_fto thm
-R9790:9796 Crypt.package.pkg_distr <> otf_fto thm
-R9790:9796 Crypt.package.pkg_distr <> otf_fto thm
-R9790:9796 Crypt.package.pkg_distr <> otf_fto thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9816:9822 Crypt.package.pkg_distr <> fto_otf thm
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9842:9861 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9881:9902 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
-R9922:9938 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
-R9922:9938 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
-R9922:9938 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
-R9922:9938 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
-R9922:9938 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9958:9972 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
-R9986:9993 Diffie.coq_src.ElGamal ElGamal IntToFin def
-R9996:10003 Diffie.coq_src.ElGamal ElGamal NatToOrd def
+R10779:10783 Crypt.package.pkg_rhl <> r_ret thm
+R10779:10783 Crypt.package.pkg_rhl <> r_ret thm
+R10856:10862 Crypt.package.pkg_distr <> otf_fto thm
+R10856:10862 Crypt.package.pkg_distr <> otf_fto thm
+R10856:10862 Crypt.package.pkg_distr <> otf_fto thm
+R10856:10862 Crypt.package.pkg_distr <> otf_fto thm
+R10856:10862 Crypt.package.pkg_distr <> otf_fto thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10882:10888 Crypt.package.pkg_distr <> fto_otf thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10908:10927 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq thm
+R10947:10968 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
+R10947:10968 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
+R10947:10968 Diffie.coq_src.ElGamal ElGamal Declassify_Classify_Eq prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R10988:11004 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11024:11038 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R11052:11059 Diffie.coq_src.ElGamal ElGamal IntToFin def
+R11062:11069 Diffie.coq_src.ElGamal ElGamal NatToOrd def
