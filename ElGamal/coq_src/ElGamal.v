@@ -334,9 +334,10 @@ Proof.
   simpl.
   reflexivity.
 Qed.
-From Coq Require Import Lia.
+
 Lemma NatToInt_IntToNat_Eq  :
-  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).  (* mod k *)
+  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
+    (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).
 Proof.
   move => n.
   unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
@@ -350,8 +351,6 @@ Proof.
   1: rewrite MachineIntegers.repr_signed.
   1: simpl.
   1: reflexivity.
-  Search BinInt.Z.le BinInt.Z.ge BinNums.Z.
-  Search OrdersEx.Z_as_OT.le BinInt.Z.le BinNums.Z.
   eapply OrdersEx.Z_as_DT.ge_le.
   apply H.  
 Qed.
@@ -404,7 +403,11 @@ Proof.
   repeat rewrite Declassify_Classify_Eq.
   repeat rewrite Remove_Declassify.
   repeat rewrite Remove_Classify.
-
+  Search "Nat" Positive.
+  Search BinNums.Zpos BinNums.xO.
+  eapply Bracket.inbetween_step_Hi_Mi_even.
+  rewrite NatToInt_IntToNat_Eq.
+  rewrite FinToInt_IntToFin_Eq.
 
   unfold IntToFin, NatToOrd. IntToNat, FinToInt, 
     OrdToNat, NatToInt.
