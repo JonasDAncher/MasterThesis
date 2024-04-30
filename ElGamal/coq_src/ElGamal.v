@@ -334,9 +334,9 @@ Proof.
   simpl.
   reflexivity.
 Qed.
-
+From Coq Require Import Lia.
 Lemma NatToInt_IntToNat_Eq  :
-  ∀ {n: MachineIntegers.int128}, NatToInt (IntToNat n) = n.  (* mod k *)
+  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).  (* mod k *)
 Proof.
   move => n.
   unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
@@ -344,17 +344,16 @@ Proof.
   unfold Hacspec_Lib.cast, Hacspec_Lib.cast_transitive, Hacspec_Lib.cast_int_to_nat, 
   Hacspec_Lib.cast_nat_to_N, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_Z_to_int.
   rewrite Znat.nat_N_Z.
-  Search BinInt.Z.of_nat BinInt.Z.to_nat.
-  apply Znat.Z2Nat.id.
-  eapply MachineIntegers.repr_signed.
-
-  
-
-
-
-  rewrite enum_rank_ord.
-  simpl.
-  reflexivity.
+  split.
+  2: apply H.
+  rewrite Znat.Z2Nat.id.
+  1: rewrite MachineIntegers.repr_signed.
+  1: simpl.
+  1: reflexivity.
+  Search BinInt.Z.le BinInt.Z.ge BinNums.Z.
+  Search OrdersEx.Z_as_OT.le BinInt.Z.le BinNums.Z.
+  eapply OrdersEx.Z_as_DT.ge_le.
+  apply H.  
 Qed.
 
 (* 
