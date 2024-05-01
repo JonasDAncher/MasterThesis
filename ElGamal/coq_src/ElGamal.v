@@ -335,33 +335,44 @@ Proof.
   reflexivity.
 Qed.
 
-<<<<<<< HEAD
-Lemma The_Elequent_solution {k} :
-  forall {n: MachineIntegers.int128}, NatToInt (IntToNat n %% k) = MachineIntegers.mods n (NatToInt k).
+
+
+From Coq Require Import Lia.
+Lemma The_Elequent_solution {k} `{Positive k}:
+  forall {n: MachineIntegers.int128} 
+  `{BinInt.Z.le BinNums.Z0
+  (@MachineIntegers.signed MachineIntegers.WORDSIZE128 n)} , 
+    NatToInt (IntToNat n %% k) = MachineIntegers.modu n (NatToInt k).
 Proof.
   intros n.
+  intros e1.
   unfold NatToInt, IntToNat.
   unfold Hacspec_Lib.cast, Hacspec_Lib.cast_transitive, Hacspec_Lib.cast_int_to_nat, 
   Hacspec_Lib.cast_nat_to_N, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_Z_to_int.
-  rewrite Znat.nat_N_Z.
+  repeat rewrite Znat.nat_N_Z.
+
   rewrite ssrZ.modnZE.
-  2: admit.
-  rewrite -(MachineIntegers.repr_unsigned (MachineIntegers.repr _)).
-  Search MachineIntegers.repr BinInt.Z.modulo.
-  rewrite MachineIntegers.unsigned_repr_eq.
-  Set Printing All.
-  rewrite Znat.Z2Nat.id.
+  2: apply lt0n_neq0.
+  2: apply is_positive.
+
+  1: unfold MachineIntegers.modu.
+  1: rewrite Znat.Z2Nat.id.
+  1: rewrite MachineIntegers.unsigned_repr.
+  3: apply e1.
+  2: split.
+  2: lia.
+  1: rewrite MachineIntegers.signed_eq_unsigned.
+  1: reflexivity.  
+  all: admit.
 Qed.
 
-From Coq Require Import Lia.
-Lemma NatToInt_IntToNat_Eq  :
-  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
-  (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).  (* mod k *)
-=======
+  
+  
+
+
 Lemma NatToInt_IntToNat_Eq  :
   ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
     (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).
->>>>>>> refs/remotes/origin/main
 Proof.
   move => n.
   unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
@@ -372,15 +383,9 @@ Proof.
   split.
   2: apply H.
   rewrite Znat.Z2Nat.id.
-<<<<<<< HEAD
   1: apply MachineIntegers.repr_signed.
-=======
-  1: rewrite MachineIntegers.repr_signed.
-  1: simpl.
-  1: reflexivity.
->>>>>>> refs/remotes/origin/main
   eapply OrdersEx.Z_as_DT.ge_le.
-  apply H.  
+  apply H.
 Qed.
 
 (* 
@@ -419,22 +424,19 @@ Proof.
   repeat rewrite Declassify_Classify_Eq.
   repeat rewrite Remove_Declassify.
   repeat rewrite Remove_Classify.
-<<<<<<< HEAD
+
   Set Printing All.
   Search MachineIntegers.mods.
 
-=======
   Search "Nat" Positive.
   Search BinNums.Zpos BinNums.xO.
-  eapply Bracket.inbetween_step_Hi_Mi_even.
-  rewrite NatToInt_IntToNat_Eq.
-  rewrite FinToInt_IntToFin_Eq.
->>>>>>> refs/remotes/origin/main
+(*   eapply Bracket.inbetween_step_Hi_Mi_even. *)
+(*   rewrite NatToInt_IntToNat_Eq.
+  rewrite FinToInt_IntToFin_Eq. *)
 
-  unfold IntToFin, NatToOrd. IntToNat, FinToInt, 
-    OrdToNat, NatToInt.
-
-  Search "ordinal".
+(*   unfold IntToFin, NatToOrd. IntToNat, FinToInt,  *)
+(*     OrdToNat, NatToInt.
+ *)
 Qed.
 
 
