@@ -335,6 +335,7 @@ Proof.
   reflexivity.
 Qed.
 
+<<<<<<< HEAD
 Lemma The_Elequent_solution {k} :
   forall {n: MachineIntegers.int128}, NatToInt (IntToNat n %% k) = MachineIntegers.mods n (NatToInt k).
 Proof.
@@ -356,6 +357,11 @@ From Coq Require Import Lia.
 Lemma NatToInt_IntToNat_Eq  :
   ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
   (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).  (* mod k *)
+=======
+Lemma NatToInt_IntToNat_Eq  :
+  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
+    (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).
+>>>>>>> refs/remotes/origin/main
 Proof.
   move => n.
   unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
@@ -366,7 +372,13 @@ Proof.
   split.
   2: apply H.
   rewrite Znat.Z2Nat.id.
+<<<<<<< HEAD
   1: apply MachineIntegers.repr_signed.
+=======
+  1: rewrite MachineIntegers.repr_signed.
+  1: simpl.
+  1: reflexivity.
+>>>>>>> refs/remotes/origin/main
   eapply OrdersEx.Z_as_DT.ge_le.
   apply H.  
 Qed.
@@ -407,9 +419,17 @@ Proof.
   repeat rewrite Declassify_Classify_Eq.
   repeat rewrite Remove_Declassify.
   repeat rewrite Remove_Classify.
+<<<<<<< HEAD
   Set Printing All.
   Search MachineIntegers.mods.
 
+=======
+  Search "Nat" Positive.
+  Search BinNums.Zpos BinNums.xO.
+  eapply Bracket.inbetween_step_Hi_Mi_even.
+  rewrite NatToInt_IntToNat_Eq.
+  rewrite FinToInt_IntToFin_Eq.
+>>>>>>> refs/remotes/origin/main
 
   unfold IntToFin, NatToOrd. IntToNat, FinToInt, 
     OrdToNat, NatToInt.
