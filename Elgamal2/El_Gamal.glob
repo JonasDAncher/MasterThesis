@@ -1,0 +1,150 @@
+DIGEST 88363b9d94dc4862703c383f0a675290
+FDiffie.El_Gamal
+R140:150 Crypt.choice_type <> <> lib
+R152:158 Crypt.Package <> <> lib
+R160:166 Crypt.Prelude <> <> lib
+R176:190 Crypt.package.pkg_notation PackageNotation <> mod
+R225:227 extructures.ord <> <> lib
+R229:232 extructures.fset <> <> lib
+R269:272 mathcomp.word.ssrZ <> <> lib
+R274:277 mathcomp.word.word <> <> lib
+R307:310 Jasmin.word <> <> lib
+R338:343 Coq.ZArith.ZArith <> <> lib
+R353:370 Coq.Lists.List ListNotations <> mod
+R469:482 Hacspec.ChoiceEquality <> <> lib
+R513:527 Hacspec.LocationUtility <> <> lib
+R558:579 Hacspec.Hacspec_Lib_Comparable <> <> lib
+R610:624 Hacspec.Hacspec_Lib_Pre <> <> lib
+R655:665 Hacspec.Hacspec_Lib <> <> lib
+R695:700 Diffie.powmod <> <> lib
+def 806:808 <> q_v
+R812:817 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R825:828 Hacspec.Hacspec_Lib_Pre <> repr def
+R830:833 Jasmin.wsize <> U128 constr
+def 851:853 <> g_v
+R857:862 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R870:873 Hacspec.Hacspec_Lib_Pre <> repr def
+R875:878 Jasmin.wsize <> U128 constr
+def 895:904 <> secret_q_v
+R908:914 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+R921:926 Hacspec.Hacspec_Lib <> secret def
+R929:931 Diffie.El_Gamal <> q_v def
+def 947:956 <> secret_g_v
+R960:966 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+R973:978 Hacspec.Hacspec_Lib <> secret def
+R981:983 Diffie.El_Gamal <> g_v def
+R1052:1062 Crypt.choice_type <> choice_type ind
+R1038:1042 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1027:1031 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1020:1026 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+R1032:1037 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R1043:1048 Hacspec.Hacspec_Lib_Pre <> int128 inst
+not 998:998 <> :pack_type::'enc_aux_inp'
+R1162:1175 Hacspec.ChoiceEquality <> ChoiceEquality class
+R1148:1152 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1137:1141 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1130:1136 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+R1142:1147 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R1153:1158 Hacspec.Hacspec_Lib_Pre <> int128 inst
+not 1108:1108 <> :::'enc_aux_inp'
+R1245:1255 Crypt.choice_type <> choice_type ind
+R1227:1231 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1221:1226 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R1232:1237 Hacspec.Hacspec_Lib_Pre <> int128 inst
+not 1201:1201 <> :pack_type::'enc_aux_out'
+R1342:1355 Hacspec.ChoiceEquality <> ChoiceEquality class
+R1327:1331 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1321:1326 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R1332:1337 Hacspec.Hacspec_Lib_Pre <> int128 inst
+not 1301:1301 <> :::'enc_aux_out'
+def 1383:1389 <> ENC_AUX
+R1393:1395 Coq.Init.Datatypes <> nat ind
+def 1424:1430 <> enc_aux
+R1454:1460 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+binder 1433:1450 <> secret_source_sk_4:1
+R1483:1488 Hacspec.Hacspec_Lib_Pre <> int128 inst
+binder 1469:1479 <> target_pk_0:2
+R1498:1503 Hacspec.Hacspec_Lib_Pre <> int128 inst
+binder 1492:1494 <> m_2:3
+R1510:1513 Hacspec.ChoiceEquality <> both class
+R1516:1525 extructures.fset <> fset0 def
+R1528:1538 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R1548:1552 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R1542:1547 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R1553:1558 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R2431:2434 Hacspec.ChoiceEquality <> both class
+R2437:2446 extructures.fset <> fset0 def
+R2449:2459 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R2469:2473 Hacspec.ChoiceEquality <> ::hacspec_scope:x_'''×'_x not
+R2463:2468 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R2474:2479 Hacspec.Hacspec_Lib_Pre <> int128 inst
+R1569:1573 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1602:1613 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1658:1667 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1614:1629 Hacspec.Hacspec_Lib <> uint128_classify def
+R1632:1644 Hacspec.ChoiceEquality <> lift_to_both0 def
+R1646:1656 Diffie.El_Gamal <> target_pk_0:2 var
+binder 1574:1591 <> secret_target_pk_1:4
+R1595:1601 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+binder 1574:1601 <> secret_target_pk_1:5
+R1668:1672 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1693:1696 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1733:1742 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1697:1712 Hacspec.Hacspec_Lib <> uint128_classify def
+R1715:1727 Hacspec.ChoiceEquality <> lift_to_both0 def
+R1729:1731 Diffie.El_Gamal <> m_2:3 var
+binder 1673:1682 <> secret_m_3:6
+R1686:1692 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+binder 1673:1692 <> secret_m_3:7
+R1743:1747 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1768:1779 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1903:1912 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1780:1794 Diffie.powmod <> uint128_pow_mod def
+R1797:1809 Hacspec.ChoiceEquality <> lift_to_both0 def
+R1811:1828 Diffie.El_Gamal <> secret_target_pk_1:4 var
+R1843:1855 Hacspec.ChoiceEquality <> lift_to_both0 def
+R1857:1874 Diffie.El_Gamal <> secret_source_sk_4:1 var
+R1878:1890 Hacspec.ChoiceEquality <> lift_to_both0 def
+R1892:1901 Diffie.El_Gamal <> secret_q_v def
+binder 1748:1757 <> secret_s_5:8
+R1761:1767 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+binder 1748:1767 <> secret_s_5:9
+R1913:1917 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1939:1950 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R2066:2075 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R1951:1965 Diffie.powmod <> uint128_pow_mod def
+R1968:1980 Hacspec.ChoiceEquality <> lift_to_both0 def
+R1982:1991 Diffie.El_Gamal <> secret_g_v def
+R2006:2018 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2020:2037 Diffie.El_Gamal <> secret_source_sk_4:1 var
+R2041:2053 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2055:2064 Diffie.El_Gamal <> secret_q_v def
+binder 1918:1928 <> secret_c1_6:10
+R1932:1938 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+binder 1918:1938 <> secret_c1_6:11
+R2076:2080 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R2102:2113 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R2227:2236 Hacspec.Hacspec_Lib <> :::'letb'_x_':='_x_'in'_x not
+R2114:2127 Diffie.powmod <> uint128_modulo def
+R2130:2130 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R2155:2173 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R2198:2198 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R2131:2143 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2145:2154 Diffie.El_Gamal <> secret_m_3:6 var
+R2174:2186 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2188:2197 Diffie.El_Gamal <> secret_s_5:8 var
+R2202:2214 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2216:2225 Diffie.El_Gamal <> secret_q_v def
+binder 2081:2091 <> secret_c2_7:12
+R2095:2101 Hacspec.Hacspec_Lib_Pre <> uint128 inst
+binder 2081:2101 <> secret_c2_7:13
+R2237:2246 Hacspec.ChoiceEquality <> lift_scope def
+R2287:2304 Hacspec.ChoiceEquality <> ::hacspec_scope:'prod_b('_x_','_x_','_'..'_','_x_')' not
+R2351:2362 Hacspec.ChoiceEquality <> ::hacspec_scope:'prod_b('_x_','_x_','_'..'_','_x_')' not
+R2409:2418 Hacspec.ChoiceEquality <> ::hacspec_scope:'prod_b('_x_','_x_','_'..'_','_x_')' not
+R2305:2322 Hacspec.Hacspec_Lib <> uint128_declassify def
+R2325:2337 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2339:2349 Diffie.El_Gamal <> secret_c1_6:10 var
+R2363:2380 Hacspec.Hacspec_Lib <> uint128_declassify def
+R2383:2395 Hacspec.ChoiceEquality <> lift_to_both0 def
+R2397:2407 Diffie.El_Gamal <> secret_c2_7:12 var
