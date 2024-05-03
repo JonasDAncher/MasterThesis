@@ -21,6 +21,9 @@ Definition secret_q_v : uint128 :=
 Definition secret_g_v : uint128 :=
   secret (g_v) : int128.
 
+Definition sk_v : int128 :=
+  @repr WORDSIZE128 4.
+
 Definition enc_aux
   (secret_source_sk_0 : uint128)
   (target_pk_1 : int128)
@@ -36,12 +39,12 @@ Definition enc_aux
   let secret_c1_6 : uint128 :=
     uint128_pow_mod (secret_g_v) (secret_source_sk_0) (secret_q_v) in 
   let secret_c2_7 : uint128 :=
-    uint128_modulo ((secret_m_4) .* (secret_s_5)) (secret_q_v) in 
+    (secret_m_4) .* (secret_s_5) in 
   (uint128_declassify (secret_c1_6), uint128_declassify (secret_c2_7)).
 
 Definition keygen   : (int128 '× uint128) :=
   let secret_sk_8 : uint128 :=
-    uint128_classify (@repr WORDSIZE128 4) in 
+    uint128_classify (sk_v) in 
   let pk_9 : int128 :=
     uint128_declassify (uint128_pow_mod (secret_g_v) (secret_sk_8) (
         secret_q_v)) in 
@@ -63,15 +66,11 @@ Definition dec
     uint128_classify (c1_16) in 
   let secret_c2_19 : uint128 :=
     uint128_classify (c2_17) in 
-  let secret_s_20 : uint128 :=
-    uint128_pow_mod (secret_c1_18) (secret_target_sk_14) (secret_q_v) in 
-  let secret_s_inverse_21 : uint128 :=
-    uint128_pow_mod (secret_s_20) ((secret_q_v) .- (secret_g_v)) (
-      secret_q_v) in 
-  let secret_m_22 : uint128 :=
-    uint128_pow_mod ((secret_c2_19) .* (secret_s_inverse_21)) (
-      uint128_classify (@repr WORDSIZE128 1)) (secret_q_v) in 
-  let m_23 : int128 :=
-    uint128_declassify (secret_m_22) in 
-  m_23.
+  let secret_s_inverse_20 : uint128 :=
+    uint128_pow_mod (secret_c1_18) (- (secret_target_sk_14)) (secret_q_v) in 
+  let secret_m_21 : uint128 :=
+    (secret_c2_19) .* (secret_s_inverse_20) in 
+  let m_22 : int128 :=
+    uint128_declassify (secret_m_21) in 
+  m_22.
 

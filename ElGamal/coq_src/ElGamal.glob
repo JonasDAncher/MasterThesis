@@ -1,0 +1,1102 @@
+DIGEST 1c0aff7e7967446fc6d9553445478a5b
+FDiffie.coq_src.ElGamal
+R128:148 Relational.OrderEnrichedCategory <> <> lib
+R150:167 Relational.GenericRulesSimple <> <> lib
+R254:266 mathcomp.ssreflect.all_ssreflect <> <> lib
+R268:278 mathcomp.algebra.all_algebra <> <> lib
+R280:284 mathcomp.analysis.reals <> <> lib
+R286:290 mathcomp.analysis.altreals.distr <> <> lib
+R292:298 mathcomp.analysis.altreals.realsum <> <> lib
+R302:318 mathcomp.fingroup.fingroup <> <> lib
+R320:334 mathcomp.solvable.cyclic <> <> lib
+R336:340 mathcomp.ssreflect.prime <> <> lib
+R342:347 mathcomp.ssreflect.ssrnat <> <> lib
+R349:357 mathcomp.ssreflect.ssreflect <> <> lib
+R359:364 mathcomp.ssreflect.ssrfun <> <> lib
+R366:372 mathcomp.ssreflect.ssrbool <> <> lib
+R374:379 mathcomp.algebra.ssrnum <> <> lib
+R383:388 mathcomp.ssreflect.eqtype <> <> lib
+R390:395 mathcomp.ssreflect.choice <> <> lib
+R397:399 mathcomp.ssreflect.seq <> <> lib
+R479:487 Mon.SPropBase <> <> lib
+R517:522 Crypt.Axioms <> <> lib
+R524:534 Crypt.rhl_semantics.ChoiceAsOrd <> <> lib
+R536:543 Crypt.rhl_semantics.only_prob.SubDistr <> <> lib
+R545:553 Crypt.rhl_semantics.only_prob.Couplings <> <> lib
+R557:574 Crypt.rules.UniformDistrLemmas <> <> lib
+R576:587 Crypt.rhl_semantics.free_monad.FreeProbProg <> <> lib
+R589:598 Crypt.rhl_semantics.only_prob.Theta_dens <> <> lib
+R600:613 Crypt.rules.RulesStateProb <> <> lib
+R615:630 Crypt.rules.UniformStateProb <> <> lib
+R634:652 Crypt.package.pkg_core_definition <> <> lib
+R654:664 Crypt.choice_type <> <> lib
+R666:680 Crypt.package.pkg_composition <> <> lib
+R682:688 Crypt.package.pkg_rhl <> <> lib
+R690:696 Crypt.Package <> <> lib
+R698:704 Crypt.Prelude <> <> lib
+R708:717 Crypt.examples.AsymScheme <> <> lib
+R748:755 Diffie.coq_src.El_Gamal <> <> lib
+R783:786 Coq.Unicode.Utf8 <> <> lib
+R821:823 extructures.ord <> <> lib
+R825:828 extructures.fset <> <> lib
+R830:833 extructures.fmap <> <> lib
+R867:875 Equations.Prop.Equations <> <> lib
+R886:907 Equations.Prop.DepElim <> <> lib
+R1042:1051 mathcomp.algebra.ssrnum Num.Theory <> mod
+R1061:1078 mathcomp.ssreflect.order Order.POrderTheory <> mod
+R1118:1127 mathcomp.fingroup.fingroup GroupScope <> mod
+R1129:1140 mathcomp.algebra.ssralg GRing.Theory <> mod
+R1151:1165 Crypt.package.pkg_notation PackageNotation <> mod
+modtype 1181:1192 <> ElGamalParam
+ax 1208:1209 ElGamalParam gT
+R1213:1224 mathcomp.fingroup.fingroup FinGroup.Exports finGroupType syndef
+def 1240:1241 ElGamalParam ζ
+R1245:1249 mathcomp.ssreflect.finset <> ::type_scope:'{'_'set'_x_'}' not
+R1252:1252 mathcomp.ssreflect.finset <> ::type_scope:'{'_'set'_x_'}' not
+R1250:1251 Diffie.coq_src.ElGamal ElGamalParam gT defax
+R1257:1263 mathcomp.ssreflect.finset <> ::set_scope:'['_'set'_':'_x_']' not
+R1266:1266 mathcomp.ssreflect.finset <> ::set_scope:'['_'set'_':'_x_']' not
+R1264:1265 Diffie.coq_src.ElGamal ElGamalParam gT defax
+ax 1281:1281 ElGamalParam g
+R1286:1287 Diffie.coq_src.ElGamal ElGamalParam gT defax
+ax 1302:1306 ElGamalParam g_gen
+R1312:1314 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1310:1311 Diffie.coq_src.ElGamal ElGamalParam ζ def
+R1315:1316 mathcomp.fingroup.fingroup <> ::group_scope:'<['_x_']'_'>' not
+R1318:1319 mathcomp.fingroup.fingroup <> ::group_scope:'<['_x_']'_'>' not
+R1317:1317 Diffie.coq_src.ElGamal ElGamalParam g defax
+ax 1334:1342 ElGamalParam order_gt1
+R1348:1350 mathcomp.ssreflect.ssrnat <> ::nat_scope:x_'<'_x not
+R1351:1352 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1354:1354 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1353:1353 Diffie.coq_src.ElGamal ElGamalParam g defax
+ax 1372:1375 ElGamalParam q_eq
+R1399:1401 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1379:1393 Coq.ZArith.BinInt Z of_nat def
+R1395:1396 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1398:1398 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1397:1397 Diffie.coq_src.ElGamal ElGamalParam g defax
+R1402:1425 Hacspec.MachineIntegers <> unsigned def
+R1427:1429 Diffie.coq_src.El_Gamal <> q_v def
+R1437:1448 Diffie.coq_src.ElGamal ElGamalParam <> modtype
+R1474:1485 Diffie.coq_src.ElGamal ElGamalParam <> mod
+mod 1459:1465 <> ElGamal
+R1497:1499 Diffie.coq_src.ElGamal EGP <> mod
+prf 1509:1519 ElGamal cyclic_zeta
+R1522:1527 mathcomp.solvable.cyclic <> cyclic def
+R1529:1530 Diffie.coq_src.ElGamal EGP ζ def
+R1549:1555 mathcomp.solvable.cyclic <> cyclicP thm
+R1549:1555 mathcomp.solvable.cyclic <> cyclicP thm
+R1565:1565 Diffie.coq_src.ElGamal EGP g defax
+R1565:1565 Diffie.coq_src.ElGamal EGP g defax
+R1575:1579 Diffie.coq_src.ElGamal EGP g_gen defax
+R1575:1579 Diffie.coq_src.ElGamal EGP g_gen defax
+def 1616:1616 ElGamal q
+R1620:1622 Coq.Init.Datatypes <> nat ind
+R1627:1628 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1630:1630 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1629:1629 Diffie.coq_src.ElGamal EGP g defax
+prf 1640:1646 ElGamal g_gt_eq
+R1658:1660 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1653:1654 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R1657:1657 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R1655:1656 Diffie.coq_src.ElGamal EGP gT defax
+R1661:1662 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1664:1664 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1663:1663 Diffie.coq_src.ElGamal EGP g defax
+R1684:1685 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1687:1687 mathcomp.fingroup.fingroup <> ::group_scope:'#['_x_']' not
+R1704:1718 mathcomp.solvable.cyclic <> generator_cycle thm
+R1704:1718 mathcomp.solvable.cyclic <> generator_cycle thm
+R1730:1738 mathcomp.solvable.cyclic <> generator def
+R1756:1762 mathcomp.ssreflect.finset <> ::set_scope:'['_'set'_':'_x_']' not
+R1764:1764 mathcomp.ssreflect.finset <> ::set_scope:'['_'set'_':'_x_']' not
+R1768:1769 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R1771:1771 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R1786:1791 mathcomp.ssreflect.finset <> cardsT thm
+R1786:1791 mathcomp.ssreflect.finset <> cardsT thm
+R1786:1791 mathcomp.ssreflect.finset <> cardsT thm
+R1810:1811 Diffie.coq_src.ElGamal EGP ζ def
+R1810:1811 Diffie.coq_src.ElGamal EGP ζ def
+R1824:1828 Diffie.coq_src.ElGamal EGP g_gen defax
+R1824:1828 Diffie.coq_src.ElGamal EGP g_gen defax
+R1824:1828 Diffie.coq_src.ElGamal EGP g_gen defax
+R1844:1849 mathcomp.fingroup.fingroup <> orderE thm
+R1844:1849 mathcomp.fingroup.fingroup <> orderE thm
+R1844:1849 mathcomp.fingroup.fingroup <> orderE thm
+prf 1864:1874 ElGamal group_prodC
+R1880:1883 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1892:1893 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R1890:1891 Diffie.coq_src.ElGamal EGP gT defax
+binder 1884:1884 <> x:6
+R1890:1891 Diffie.coq_src.ElGamal EGP gT defax
+binder 1886:1886 <> y:7
+R1899:1901 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1895:1897 mathcomp.fingroup.fingroup <> ::group_scope:x_'*'_x not
+R1894:1894 Diffie.coq_src.ElGamal <> x:6 var
+R1898:1898 Diffie.coq_src.ElGamal <> y:7 var
+R1903:1905 mathcomp.fingroup.fingroup <> ::group_scope:x_'*'_x not
+R1902:1902 Diffie.coq_src.ElGamal <> y:7 var
+R1906:1906 Diffie.coq_src.ElGamal <> x:6 var
+R1942:1948 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1951:1952 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1949:1950 <> ix:8
+R1954:1956 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1958:1959 mathcomp.fingroup.fingroup <> ::group_scope:x_'^+'_x not
+R1957:1957 Diffie.coq_src.ElGamal EGP g defax
+R1960:1961 Diffie.coq_src.ElGamal <> ix:8 var
+R1975:1980 mathcomp.fingroup.fingroup <> cycleP thm
+R1975:1980 mathcomp.fingroup.fingroup <> cycleP thm
+R1992:1996 Diffie.coq_src.ElGamal EGP g_gen defax
+R1992:1996 Diffie.coq_src.ElGamal EGP g_gen defax
+R1992:1996 Diffie.coq_src.ElGamal EGP g_gen defax
+R2010:2016 mathcomp.ssreflect.finset <> in_setT thm
+R2010:2016 mathcomp.ssreflect.finset <> in_setT thm
+R2032:2038 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2041:2042 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 2039:2040 <> iy:9
+R2044:2046 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2048:2049 mathcomp.fingroup.fingroup <> ::group_scope:x_'^+'_x not
+R2047:2047 Diffie.coq_src.ElGamal EGP g defax
+R2050:2051 Diffie.coq_src.ElGamal <> iy:9 var
+R2065:2070 mathcomp.fingroup.fingroup <> cycleP thm
+R2065:2070 mathcomp.fingroup.fingroup <> cycleP thm
+R2082:2086 Diffie.coq_src.ElGamal EGP g_gen defax
+R2082:2086 Diffie.coq_src.ElGamal EGP g_gen defax
+R2082:2086 Diffie.coq_src.ElGamal EGP g_gen defax
+R2100:2106 mathcomp.ssreflect.finset <> in_setT thm
+R2100:2106 mathcomp.ssreflect.finset <> in_setT thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2196:2200 mathcomp.ssreflect.ssrnat <> addnC thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2196:2200 mathcomp.ssreflect.ssrnat <> addnC thm
+R2196:2200 mathcomp.ssreflect.ssrnat <> addnC thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2196:2200 mathcomp.ssreflect.ssrnat <> addnC thm
+R2196:2200 mathcomp.ssreflect.ssrnat <> addnC thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2190:2194 mathcomp.fingroup.fingroup <> expgD thm
+R2240:2261 Crypt.examples.AsymScheme AsymmetricSchemeParams <> mod
+mod 2229:2235 <> ElGamal.MyParam
+def 2278:2294 ElGamal.MyParam SecurityParameter
+R2298:2307 mathcomp.ssreflect.choice Choice.Exports choiceType syndef
+R2312:2325 mathcomp.ssreflect.choice <> nat_choiceType canonstruc
+def 2341:2345 ElGamal.MyParam Plain
+R2350:2356 mathcomp.ssreflect.fintype Finite.Exports finType syndef
+R2361:2380 mathcomp.fingroup.fingroup FinGroup arg_finType def
+R2382:2383 Diffie.coq_src.ElGamal EGP gT defax
+def 2399:2404 ElGamal.MyParam Cipher
+R2408:2414 mathcomp.ssreflect.fintype Finite.Exports finType syndef
+R2423:2434 mathcomp.ssreflect.fintype <> prod_finType canonstruc
+R2463:2482 mathcomp.fingroup.fingroup FinGroup arg_finType def
+R2484:2485 Diffie.coq_src.ElGamal EGP gT defax
+R2437:2456 mathcomp.fingroup.fingroup FinGroup arg_finType def
+R2458:2459 Diffie.coq_src.ElGamal EGP gT defax
+def 2502:2507 ElGamal.MyParam PubKey
+R2511:2517 mathcomp.ssreflect.fintype Finite.Exports finType syndef
+R2522:2541 mathcomp.fingroup.fingroup FinGroup arg_finType def
+R2543:2544 Diffie.coq_src.ElGamal EGP gT defax
+def 2560:2565 ElGamal.MyParam SecKey
+R2569:2575 mathcomp.ssreflect.fintype Finite.Exports finType syndef
+R2580:2591 mathcomp.ssreflect.fintype Finite.Exports ::form_scope:'['_'finType'_'of'_x_']' not
+R2596:2596 mathcomp.ssreflect.fintype Finite.Exports ::form_scope:'['_'finType'_'of'_x_']' not
+R2592:2594 mathcomp.algebra.zmodp <> ::type_scope:'''Z_'_x not
+R2595:2595 Diffie.coq_src.ElGamal ElGamal q def
+def 2613:2618 ElGamal.MyParam plain0
+R2623:2623 Diffie.coq_src.ElGamal EGP g defax
+def 2639:2645 ElGamal.MyParam cipher0
+R2650:2650 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2652:2653 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2655:2655 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2651:2651 Diffie.coq_src.ElGamal EGP g defax
+R2654:2654 Diffie.coq_src.ElGamal EGP g defax
+def 2671:2674 ElGamal.MyParam pub0
+R2679:2679 Diffie.coq_src.ElGamal EGP g defax
+def 2695:2698 ElGamal.MyParam sec0
+R2702:2707 Diffie.coq_src.ElGamal ElGamal.MyParam SecKey def
+R2720:2726 Diffie.coq_src.ElGamal ElGamal.MyParam <> mod
+R2746:2771 Crypt.examples.AsymScheme AsymmetricSchemeAlgorithms <> mod
+R2773:2779 Diffie.coq_src.ElGamal ElGamal.MyParam <> modtype
+mod 2737:2741 <> ElGamal.MyAlg
+R2792:2798 Diffie.coq_src.ElGamal ElGamal.MyParam <> mod
+inst 2823:2833 ElGamal.MyAlg positive_gT
+R2837:2844 Crypt.Prelude <> Positive class
+R2846:2847 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R2850:2850 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R2848:2849 Diffie.coq_src.ElGamal EGP gT defax
+R2873:2881 mathcomp.ssreflect.fintype <> card_gt0P thm
+R2873:2881 mathcomp.ssreflect.fintype <> card_gt0P thm
+R2891:2891 Diffie.coq_src.ElGamal EGP g defax
+R2891:2891 Diffie.coq_src.ElGamal EGP g defax
+inst 2929:2943 ElGamal.MyAlg positive_SecKey
+R2947:2954 Crypt.Prelude <> Positive class
+R2956:2957 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R2964:2964 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R2958:2963 Diffie.coq_src.ElGamal ElGamal.MyParam SecKey def
+R2987:2995 mathcomp.ssreflect.fintype <> card_gt0P thm
+R2987:2995 mathcomp.ssreflect.fintype <> card_gt0P thm
+R3005:3008 Diffie.coq_src.ElGamal ElGamal.MyParam sec0 def
+R3005:3008 Diffie.coq_src.ElGamal ElGamal.MyParam sec0 def
+def 3038:3046 ElGamal.MyAlg Plain_pos
+R3050:3057 Crypt.Prelude <> Positive class
+R3059:3060 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3066:3066 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3061:3065 Diffie.coq_src.ElGamal ElGamal.MyParam Plain def
+def 3087:3096 ElGamal.MyAlg PubKey_pos
+R3100:3107 Crypt.Prelude <> Positive class
+R3109:3110 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3117:3117 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3111:3116 Diffie.coq_src.ElGamal ElGamal.MyParam PubKey def
+def 3138:3147 ElGamal.MyAlg SecKey_pos
+R3151:3158 Crypt.Prelude <> Positive class
+R3160:3161 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3168:3168 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3162:3167 Diffie.coq_src.ElGamal ElGamal.MyParam SecKey def
+inst 3198:3207 ElGamal.MyAlg Cipher_pos
+R3211:3218 Crypt.Prelude <> Positive class
+R3220:3221 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3228:3228 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3222:3227 Diffie.coq_src.ElGamal ElGamal.MyParam Cipher def
+R3251:3256 Diffie.coq_src.ElGamal ElGamal.MyParam Cipher def
+R3267:3275 mathcomp.ssreflect.fintype <> card_prod thm
+R3267:3275 mathcomp.ssreflect.fintype <> card_prod thm
+R3267:3275 mathcomp.ssreflect.fintype <> card_prod thm
+def 3313:3319 ElGamal.MyAlg chPlain
+R3324:3334 Crypt.choice_type <> choice_type ind
+R3339:3343 Crypt.package.pkg_notation PackageNotation ::package_scope:'''fin'_x not
+R3344:3345 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3348:3348 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3346:3347 Diffie.coq_src.ElGamal EGP gT defax
+def 3364:3371 ElGamal.MyAlg chPubKey
+R3375:3385 Crypt.choice_type <> choice_type ind
+R3390:3394 Crypt.package.pkg_notation PackageNotation ::package_scope:'''fin'_x not
+R3395:3396 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3399:3399 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3397:3398 Diffie.coq_src.ElGamal EGP gT defax
+def 3415:3422 ElGamal.MyAlg chCipher
+R3426:3436 Crypt.choice_type <> choice_type ind
+R3441:3445 Crypt.package.pkg_notation PackageNotation ::package_scope:'''fin'_x not
+R3446:3447 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3454:3454 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3448:3453 Diffie.coq_src.ElGamal ElGamal.MyParam Cipher def
+def 3470:3477 ElGamal.MyAlg chSecKey
+R3481:3491 Crypt.choice_type <> choice_type ind
+R3496:3500 Crypt.package.pkg_notation PackageNotation ::package_scope:'''fin'_x not
+R3501:3502 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3509:3509 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R3503:3508 Diffie.coq_src.ElGamal ElGamal.MyParam SecKey def
+def 3526:3536 ElGamal.MyAlg counter_loc
+R3540:3547 Crypt.package.pkg_core_definition <> Location def
+R3552:3552 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3557:3559 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3563:3563 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3553:3556 Crypt.package.pkg_notation PackageNotation ::package_scope:'''nat' not
+def 3579:3584 ElGamal.MyAlg pk_loc
+R3588:3595 Crypt.package.pkg_core_definition <> Location def
+R3600:3600 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3609:3611 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3615:3615 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3601:3608 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+def 3631:3636 ElGamal.MyAlg sk_loc
+R3640:3647 Crypt.package.pkg_core_definition <> Location def
+R3652:3652 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3661:3663 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3667:3667 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3653:3660 Diffie.coq_src.ElGamal ElGamal.MyAlg chSecKey def
+def 3683:3687 ElGamal.MyAlg m_loc
+R3692:3699 Crypt.package.pkg_core_definition <> Location def
+R3704:3704 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3712:3714 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3718:3718 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3705:3711 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+def 3734:3738 ElGamal.MyAlg c_loc
+R3743:3750 Crypt.package.pkg_core_definition <> Location def
+R3755:3755 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3764:3766 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3770:3770 Crypt.Prelude <> :::'('_x_';'_x_')' not
+R3756:3763 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+def 3787:3791 ElGamal.MyAlg kg_id
+R3795:3797 Coq.Init.Datatypes <> nat ind
+def 3818:3823 ElGamal.MyAlg enc_id
+R3827:3829 Coq.Init.Datatypes <> nat ind
+def 3850:3855 ElGamal.MyAlg dec_id
+R3859:3861 Coq.Init.Datatypes <> nat ind
+def 3882:3893 ElGamal.MyAlg challenge_id
+R3897:3899 Coq.Init.Datatypes <> nat ind
+def 3942:3954 ElGamal.MyAlg challenge_id'
+R3958:3960 Coq.Init.Datatypes <> nat ind
+def 4009:4016 ElGamal.MyAlg getpk_id
+R4020:4022 Coq.Init.Datatypes <> nat ind
+def 4081:4087 ElGamal.MyAlg i_plain
+R4092:4093 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4099:4099 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4094:4098 Diffie.coq_src.ElGamal ElGamal.MyParam Plain def
+def 4115:4122 ElGamal.MyAlg i_cipher
+R4127:4128 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4135:4135 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4129:4134 Diffie.coq_src.ElGamal ElGamal.MyParam Cipher def
+def 4151:4154 ElGamal.MyAlg i_pk
+R4159:4160 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4167:4167 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4161:4166 Diffie.coq_src.ElGamal ElGamal.MyParam PubKey def
+def 4183:4186 ElGamal.MyAlg i_sk
+R4191:4192 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4199:4199 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R4193:4198 Diffie.coq_src.ElGamal ElGamal.MyParam SecKey def
+def 4215:4220 ElGamal.MyAlg i_bool
+def 4267:4274 ElGamal.MyAlg NatToOrd
+binder 4277:4277 <> d:10
+R4284:4291 Crypt.Prelude <> Positive class
+R4293:4293 Diffie.coq_src.ElGamal <> d:10 var
+binder 4282:4282 <> p:11
+R4301:4304 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4298:4300 Coq.Init.Datatypes <> nat ind
+R4305:4307 mathcomp.ssreflect.fintype <> :::'''I_'_x not
+R4308:4308 Diffie.coq_src.ElGamal <> d:10 var
+binder 4317:4317 <> n:12
+R4322:4328 mathcomp.ssreflect.fintype <> Ordinal constr
+R4331:4338 mathcomp.ssreflect.div <> ltn_pmod thm
+R4342:4342 Diffie.coq_src.ElGamal <> p:11 var
+R4340:4340 Diffie.coq_src.ElGamal <> n:12 var
+def 4409:4416 ElGamal.MyAlg NatToInt
+R4423:4426 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4420:4422 Coq.Init.Datatypes <> nat ind
+R4427:4445 Hacspec.Hacspec_Lib <> uint128 def
+binder 4454:4454 <> x:13
+R4459:4478 Hacspec.MachineIntegers <> repr def
+R4481:4493 Coq.ZArith.BinInt Z of_N def
+R4496:4510 Coq.NArith.BinNat N of_nat def
+R4512:4512 Diffie.coq_src.ElGamal <> x:13 var
+def 4582:4589 ElGamal.MyAlg FinToInt
+binder 4592:4592 <> n:14
+R4597:4604 Crypt.Prelude <> Positive class
+R4606:4606 Diffie.coq_src.ElGamal <> n:14 var
+binder 4597:4606 <> H:15
+R4617:4620 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4611:4615 Crypt.package.pkg_notation PackageNotation ::package_scope:'''fin'_x not
+R4616:4616 Diffie.coq_src.ElGamal <> n:14 var
+R4621:4639 Hacspec.Hacspec_Lib <> uint128 def
+binder 4648:4648 <> x:16
+R4653:4660 Diffie.coq_src.ElGamal ElGamal.MyAlg NatToInt def
+R4664:4666 Crypt.package.pkg_distr <> fto def
+R4668:4668 Diffie.coq_src.ElGamal <> x:16 var
+def 4712:4719 ElGamal.MyAlg OrdToNat
+binder 4722:4722 <> d:17
+R4729:4736 Crypt.Prelude <> Positive class
+R4738:4738 Diffie.coq_src.ElGamal <> d:17 var
+binder 4727:4727 <> p:18
+R4747:4750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4743:4745 mathcomp.ssreflect.fintype <> :::'''I_'_x not
+R4746:4746 Diffie.coq_src.ElGamal <> d:17 var
+R4751:4753 Coq.Init.Datatypes <> nat ind
+binder 4762:4762 <> n:19
+R4768:4777 mathcomp.ssreflect.fintype <> nat_of_ord coe
+R4779:4779 Diffie.coq_src.ElGamal <> n:19 var
+def 4848:4855 ElGamal.MyAlg IntToNat
+R4878:4881 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4859:4877 Hacspec.Hacspec_Lib <> uint128 def
+R4882:4884 Coq.Init.Datatypes <> nat ind
+binder 4893:4893 <> x:20
+R4899:4913 Coq.ZArith.BinInt Z to_nat def
+R4916:4939 Hacspec.MachineIntegers <> unsigned def
+R4941:4941 Diffie.coq_src.ElGamal <> x:20 var
+def 5012:5019 ElGamal.MyAlg IntToFin
+binder 5022:5022 <> n:21
+R5027:5034 Crypt.Prelude <> Positive class
+R5036:5036 Diffie.coq_src.ElGamal <> n:21 var
+binder 5027:5036 <> H:22
+R5060:5063 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5041:5059 Hacspec.Hacspec_Lib <> uint128 def
+R5064:5068 Crypt.package.pkg_notation PackageNotation ::package_scope:'''fin'_x not
+R5069:5069 Diffie.coq_src.ElGamal <> n:21 var
+binder 5078:5078 <> x:23
+R5083:5090 Diffie.coq_src.ElGamal ElGamal.MyAlg NatToOrd def
+R5093:5100 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToNat def
+R5102:5102 Diffie.coq_src.ElGamal <> x:23 var
+def 5206:5216 ElGamal.MyAlg hacspec_gen
+R5223:5228 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R5237:5237 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R5229:5236 Crypt.package.pkg_core_definition <> Location def
+binder 5219:5219 <> L:24
+R5246:5249 Crypt.package.pkg_core_definition <> code rec
+R5274:5277 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'×'_x not
+R5266:5273 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+R5278:5285 Diffie.coq_src.ElGamal ElGamal.MyAlg chSecKey def
+R5253:5263 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R5251:5251 Diffie.coq_src.ElGamal <> L:24 var
+R5295:5306 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5445:5450 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5329:5343 Diffie.coq_src.El_Gamal <> keygen def
+R5312:5312 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5318:5318 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5324:5324 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5367:5374 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+binder 5358:5362 <> c1Key:25
+R5404:5411 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+binder 5395:5399 <> c2Key:26
+R5428:5430 Crypt.package.pkg_core_definition <> ret constr
+R5432:5432 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5438:5438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5444:5444 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5433:5437 Diffie.coq_src.ElGamal <> c1Key:25 var
+R5439:5443 Diffie.coq_src.ElGamal <> c2Key:26 var
+def 5548:5558 ElGamal.MyAlg hacspec_enc
+R5565:5570 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R5579:5579 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R5571:5578 Crypt.package.pkg_core_definition <> Location def
+binder 5561:5561 <> L:27
+R5591:5598 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+binder 5583:5587 <> pkKey:28
+R5606:5612 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+binder 5602:5602 <> m:29
+R5621:5624 Crypt.package.pkg_core_definition <> code rec
+R5640:5647 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+R5628:5638 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R5626:5626 Diffie.coq_src.ElGamal <> L:27 var
+R5657:5668 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5942:5947 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R5686:5693 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R5695:5699 Diffie.coq_src.ElGamal <> pkKey:28 var
+binder 5673:5677 <> pkInt:30
+R5727:5734 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R5736:5736 Diffie.coq_src.ElGamal <> m:29 var
+binder 5714:5717 <> mInt:31
+R5764:5775 Diffie.coq_src.El_Gamal <> enc def
+R5777:5781 Diffie.coq_src.ElGamal <> pkInt:30 var
+R5783:5786 Diffie.coq_src.ElGamal <> mInt:31 var
+binder 5751:5759 <> cipherInt:32
+R5814:5816 Crypt.package.pkg_distr <> fto def
+R5817:5842 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5869:5894 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5921:5921 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5843:5845 Crypt.package.pkg_distr <> otf def
+R5848:5855 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+R5866:5867 Coq.ssr.ssrfun <> ::pair_scope:x_'.1' not
+R5857:5865 Diffie.coq_src.ElGamal <> cipherInt:32 var
+R5895:5897 Crypt.package.pkg_distr <> otf def
+R5900:5907 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+R5918:5919 Coq.ssr.ssrfun <> ::pair_scope:x_'.2' not
+R5909:5917 Diffie.coq_src.ElGamal <> cipherInt:32 var
+binder 5801:5806 <> cipher:33
+R5932:5934 Crypt.package.pkg_core_definition <> ret constr
+R5936:5941 Diffie.coq_src.ElGamal <> cipher:33 var
+def 6045:6055 ElGamal.MyAlg hacspec_dec
+R6062:6067 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6076:6076 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6068:6075 Crypt.package.pkg_core_definition <> Location def
+binder 6058:6058 <> L:34
+R6088:6095 Diffie.coq_src.ElGamal ElGamal.MyAlg chSecKey def
+binder 6080:6084 <> skKey:35
+R6108:6115 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+binder 6099:6104 <> cipher:36
+R6124:6127 Crypt.package.pkg_core_definition <> code rec
+R6143:6149 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+R6131:6141 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R6129:6129 Diffie.coq_src.ElGamal <> L:34 var
+R6158:6169 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R6416:6421 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R6184:6191 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R6193:6197 Diffie.coq_src.ElGamal <> skKey:35 var
+binder 6174:6178 <> skInt:37
+R6222:6245 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6279:6302 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6336:6336 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6246:6253 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R6256:6258 Crypt.package.pkg_distr <> fto def
+R6261:6263 Coq.Init.Datatypes <> fst def
+R6266:6268 Crypt.package.pkg_distr <> otf def
+R6270:6275 Diffie.coq_src.ElGamal <> cipher:36 var
+R6303:6310 Diffie.coq_src.ElGamal ElGamal.MyAlg FinToInt def
+R6313:6315 Crypt.package.pkg_distr <> fto def
+R6318:6320 Coq.Init.Datatypes <> snd def
+R6323:6325 Crypt.package.pkg_distr <> otf def
+R6327:6332 Diffie.coq_src.ElGamal <> cipher:36 var
+binder 6212:6217 <> cipher:38
+R6361:6372 Diffie.coq_src.El_Gamal <> dec def
+R6374:6378 Diffie.coq_src.ElGamal <> skInt:37 var
+R6380:6385 Diffie.coq_src.ElGamal <> cipher:38 var
+binder 6351:6354 <> mInt:39
+R6396:6398 Crypt.package.pkg_core_definition <> ret constr
+R6401:6408 Diffie.coq_src.ElGamal ElGamal.MyAlg IntToFin def
+R6410:6413 Diffie.coq_src.ElGamal <> mInt:39 var
+def 6472:6477 ElGamal.MyAlg KeyGen
+R6484:6489 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6498:6498 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6490:6497 Crypt.package.pkg_core_definition <> Location def
+binder 6480:6480 <> L:40
+R6507:6510 Crypt.package.pkg_core_definition <> code rec
+R6535:6538 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'×'_x not
+R6527:6534 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+R6539:6546 Diffie.coq_src.ElGamal ElGamal.MyAlg chSecKey def
+R6514:6524 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R6512:6512 Diffie.coq_src.ElGamal <> L:40 var
+R6556:6567 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R6650:6655 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R6569:6580 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_'sample'_x_';;'_x not
+R6593:6602 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_'sample'_x_';;'_x not
+R6581:6587 Crypt.package.pkg_distr <> uniform def
+R6589:6592 Diffie.coq_src.ElGamal ElGamal.MyAlg i_sk def
+binder 6568:6568 <> x:41
+R6612:6614 Crypt.package.pkg_distr <> otf def
+R6616:6616 Diffie.coq_src.ElGamal <> x:41 var
+binder 6607:6607 <> x:42
+R6627:6629 Crypt.package.pkg_core_definition <> ret constr
+R6631:6631 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6642:6643 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6649:6649 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6632:6634 Crypt.package.pkg_distr <> fto def
+R6638:6639 mathcomp.fingroup.fingroup <> ::group_scope:x_'^+'_x not
+R6637:6637 Diffie.coq_src.ElGamal EGP g defax
+R6640:6640 Diffie.coq_src.ElGamal <> x:42 var
+R6644:6646 Crypt.package.pkg_distr <> fto def
+R6648:6648 Diffie.coq_src.ElGamal <> x:42 var
+def 6702:6704 ElGamal.MyAlg Enc
+R6711:6716 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6725:6725 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6717:6724 Crypt.package.pkg_core_definition <> Location def
+binder 6707:6707 <> L:43
+R6734:6741 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+binder 6729:6730 <> pk:44
+R6749:6755 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+binder 6745:6745 <> m:45
+R6764:6767 Crypt.package.pkg_core_definition <> code rec
+R6783:6790 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+R6771:6781 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R6769:6769 Diffie.coq_src.ElGamal <> L:43 var
+R6799:6810 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R6909:6914 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R6812:6823 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_'sample'_x_';;'_x not
+R6836:6845 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_'sample'_x_';;'_x not
+R6824:6830 Crypt.package.pkg_distr <> uniform def
+R6832:6835 Diffie.coq_src.ElGamal ElGamal.MyAlg i_sk def
+binder 6811:6811 <> y:46
+R6855:6857 Crypt.package.pkg_distr <> otf def
+R6859:6859 Diffie.coq_src.ElGamal <> y:46 var
+binder 6850:6850 <> y:47
+R6870:6872 Crypt.package.pkg_core_definition <> ret constr
+R6875:6877 Crypt.package.pkg_distr <> fto def
+R6879:6879 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6884:6885 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6907:6907 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6881:6882 mathcomp.fingroup.fingroup <> ::group_scope:x_'^+'_x not
+R6880:6880 Diffie.coq_src.ElGamal EGP g defax
+R6883:6883 Diffie.coq_src.ElGamal <> y:47 var
+R6897:6900 mathcomp.fingroup.fingroup <> ::group_scope:x_'*'_x not
+R6906:6906 mathcomp.fingroup.fingroup <> ::group_scope:x_'*'_x not
+R6886:6886 mathcomp.fingroup.fingroup <> ::group_scope:x_'^+'_x not
+R6893:6895 mathcomp.fingroup.fingroup <> ::group_scope:x_'^+'_x not
+R6887:6889 Crypt.package.pkg_distr <> otf def
+R6891:6892 Diffie.coq_src.ElGamal <> pk:44 var
+R6896:6896 Diffie.coq_src.ElGamal <> y:47 var
+R6901:6903 Crypt.package.pkg_distr <> otf def
+R6905:6905 Diffie.coq_src.ElGamal <> m:45 var
+def 6961:6968 ElGamal.MyAlg Dec_open
+R6975:6980 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6989:6989 extructures.fset FSet.Exports ::type_scope:'{'_'fset'_x_'}' not
+R6981:6988 Crypt.package.pkg_core_definition <> Location def
+binder 6971:6971 <> L:48
+R6998:7005 Diffie.coq_src.ElGamal ElGamal.MyAlg chSecKey def
+binder 6993:6994 <> sk:49
+R7013:7020 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+binder 7009:7009 <> c:50
+R7029:7032 Crypt.package.pkg_core_definition <> code rec
+R7048:7054 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+R7036:7046 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R7034:7034 Diffie.coq_src.ElGamal <> L:48 var
+R7063:7074 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R7128:7133 Crypt.package.pkg_core_definition <> ::package_scope:'{'_'code'_x_'}' not
+R7075:7077 Crypt.package.pkg_core_definition <> ret constr
+R7080:7082 Crypt.package.pkg_distr <> fto def
+R7108:7112 mathcomp.fingroup.fingroup <> ::group_scope:x_'*'_x not
+R7124:7125 mathcomp.fingroup.fingroup <> ::group_scope:x_'*'_x not
+R7085:7085 mathcomp.fingroup.fingroup <> ::group_scope:x_'^-'_x not
+R7097:7100 mathcomp.fingroup.fingroup <> ::group_scope:x_'^-'_x not
+R7107:7107 mathcomp.fingroup.fingroup <> ::group_scope:x_'^-'_x not
+R7086:7088 Coq.Init.Datatypes <> fst def
+R7091:7093 Crypt.package.pkg_distr <> otf def
+R7095:7095 Diffie.coq_src.ElGamal <> c:50 var
+R7101:7103 Crypt.package.pkg_distr <> otf def
+R7105:7106 Diffie.coq_src.ElGamal <> sk:49 var
+R7113:7115 Coq.Init.Datatypes <> snd def
+R7118:7120 Crypt.package.pkg_distr <> otf def
+R7122:7122 Diffie.coq_src.ElGamal <> c:50 var
+R7166:7172 Diffie.coq_src.ElGamal ElGamal.MyAlg chPlain def
+not 7148:7148 ElGamal.MyAlg :pack_type::'''plain'
+R7243:7250 Diffie.coq_src.ElGamal ElGamal.MyAlg chCipher def
+not 7224:7224 ElGamal.MyAlg :pack_type::'''cipher'
+R7321:7328 Diffie.coq_src.ElGamal ElGamal.MyAlg chPubKey def
+not 7302:7302 ElGamal.MyAlg :pack_type::'''pubkey'
+R7373:7377 Diffie.coq_src.ElGamal ElGamal.MyAlg <> mod
+R7439:7454 Crypt.examples.AsymScheme AsymmetricScheme <> modtype
+R7456:7462 Diffie.coq_src.ElGamal ElGamal.MyParam <> modtype
+R7464:7468 Diffie.coq_src.ElGamal ElGamal.MyAlg <> modtype
+mod 7421:7434 <> ElGamal.ElGamal_Scheme
+R7479:7485 Diffie.coq_src.ElGamal ElGamal.MyParam <> mod
+R7487:7491 Diffie.coq_src.ElGamal ElGamal.MyAlg <> mod
+R7493:7506 Diffie.coq_src.ElGamal ElGamal.ElGamal_Scheme <> mod
+prf 7516:7529 ElGamal counter_loc_in
+R7546:7551 Coq.ssr.ssrbool <> ::bool_scope:x_'\in'_x not
+R7590:7590 Coq.ssr.ssrbool <> ::bool_scope:x_'\in'_x not
+R7535:7545 Diffie.coq_src.ElGamal ElGamal counter_loc def
+R7552:7555 extructures.fset <> fset def
+R7557:7560 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7572:7573 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7580:7581 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7588:7589 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7561:7571 Diffie.coq_src.ElGamal ElGamal counter_loc def
+R7574:7579 Diffie.coq_src.ElGamal ElGamal pk_loc def
+R7582:7587 Diffie.coq_src.ElGamal ElGamal sk_loc def
+prf 7628:7636 ElGamal pk_loc_in
+R7648:7653 Coq.ssr.ssrbool <> ::bool_scope:x_'\in'_x not
+R7692:7692 Coq.ssr.ssrbool <> ::bool_scope:x_'\in'_x not
+R7642:7647 Diffie.coq_src.ElGamal ElGamal pk_loc def
+R7654:7657 extructures.fset <> fset def
+R7659:7662 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7674:7675 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7682:7683 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7690:7691 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7663:7673 Diffie.coq_src.ElGamal ElGamal counter_loc def
+R7676:7681 Diffie.coq_src.ElGamal ElGamal pk_loc def
+R7684:7689 Diffie.coq_src.ElGamal ElGamal sk_loc def
+prf 7730:7738 ElGamal sk_loc_in
+R7750:7755 Coq.ssr.ssrbool <> ::bool_scope:x_'\in'_x not
+R7794:7794 Coq.ssr.ssrbool <> ::bool_scope:x_'\in'_x not
+R7744:7749 Diffie.coq_src.ElGamal ElGamal sk_loc def
+R7756:7759 extructures.fset <> fset def
+R7761:7764 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7776:7777 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7784:7785 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7792:7793 mathcomp.ssreflect.seq <> ::seq_scope:'['_'::'_x_';'_x_';'_'..'_';'_x_']' not
+R7765:7775 Diffie.coq_src.ElGamal ElGamal counter_loc def
+R7778:7783 Diffie.coq_src.ElGamal ElGamal pk_loc def
+R7786:7791 Diffie.coq_src.ElGamal ElGamal sk_loc def
+def 7837:7848 ElGamal Enc_Dec_real
+R7854:7860 Crypt.package.pkg_core_definition <> package rec
+R7862:7866 extructures.fset <> fset0 def
+R7868:7878 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R7884:7894 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_x_']' not
+R7925:7926 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_x_']' not
+R7895:7901 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R7904:7907 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R7914:7918 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R7908:7913 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R7919:7924 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R7935:7949 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'package'_x_']' not
+R8101:8106 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'package'_x_']' not
+R7950:7956 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R7959:7961 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R7963:7965 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R7972:7975 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R7982:7998 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8093:8100 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R7966:7971 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R7976:7981 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+binder 7962:7962 <> m:51
+R7999:7999 Crypt.package.pkg_notation PackageNotation ::package_scope:''''_x_'←'_x_';;'_x not
+R8008:8012 Crypt.package.pkg_notation PackageNotation ::package_scope:''''_x_'←'_x_';;'_x not
+R8019:8030 Crypt.package.pkg_notation PackageNotation ::package_scope:''''_x_'←'_x_';;'_x not
+R8013:8018 Diffie.coq_src.ElGamal ElGamal KeyGen def
+R8000:8000 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8003:8004 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8007:8007 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 8005:8006 <> sk:52
+binder 8001:8002 <> pk:53
+binder 8000:8007 <> pat:54
+R8032:8036 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8045:8056 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8037:8039 Diffie.coq_src.ElGamal ElGamal Enc def
+R8044:8044 Diffie.coq_src.ElGamal <> m:51 var
+R8041:8042 Diffie.coq_src.ElGamal <> pk:53 var
+binder 8031:8031 <> c:55
+R8058:8062 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8076:8087 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8063:8070 Diffie.coq_src.ElGamal ElGamal Dec_open def
+R8075:8075 Diffie.coq_src.ElGamal <> c:55 var
+R8072:8073 Diffie.coq_src.ElGamal <> sk:52 var
+binder 8057:8057 <> m:56
+R8088:8090 Crypt.package.pkg_core_definition <> ret constr
+R8092:8092 Diffie.coq_src.ElGamal <> m:56 var
+def 8121:8140 ElGamal Hacspec_Enc_Dec_real
+R8146:8152 Crypt.package.pkg_core_definition <> package rec
+R8154:8158 extructures.fset <> fset0 def
+R8160:8170 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R8176:8186 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_x_']' not
+R8217:8218 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_x_']' not
+R8187:8193 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R8196:8199 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R8206:8210 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R8200:8205 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R8211:8216 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R8227:8241 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'package'_x_']' not
+R8409:8414 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'package'_x_']' not
+R8242:8248 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8251:8253 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8255:8257 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8264:8267 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8274:8290 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8401:8408 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8258:8263 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R8268:8273 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+binder 8254:8254 <> m:57
+R8291:8291 Crypt.package.pkg_notation PackageNotation ::package_scope:''''_x_'←'_x_';;'_x not
+R8300:8304 Crypt.package.pkg_notation PackageNotation ::package_scope:''''_x_'←'_x_';;'_x not
+R8316:8327 Crypt.package.pkg_notation PackageNotation ::package_scope:''''_x_'←'_x_';;'_x not
+R8305:8315 Diffie.coq_src.ElGamal ElGamal hacspec_gen def
+R8292:8292 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8295:8296 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8299:8299 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 8297:8298 <> sk:58
+binder 8293:8294 <> pk:59
+binder 8292:8299 <> pat:60
+R8329:8333 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8350:8361 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8334:8344 Diffie.coq_src.ElGamal ElGamal hacspec_enc def
+R8349:8349 Diffie.coq_src.ElGamal <> m:57 var
+R8346:8347 Diffie.coq_src.ElGamal <> pk:59 var
+binder 8328:8328 <> c:61
+R8363:8367 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8384:8395 Crypt.package.pkg_notation PackageNotation ::package_scope:x_'←'_x_';;'_x not
+R8368:8378 Diffie.coq_src.ElGamal ElGamal hacspec_dec def
+R8383:8383 Diffie.coq_src.ElGamal <> c:61 var
+R8380:8381 Diffie.coq_src.ElGamal <> sk:58 var
+binder 8362:8362 <> m:62
+R8396:8398 Crypt.package.pkg_core_definition <> ret constr
+R8400:8400 Diffie.coq_src.ElGamal <> m:62 var
+def 8430:8442 ElGamal Enc_Dec_ideal
+R8448:8454 Crypt.package.pkg_core_definition <> package rec
+R8456:8460 extructures.fset <> fset0 def
+R8462:8472 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_']' not
+R8478:8488 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_x_']' not
+R8519:8520 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'interface'_x_']' not
+R8489:8495 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R8498:8501 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R8508:8512 Crypt.package.pkg_notation PackageNotation :interface::'#val'_'#['_x_']'_':'_x_'→'_x not
+R8502:8507 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R8513:8518 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R8529:8543 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'package'_x_']' not
+R8606:8611 Crypt.package.pkg_notation PackageNotation ::package_scope:'['_'package'_x_']' not
+R8544:8550 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8553:8555 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8557:8559 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8566:8569 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8576:8592 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8598:8605 Crypt.package.pkg_notation PackageNotation :package:package_scope:'#def'_'#['_x_']'_'('_x_':'_x_')'_':'_x_'{'_x_'}' not
+R8560:8565 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+R8570:8575 Diffie.coq_src.ElGamal ElGamal.MyAlg :pack_type::'''plain' not
+binder 8556:8556 <> m:63
+R8593:8595 Crypt.package.pkg_core_definition <> ret constr
+R8597:8597 Diffie.coq_src.ElGamal <> m:63 var
+prf 8621:8635 ElGamal Enc_Dec_Perfect
+R8653:8660 Crypt.package.pkg_advantage <> ::package_scope:x_'≈₀'_x not
+R8641:8652 Diffie.coq_src.ElGamal ElGamal Enc_Dec_real def
+R8661:8673 Diffie.coq_src.ElGamal ElGamal Enc_Dec_ideal def
+R8692:8709 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
+R8692:8709 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
+R3720:3722 mathcomp.ssreflect.eqtype <> eqP thm
+R8741:8756 Crypt.package.pkg_rhl <> r_const_sample_L thm
+R8741:8756 Crypt.package.pkg_rhl <> r_const_sample_L thm
+R8770:8787 Crypt.package.pkg_distr <> LosslessOp_uniform inst
+R8770:8787 Crypt.package.pkg_distr <> LosslessOp_uniform inst
+R8811:8826 Crypt.package.pkg_rhl <> r_const_sample_L thm
+R8811:8826 Crypt.package.pkg_rhl <> r_const_sample_L thm
+R8840:8857 Crypt.package.pkg_distr <> LosslessOp_uniform inst
+R8840:8857 Crypt.package.pkg_distr <> LosslessOp_uniform inst
+R8881:8885 Crypt.package.pkg_rhl <> r_ret thm
+R8881:8885 Crypt.package.pkg_rhl <> r_ret thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8958:8964 Crypt.package.pkg_distr <> otf_fto thm
+R8992:8996 mathcomp.fingroup.fingroup <> expgM thm
+R8992:8996 mathcomp.fingroup.fingroup <> expgM thm
+R8992:8996 mathcomp.fingroup.fingroup <> expgM thm
+R8992:8996 mathcomp.fingroup.fingroup <> expgM thm
+R9009:9013 mathcomp.ssreflect.ssrnat <> mulnC thm
+R9009:9013 mathcomp.ssreflect.ssrnat <> mulnC thm
+R9009:9013 mathcomp.ssreflect.ssrnat <> mulnC thm
+R9026:9030 mathcomp.fingroup.fingroup <> mulgA thm
+R9026:9030 mathcomp.fingroup.fingroup <> mulgA thm
+R9026:9030 mathcomp.fingroup.fingroup <> mulgA thm
+R9043:9047 mathcomp.fingroup.fingroup <> mulVg thm
+R9043:9047 mathcomp.fingroup.fingroup <> mulVg thm
+R9043:9047 mathcomp.fingroup.fingroup <> mulVg thm
+R9060:9064 mathcomp.fingroup.fingroup <> mul1g thm
+R9060:9064 mathcomp.fingroup.fingroup <> mul1g thm
+R9060:9064 mathcomp.fingroup.fingroup <> mul1g thm
+R9077:9083 Crypt.package.pkg_distr <> fto_otf thm
+R9077:9083 Crypt.package.pkg_distr <> fto_otf thm
+R9077:9083 Crypt.package.pkg_distr <> fto_otf thm
+prf 9113:9132 ElGamal FinToInt_IntToFin_Eq
+R9137:9139 Coq.Init.Datatypes <> nat ind
+binder 9135:9135 <> k:64
+R9144:9151 Crypt.Prelude <> Positive class
+R9153:9153 Diffie.coq_src.ElGamal <> k:64 var
+binder 9144:9153 <> H:65
+R9159:9163 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R9189:9192 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R9167:9188 Hacspec.MachineIntegers <> int128 def
+binder 9164:9164 <> n:66
+R9219:9221 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9194:9201 Diffie.coq_src.ElGamal ElGamal FinToInt def
+R9203:9203 Diffie.coq_src.ElGamal <> k:64 var
+R9208:9215 Diffie.coq_src.ElGamal ElGamal IntToFin def
+R9217:9217 Diffie.coq_src.ElGamal <> n:66 var
+R9222:9241 Hacspec.MachineIntegers <> modu def
+R9243:9243 Diffie.coq_src.ElGamal <> n:66 var
+R9246:9253 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R9255:9255 Diffie.coq_src.ElGamal <> k:64 var
+R9301:9308 Diffie.coq_src.ElGamal ElGamal FinToInt def
+R9311:9318 Diffie.coq_src.ElGamal ElGamal IntToFin def
+R9321:9328 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R9331:9338 Diffie.coq_src.ElGamal ElGamal NatToOrd def
+R9341:9348 Diffie.coq_src.ElGamal ElGamal IntToNat def
+R9351:9353 Crypt.package.pkg_distr <> fto def
+R9366:9378 mathcomp.ssreflect.fintype <> enum_rank_ord thm
+R9366:9378 mathcomp.ssreflect.fintype <> enum_rank_ord thm
+R9366:9378 mathcomp.ssreflect.fintype <> enum_rank_ord thm
+R9444:9463 Hacspec.MachineIntegers <> modu def
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9483:9494 Coq.ZArith.Znat <> nat_N_Z thm
+R9507:9517 mathcomp.word.ssrZ <> modnZE thm
+R9507:9517 mathcomp.word.ssrZ <> modnZE thm
+R9507:9517 mathcomp.word.ssrZ <> modnZE thm
+R9531:9539 mathcomp.ssreflect.ssrnat <> lt0n_neq0 thm
+R9531:9539 mathcomp.ssreflect.ssrnat <> lt0n_neq0 thm
+R9553:9563 Crypt.Prelude <> is_positive def
+R9553:9563 Crypt.Prelude <> is_positive def
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9583:9595 Coq.ZArith.Znat Z2Nat id thm
+R9609:9640 Hacspec.MachineIntegers <> unsigned_range_2 thm
+R9609:9640 Hacspec.MachineIntegers <> unsigned_range_2 thm
+R9654:9677 Hacspec.MachineIntegers <> unsigned def
+R9679:9698 Hacspec.MachineIntegers <> repr def
+R9757:9759 Coq.micromega.Lia <> <> lib
+prf 9768:9787 ElGamal NatToInt_IntToNat_Eq
+R9803:9821 Hacspec.Hacspec_Lib <> uint128 def
+binder 9800:9800 <> n:67
+R9852:9854 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9831:9838 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R9841:9848 Diffie.coq_src.ElGamal ElGamal IntToNat def
+R9850:9850 Diffie.coq_src.ElGamal <> n:67 var
+R9855:9855 Diffie.coq_src.ElGamal <> n:67 var
+R9886:9893 Diffie.coq_src.ElGamal ElGamal NatToInt def
+R9896:9903 Diffie.coq_src.ElGamal ElGamal IntToNat def
+R9923:9934 Coq.ZArith.Znat <> nat_N_Z thm
+R9923:9934 Coq.ZArith.Znat <> nat_N_Z thm
+R9923:9934 Coq.ZArith.Znat <> nat_N_Z thm
+R9923:9934 Coq.ZArith.Znat <> nat_N_Z thm
+R9923:9934 Coq.ZArith.Znat <> nat_N_Z thm
+R9947:9959 Coq.ZArith.Znat Z2Nat id thm
+R9947:9959 Coq.ZArith.Znat Z2Nat id thm
+R9947:9959 Coq.ZArith.Znat Z2Nat id thm
+R9973:10004 Hacspec.MachineIntegers <> unsigned_range_2 thm
+R9973:10004 Hacspec.MachineIntegers <> unsigned_range_2 thm
+R10015:10043 Hacspec.MachineIntegers <> repr_unsigned thm
+R10015:10043 Hacspec.MachineIntegers <> repr_unsigned thm
+ax 11847:11861 ElGamal Remove_Classify
+R11868:11872 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R11898:11905 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R11876:11897 Hacspec.MachineIntegers <> int128 def
+binder 11873:11873 <> n:68
+R11937:11939 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11906:11933 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R11935:11935 Diffie.coq_src.ElGamal <> n:68 var
+R11940:11940 Diffie.coq_src.ElGamal <> n:68 var
+ax 11950:11966 ElGamal Remove_Declassify
+R11973:11977 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R12003:12010 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R11981:12002 Hacspec.MachineIntegers <> int128 def
+binder 11978:11978 <> n:70
+R12044:12046 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12011:12040 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R12042:12042 Diffie.coq_src.ElGamal <> n:70 var
+R12047:12047 Diffie.coq_src.ElGamal <> n:70 var
+ax 12057:12069 ElGamal Remove_Secret
+R12075:12079 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R12105:12111 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R12083:12104 Hacspec.MachineIntegers <> int128 def
+binder 12080:12080 <> n:72
+R12132:12134 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12112:12129 Hacspec.Hacspec_Lib <> secret prfax
+R12131:12131 Diffie.coq_src.ElGamal <> n:72 var
+R12135:12135 Diffie.coq_src.ElGamal <> n:72 var
+ax 12145:12157 ElGamal unsigned_repr
+R12163:12167 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R12180:12186 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R12171:12179 Coq.Numbers.BinNums <> Z ind
+binder 12168:12168 <> n:74
+R12265:12267 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12188:12211 Hacspec.MachineIntegers <> unsigned def
+R12213:12239 Hacspec.MachineIntegers <> WORDSIZE128 inst
+R12242:12261 Hacspec.MachineIntegers <> repr def
+R12263:12263 Diffie.coq_src.ElGamal <> n:74 var
+R12268:12268 Diffie.coq_src.ElGamal <> n:74 var
+prf 12460:12482 ElGamal Hacspec_Enc_Dec_Perfect
+R12508:12515 Crypt.package.pkg_advantage <> ::package_scope:x_'≈₀'_x not
+R12488:12507 Diffie.coq_src.ElGamal ElGamal Hacspec_Enc_Dec_real def
+R12516:12528 Diffie.coq_src.ElGamal ElGamal Enc_Dec_ideal def
+R12547:12564 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
+R12547:12564 Crypt.package.pkg_rhl <> eq_rel_perf_ind_eq thm
+R3720:3722 mathcomp.ssreflect.eqtype <> eqP thm
+R12596:12600 Crypt.package.pkg_rhl <> r_ret thm
+R12596:12600 Crypt.package.pkg_rhl <> r_ret thm
+R12673:12679 Crypt.package.pkg_distr <> otf_fto thm
+R12673:12679 Crypt.package.pkg_distr <> otf_fto thm
+R12673:12679 Crypt.package.pkg_distr <> otf_fto thm
+R12673:12679 Crypt.package.pkg_distr <> otf_fto thm
+R12673:12679 Crypt.package.pkg_distr <> otf_fto thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12699:12705 Crypt.package.pkg_distr <> fto_otf thm
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12725:12741 Diffie.coq_src.ElGamal ElGamal Remove_Declassify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12761:12775 Diffie.coq_src.ElGamal ElGamal Remove_Classify prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12795:12814 Diffie.coq_src.ElGamal ElGamal FinToInt_IntToFin_Eq prfax
+R12834:12853 Diffie.coq_src.ElGamal ElGamal NatToInt_IntToNat_Eq thm
+R12834:12853 Diffie.coq_src.ElGamal ElGamal NatToInt_IntToNat_Eq thm
+R12834:12853 Diffie.coq_src.ElGamal ElGamal NatToInt_IntToNat_Eq thm
+R12865:12884 Hacspec.MachineIntegers <> modu def
+R12943:12955 Diffie.coq_src.ElGamal ElGamal Remove_Secret prfax
+R12943:12955 Diffie.coq_src.ElGamal ElGamal Remove_Secret prfax
+R12943:12955 Diffie.coq_src.ElGamal ElGamal Remove_Secret prfax
+R12968:12987 Hacspec.MachineIntegers <> modu def
+R12990:13008 Hacspec.MachineIntegers <> mul def
+R13011:13029 Hacspec.MachineIntegers <> sub def
+R13037:13058 Diffie.coq_src.powmod <> uint128_pow_mod def
+R13061:13070 Diffie.coq_src.powmod <> pow def
+R13073:13093 Diffie.coq_src.powmod <> uint128_modulo def
+R13096:13115 Hacspec.MachineIntegers <> modu def
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13135:13147 Diffie.coq_src.ElGamal ElGamal unsigned_repr prfax
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13167:13178 Coq.ZArith.Znat <> nat_N_Z thm
+R13201:13215 Coq.ZArith.Zdiv <> Zmod_small thm
+R13218:13229 Coq.Numbers.BinNums <> Zpos constr
+R13232:13241 Coq.Numbers.BinNums <> xO constr
+R13244:13253 Coq.Numbers.BinNums <> xO constr
+R13201:13215 Coq.ZArith.Zdiv <> Zmod_small thm
+R13218:13229 Coq.Numbers.BinNums <> Zpos constr
+R13232:13241 Coq.Numbers.BinNums <> xO constr
+R13244:13253 Coq.Numbers.BinNums <> xO constr
+R13201:13215 Coq.ZArith.Zdiv <> Zmod_small thm
+R13218:13229 Coq.Numbers.BinNums <> Zpos constr
+R13232:13241 Coq.Numbers.BinNums <> xO constr
+R13244:13253 Coq.Numbers.BinNums <> xO constr
+R13311:13313 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13290:13304 Coq.ZArith.BinInt Z of_nat def
+R13306:13307 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R13310:13310 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R13308:13309 Diffie.coq_src.ElGamal EGP gT defax
+R13314:13337 Hacspec.MachineIntegers <> unsigned def
+R13339:13348 Diffie.coq_src.El_Gamal <> secret_q_v def
+R13311:13313 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13290:13304 Coq.ZArith.BinInt Z of_nat def
+R13306:13307 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R13310:13310 mathcomp.ssreflect.fintype <> ::nat_scope:'#|'_x_'|' not
+R13308:13309 Diffie.coq_src.ElGamal EGP gT defax
+R13314:13337 Hacspec.MachineIntegers <> unsigned def
+R13339:13348 Diffie.coq_src.El_Gamal <> secret_q_v def
+R13381:13387 Diffie.coq_src.ElGamal ElGamal g_gt_eq thm
+R13381:13387 Diffie.coq_src.ElGamal ElGamal g_gt_eq thm
+R13381:13387 Diffie.coq_src.ElGamal ElGamal g_gt_eq thm
+R13403:13406 Diffie.coq_src.ElGamal EGP q_eq defax
+R13403:13406 Diffie.coq_src.ElGamal EGP q_eq defax
+R13403:13406 Diffie.coq_src.ElGamal EGP q_eq defax
+R13421:13430 Diffie.coq_src.El_Gamal <> secret_q_v def
+R13446:13458 Diffie.coq_src.ElGamal ElGamal Remove_Secret prfax
+R13446:13458 Diffie.coq_src.ElGamal ElGamal Remove_Secret prfax
+R13446:13458 Diffie.coq_src.ElGamal ElGamal Remove_Secret prfax
+R13489:13501 Coq.ZArith.Zdiv <> Zmod_mod thm
+R13489:13501 Coq.ZArith.Zdiv <> Zmod_mod thm
+R13489:13501 Coq.ZArith.Zdiv <> Zmod_mod thm
+R13489:13501 Coq.ZArith.Zdiv <> Zmod_mod thm
+R13489:13501 Coq.ZArith.Zdiv <> Zmod_mod thm
+R13530:13532 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13514:13525 Coq.ZArith.BinInt Z mul def
+R13533:13544 Coq.Numbers.BinNums <> Zpos constr
+R13564:13580 Coq.ZArith.BinInt Z mul_eq_1 def
+R13564:13580 Coq.ZArith.BinInt Z mul_eq_1 def

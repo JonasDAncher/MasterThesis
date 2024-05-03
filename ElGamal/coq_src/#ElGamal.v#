@@ -451,6 +451,11 @@ Axiom unsigned_repr :
   ∀ {n: BinNums.Z},
     @MachineIntegers.unsigned MachineIntegers.WORDSIZE128 (MachineIntegers.repr n) = n.
 (* 
+Axiom m_lt_q : 
+  ∀ {m:(Choice.sort chPlain)}{q_v : Hacspec_Lib.uint128},
+
+    q_v<m.
+ *)(* 
 Axiom Remove_FinToInt_IntToFin :
  {k:nat} `{Positive k}
   ∀ {n: MachineIntegers.int128} ,
@@ -493,8 +498,30 @@ Proof.
   1: rewrite Remove_Secret.
   1: done.
   repeat rewrite Zdiv.Zmod_mod.
-  Search (BinInt.Z.mul _ _ = BinNums.Zpos 1%AC).
-  erewrite BinInt.Z.mul_eq_1.
+  rewrite (Zdiv.Zmod_small (BinInt.Z.mul (BinInt.Z.of_nat (fto m))
+              (BinInt.Z.modulo
+                 (BinInt.Z.pow_pos
+                    (BinInt.Z.modulo
+                       (BinInt.Z.pow_pos (MachineIntegers.unsigned secret_g_v)
+                          (BinNums.xO (BinNums.xO 1%AC)))
+                       (MachineIntegers.unsigned secret_q_v))
+                    (BinNums.xO (BinNums.xO 1%AC)))
+                 (MachineIntegers.unsigned secret_q_v)))
+           (MachineIntegers.unsigned secret_q_v)).
+  2: split.
+  2,3: admit.
+  Search "inverse".
+  Search 
+  
+
+
+  1: erewrite BinInt.Z.mul_eq_1.
+
+
+
+
+
+  simpl.
   
   
   
