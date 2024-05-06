@@ -510,7 +510,9 @@ Proof.
   repeat rewrite Znat.nat_N_Z.
   rewrite Remove_mod_gT.
   rewrite (Zdiv.Zmod_small (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC)))).
-  2: admit.
+  2: split.
+  2,3 : admit.
+  
   
   assert (BinInt.Z.of_nat #|gT| = MachineIntegers.unsigned secret_q_v).
   2: rewrite H.
@@ -525,10 +527,11 @@ Proof.
   repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
   erewrite asd.
   erewrite BinInt.Z.mul_1_r.
-  
-
+  unfold IntToFin.
+  simpl.
+  Set Printing All.
+  Search IntToFin fto.
   reflexivity.
-  
 Qed.
 
 
