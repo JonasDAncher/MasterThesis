@@ -450,7 +450,33 @@ Axiom Remove_Secret :
 Axiom unsigned_repr :
   ∀ {n: BinNums.Z},
     @MachineIntegers.unsigned MachineIntegers.WORDSIZE128 (MachineIntegers.repr n) = n.
+
+Axiom Remove_mod_gT :
+  ∀ {n: BinNums.Z},
+    (BinInt.Z.modulo n (BinInt.Z.of_nat #|gT|)) = n.
+
+Axiom asd:
+  ∀ {n z q: BinNums.Z},
+  BinInt.Z.mul(BinInt.Z.modulo (OrdersEx.Z_as_OT.pow n z) q) (BinInt.Z.modulo (BinInt.Z.pow n (BinInt.Z.opp z)) q) = (BinNums.Zpos 1%AC).
+ 
+  Search BinInt.Z.modulo BinInt.Z.mul.
+
+
 (* 
+BinInt.Z.pow
+        (BinInt.Z.modulo
+           (BinInt.Z.pow_pos (MachineIntegers.unsigned secret_g_v)
+              (BinNums.xO (BinNums.xO 1%AC)))
+           (MachineIntegers.unsigned secret_q_v))
+        (BinInt.Z.opp (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC))))))
+ *)
+
+(* 
+Axiom m_lt_q : 
+  ∀ {m:(Choice.sort chPlain)}{q_v : Hacspec_Lib.uint128},
+
+    q_v<m.
+ *)(* 
 Axiom Remove_FinToInt_IntToFin :
  {k:nat} `{Positive k}
   ∀ {n: MachineIntegers.int128} ,
@@ -474,6 +500,7 @@ Proof.
   repeat rewrite FinToInt_IntToFin_Eq.
   repeat rewrite NatToInt_IntToNat_Eq.
   unfold MachineIntegers.modu.
+
 (*   unfold secret_q_v, secret_g_v. *)
   repeat rewrite Remove_Secret.
 
@@ -481,7 +508,7 @@ Proof.
     powmod.uint128_pow_mod, powmod.pow, powmod.uint128_modulo, MachineIntegers.modu.
   repeat rewrite unsigned_repr.
   repeat rewrite Znat.nat_N_Z.
-  simpl.
+  rewrite Remove_mod_gT.
   rewrite (Zdiv.Zmod_small (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC)))).
   2: admit.
   
@@ -493,72 +520,14 @@ Proof.
   1: rewrite Remove_Secret.
   1: done.
   repeat rewrite Zdiv.Zmod_mod.
-  Search (BinInt.Z.mul _ _ = BinNums.Zpos 1%AC).
-  erewrite BinInt.Z.mul_eq_1.
-  
-  
-  
-
-  Search (BinInt.Z.modulo ?x _ = ?x).
-(*   Zdiv.Zmod_mod
- *)
-  unfold powmod.uint128_pow_mod, Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.int64_to_int128, 
-    Hacspec_Lib.int64_to_nat, Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.uint_size_to_nat, powmod.uint128_modulo.
-  unfold Hacspec_Lib.uint_size_to_int64, Hacspec_Lib.uint_size_to_nat, Hacspec_Lib.int128_to_nat, 
-    Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.int64_to_int128, Hacspec_Lib.int64_to_int128, Hacspec_Lib.uint_size_to_nat,
-    Hacspec_Lib.int64_to_nat, Hacspec_Lib.uint_size_to_nat, Hacspec_Lib.Z_to_uint_size,
-    secret_q_v, powmod.pow, MachineIntegers.modu.
-  Set Printing All.
-  Search MachineIntegers.unsigned MachineIntegers.repr.
-
-  Search BinNums.xI BinNums.xO.
-  repeat rewrite POrderedType.Positive_as_OT.xI_succ_xO.
-  Search POrderedType.Positive_as_OT.succ BinNums.xO.
-  rewrite OrdersEx.Positive_as_DT.xI_succ_xO. 
-
-  rewrite POrderedType.Positive_as_OT.succ_pred_double.
-  repeat 
-  unfold MachineIntegers.int128.
-  
-  Arguments repr (_) _:clear implicits.
-  replace (@MachineIntegers.repr MachineIntegers.WORDSIZE128 (MachineIntegers.unsigned q_v)) with q_v.
-  setoid_rewrite (@MachineIntegers.repr_unsigned MachineIntegers.WORDSIZE128 q_v).
-  
-  Search "of_nat" MachineIntegers.repr.
-
-  simpl.
-  unfold secret_q_v.
-  
-  unfold powmod.uint128_pow_mod, Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.int64_to_int128, 
-    Hacspec_Lib.int64_to_nat, Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.uint_size_to_nat, powmod.uint128_modulo.
-  rewrite Znat.nat_N_Z.
-  unfold Hacspec_Lib.uint_size_to_int64, Hacspec_Lib.uint_size_to_nat, Hacspec_Lib.int128_to_nat, 
-    Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.int64_to_int128, Hacspec_Lib.int64_to_int128, Hacspec_Lib.uint_size_to_nat,
-    Hacspec_Lib.int64_to_nat, Hacspec_Lib.uint_size_to_nat, Hacspec_Lib.Z_to_uint_size, secret_q_v.
-
-  rewrite Remove_Secret.
-  Set Printing All.
-  rewrite -> MachineIntegers.repr_unsigned.
-  Search MachineIntegers.repr MachineIntegers.unsigned.
-  Search Hacspec_Lib.secret.
+  rewrite -BinInt.Z.mul_assoc.
+  Search BinInt.Z.pow_pos BinInt.Z.pow. 
+  repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
+  erewrite asd.
+  erewrite BinInt.Z.mul_1_r.
   
 
-
-
-
-
-
-
-  simpl.
-  unfold powmod.uint128_pow_mod, Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.int64_to_int128, 
-    Hacspec_Lib.int64_to_nat, Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.uint_size_to_nat, powmod.uint128_modulo.
-  rewrite Znat.nat_N_Z.
-  unfold Hacspec_Lib.uint_size_to_int64, Hacspec_Lib.uint_size_to_nat, Hacspec_Lib.int128_to_nat, 
-    Hacspec_Lib.Z_to_uint_size, Hacspec_Lib.int64_to_int128, Hacspec_Lib.int64_to_int128, Hacspec_Lib.uint_size_to_nat,
-    Hacspec_Lib.int64_to_nat, Hacspec_Lib.uint_size_to_nat, Hacspec_Lib.Z_to_uint_size, secret_q_v.
-  repeat rewrite Znat.nat_N_Z. 
-  repeat rewrite Zbits.P_mod_two_p_eq.
-  Set Printing All.
+  reflexivity.
   
 Qed.
 
