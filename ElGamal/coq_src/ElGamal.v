@@ -319,10 +319,9 @@ Proof.
   eapply eq_rel_perf_ind_eq.
   simplify_eq_rel m.
   apply r_const_sample_L.
-  1: apply LosslessOp_uniform.
-  intros sk.
-  apply r_const_sample_L.
-  1: apply LosslessOp_uniform.
+  2: intros sk.
+  2: apply r_const_sample_L.
+  1,2: apply LosslessOp_uniform.
   intros pk.
   apply r_ret.
   intros s0 s1 e1.
@@ -330,7 +329,7 @@ Proof.
   2: apply e1.
   repeat rewrite otf_fto.
   simpl.
-  1: rewrite -2!expgM.
+  rewrite -2!expgM.
   rewrite mulnC.
   rewrite mulgA.
   rewrite mulVg.
