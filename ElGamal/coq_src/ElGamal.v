@@ -315,6 +315,7 @@ Definition Enc_Dec_ideal :
 Lemma Enc_Dec_Perfect :
   Enc_Dec_real ≈₀ Enc_Dec_ideal.
 Proof.
+(* We go to the relation logic using equality as invariant. *)
   eapply eq_rel_perf_ind_eq.
   simplify_eq_rel m.
   apply r_const_sample_L.
@@ -324,8 +325,7 @@ Proof.
   1: apply LosslessOp_uniform.
   intros pk.
   apply r_ret.
-  intros s0 s1.
-  intros e1.
+  intros s0 s1 e1.
   split.
   2: apply e1.
   repeat rewrite otf_fto.
@@ -527,10 +527,23 @@ Proof.
   repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
   erewrite asd.
   erewrite BinInt.Z.mul_1_r.
-  unfold IntToFin.
+  unfold IntToFin, IntToNat.
+  rewrite unsigned_repr.
+  rewrite Znat.Nat2Z.id.
+  unfold fto, enum_rank.
+  unfold NatToOrd, enum_rank.
+
+  erewrite mulmx_delta_companion
+  
+  Search "Ord".
+
+
+ 
+ NatToOrd.
   simpl.
   Set Printing All.
   Search IntToFin fto.
+  
   reflexivity.
 Qed.
 
