@@ -166,7 +166,7 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   Definition NatToInt : nat -> Hacspec_Lib.uint128 := fun x => MachineIntegers.repr (BinInt.Z.of_N (BinNat.N.of_nat x)). 
 
   (* 'fin to MachineIntegers version of int128 *)
-  Definition FinToInt {n} `{Positive n} : 'fin n -> Hacspec_Lib.uint128 := fun x => NatToInt ((fto x)). 
+  Definition FinToInt {n} `{Positive n} : 'fin n -> Hacspec_Lib.uint128 := fun x => NatToInt ((nat_of_ord x)). 
  
   (* Ordinal to nat *)
   Definition OrdToNat {d} `{p:Positive d} : 'I_d -> nat := fun n => (nat_of_ord n) .
@@ -338,12 +338,11 @@ Proof.
   reflexivity.
 Qed.
 
-Lemma FinToInt_IntToFin_Eq {k:nat} `{Positive k}:
+Lemma FinToInt_IntToFin_Eq {k:nat} `{Positive k} {H1: BinInt.Z.le (BinInt.Z.of_nat k) (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)}:
   ∀ {n: MachineIntegers.int128} , @FinToInt k _ (IntToFin n) = MachineIntegers.modu n (NatToInt k).  (* mod k *)
 Proof.
   move => n.
   unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
-  rewrite enum_rank_ord.
   simpl.
 (*   above is prebwork, proof starts here *)
   unfold MachineIntegers.modu.
@@ -355,8 +354,12 @@ Proof.
   2: apply MachineIntegers.unsigned_range_2.
   Search   MachineIntegers.unsigned MachineIntegers.repr.
   do 2 f_equal.
-  
-Admitted.
+  rewrite MachineIntegers.unsigned_repr.
+  1: reflexivity.
+  split.
+  2: apply H1.
+  apply Znat.Nat2Z.is_nonneg.
+Qed.
 
 
 
@@ -455,8 +458,8 @@ Axiom Remove_mod_gT :
     (BinInt.Z.modulo n (BinInt.Z.of_nat #|gT|)) = n.
 
 Axiom asd:
-  ∀ {n z q: BinNums.Z},
-  BinInt.Z.mul(BinInt.Z.modulo (OrdersEx.Z_as_OT.pow n z) q) (BinInt.Z.modulo (BinInt.Z.pow n (BinInt.Z.opp z)) q) = (BinNums.Zpos 1%AC).
+  ∀ {n z: BinNums.Z},
+  BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
  
   Search BinInt.Z.modulo BinInt.Z.mul.
 
@@ -481,6 +484,45 @@ Axiom Remove_FinToInt_IntToFin :
   ∀ {n: MachineIntegers.int128} ,
    @FinToInt k _ (IntToFin n) = MachineIntegers.modu n (NatToInt k).  (* mod k *)
  *)
+Lemma reprmod :
+  ∀ {n: BinNums.Z} {q: nat} {h: Positive q} {H1: BinInt.Z.le BinNums.Z0 n} {H2: BinInt.Z.le n (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)},
+  IntToFin (MachineIntegers.repr n) = IntToFin (MachineIntegers.repr (BinInt.Z.modulo n (BinInt.Z.of_nat q))).
+Proof.
+  intros.
+  simpl.
+  eapply ord_inj.
+  simpl.
+  unfold IntToNat.
+  repeat rewrite MachineIntegers.unsigned_repr.
+  2: split.
+  2: apply Zdiv.Z_mod_nonneg_nonneg.
+  2: apply H1.
+  2: apply Znat.Nat2Z.is_nonneg.
+  3: split.
+  3: apply H1.
+  Search BinInt.Z.modulo BinInt.Z.le BinNums.Z0.
+  3: apply H2.
+  Search BinInt.Z.le BinInt.Z.modulo.
+  2: {erewrite BinInt.Z.mod_le.
+  1: apply H2.
+
+  1: apply H1.
+
+  Search (BinInt.Z.lt _ _ = BinInt.Z.ge _ _).
+  admit.
+  }
+  rewrite -(Znat.Z2Nat.id n).
+  2: done.
+  rewrite -ssrZ.modnZE.
+  2: apply lt0n_neq0.
+  2: done.
+  rewrite (Znat.Z2Nat.id n).
+  1: rewrite (Znat.Nat2Z.id).
+  2: done.
+  rewrite modn_mod.
+  reflexivity.
+Admitted.
+
 
 Lemma Hacspec_Enc_Dec_Perfect :
   Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
@@ -496,8 +538,19 @@ Proof.
   repeat rewrite fto_otf.
   repeat rewrite Remove_Declassify.
   repeat rewrite Remove_Classify.
+  assert (BinInt.Z.of_nat #|gT| = MachineIntegers.unsigned secret_q_v).
+  1: rewrite g_gt_eq.
+  1: rewrite q_eq.
+  1: unfold secret_q_v.
+  1: rewrite Remove_Secret.
+  1: done.  
   repeat rewrite FinToInt_IntToFin_Eq.
-  repeat rewrite NatToInt_IntToNat_Eq.
+  3,4: rewrite H.
+  3,4: unfold secret_q_v.
+  3,4: rewrite Remove_Secret.
+  Search MachineIntegers.unsigned MachineIntegers.max_unsigned.
+  3,4: apply MachineIntegers.unsigned_range_2.
+  2: admit.
   unfold MachineIntegers.modu.
 
 (*   unfold secret_q_v, secret_g_v. *)
@@ -505,45 +558,74 @@ Proof.
 
   unfold MachineIntegers.modu, MachineIntegers.mul, MachineIntegers.sub, 
     powmod.uint128_pow_mod, powmod.pow, powmod.uint128_modulo, MachineIntegers.modu.
+  
   repeat rewrite unsigned_repr.
   repeat rewrite Znat.nat_N_Z.
   rewrite Remove_mod_gT.
   rewrite (Zdiv.Zmod_small (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC)))).
   2: split.
-  2,3 : admit.
-  
-  
-  assert (BinInt.Z.of_nat #|gT| = MachineIntegers.unsigned secret_q_v).
-  2: rewrite H.
-  1: rewrite g_gt_eq.
-  1: rewrite q_eq.
-  1: unfold secret_q_v.
-  1: rewrite Remove_Secret.
-  1: done.
+  2: done.
+  2 : admit.
+
   repeat rewrite Zdiv.Zmod_mod.
   rewrite -BinInt.Z.mul_assoc.
-  Search BinInt.Z.pow_pos BinInt.Z.pow. 
   repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
-  erewrite asd.
+  Import BinInt.Z.
+  rewrite reprmod.
+  2: {
+  unfold secret_q_v, secret_g_v.
+  repeat rewrite Remove_Secret.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  admit.
+}
+  2: unfold secret_q_v.
+  2: rewrite Remove_Secret.
+  2: admit.
+  rewrite Zdiv.Zmult_mod.
+  rewrite H.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  2,3,4,5: unfold secret_q_v.
+  2,3,4,5: rewrite Remove_Secret.
+  2,3,4,5: done.  
+  rewrite -(Zdiv.Zmult_mod ((MachineIntegers.unsigned secret_g_v ^ 4) ^ 4)).
+  rewrite -Zdiv.Zmult_mod.
+  rewrite -H.
+  rewrite -reprmod.
+  2: {rewrite asd.
+  rewrite mul_1_r.
+  eapply Znat.Nat2Z.is_nonneg.
+  }
+  2:{
+  unfold secret_g_v.
+  rewrite Remove_Secret.
+  rewrite asd.
+  rewrite OrdersEx.Z_as_OT.mul_1_r.
+  admit. 
+}  
+  rewrite asd.
   erewrite BinInt.Z.mul_1_r.
-  unfold IntToFin, IntToNat.
-  rewrite unsigned_repr.
-  rewrite Znat.Nat2Z.id.
-  unfold fto, enum_rank.
-  unfold NatToOrd, enum_rank.
-
-  erewrite mulmx_delta_companion
-  
-  Search "Ord".
-
-
- 
- NatToOrd.
+  unfold IntToFin, NatToOrd, IntToNat.
+  eapply ord_inj.
   simpl.
-  Set Printing All.
-  Search IntToFin fto.
-  
-  reflexivity.
+  rewrite MachineIntegers.Z_mod_modulus_eq.
+  rewrite -(Znat.Z2Nat.id MachineIntegers.modulus).
+  2: done.  
+  rewrite -ssrZ.modnZE.
+  2: done.
+  rewrite Znat.Nat2Z.id.
+  rewrite (@modn_small m).
+  2:{ eapply ltn_trans.
+  1: eapply ltn_ord.
+  simpl.
+  rewrite -(Znat.Nat2Z.id (#|gT|)).
+  rewrite H.
+  unfold secret_q_v.
+  rewrite Remove_Secret.
+  done.
+  }
+  rewrite (@modn_small m).
+  1: reflexivity.
+  apply ltn_ord.
 Qed.
 
 
