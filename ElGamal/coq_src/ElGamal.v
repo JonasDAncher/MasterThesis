@@ -507,8 +507,6 @@ Proof.
   1: apply H2.
 
   1: apply H1.
-
-  Search (BinInt.Z.lt _ _ = BinInt.Z.ge _ _).
   admit.
   }
   rewrite -(Znat.Z2Nat.id n).
@@ -548,7 +546,6 @@ Proof.
   3,4: rewrite H.
   3,4: unfold secret_q_v.
   3,4: rewrite Remove_Secret.
-  Search MachineIntegers.unsigned MachineIntegers.max_unsigned.
   3,4: apply MachineIntegers.unsigned_range_2.
   2: admit.
   unfold MachineIntegers.modu.
@@ -573,14 +570,31 @@ Proof.
   Import BinInt.Z.
   rewrite reprmod.
   2: {
-  unfold secret_q_v, secret_g_v.
-  repeat rewrite Remove_Secret.
   repeat rewrite -Zpow_facts.Zpower_mod.
-  admit.
+  
+
+  rewrite H.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  2,3,4,5: unfold secret_q_v.
+  2,3,4,5: repeat rewrite Remove_Secret.
+  2,3,4,5: done.
+  simpl.
+  rewrite Zdiv.Zmod_0_l.
+  repeat rewrite mul_0_r.
+  done.
 }
-  2: unfold secret_q_v.
-  2: rewrite Remove_Secret.
-  2: admit.
+  2: {
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  rewrite H.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  2,3,4,5: unfold secret_q_v.
+  2,3,4,5: repeat rewrite Remove_Secret.
+  2,3,4,5: done.
+  simpl.
+  rewrite Zdiv.Zmod_0_l.
+  repeat rewrite mul_0_r.
+  done.
+}  
   rewrite Zdiv.Zmult_mod.
   rewrite H.
   repeat rewrite -Zpow_facts.Zpower_mod.
@@ -624,8 +638,8 @@ Proof.
   done.
   }
   rewrite (@modn_small m).
-  1: reflexivity.
-  apply ltn_ord.
+  2: apply ltn_ord.
+  reflexivity.
 Qed.
 
 
