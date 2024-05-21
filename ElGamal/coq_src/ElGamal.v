@@ -363,7 +363,7 @@ Qed.
 
 
 
-From Coq Require Import Lia.
+
 Lemma NatToInt_IntToNat_Eq:
   forall {n: Hacspec_Lib.uint128} , 
     NatToInt (IntToNat n) = n.
@@ -376,66 +376,7 @@ Proof.
   apply MachineIntegers.repr_unsigned.
 Qed.
 
-  
-(*   
-From Coq Require Import Lia.
-Lemma The_Elequent_solution {k} `{Positive k}:
-  forall {n: Hacspec_Lib.uint128} , 
-    NatToInt (IntToNat n %% k) = MachineIntegers.modu n (NatToInt k).
-Proof.
-  intros n.
-  unfold NatToInt, IntToNat.
-  unfold Hacspec_Lib.cast, Hacspec_Lib.cast_transitive, Hacspec_Lib.cast_int_to_nat, 
-  Hacspec_Lib.cast_nat_to_N, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_Z_to_int.
-  repeat rewrite Znat.nat_N_Z.
 
-  rewrite ssrZ.modnZE.
-  2: apply lt0n_neq0.
-  2: apply is_positive.
-
-  1: unfold MachineIntegers.modu.
-  1: rewrite Znat.Z2Nat.id.
-  2: apply MachineIntegers.unsigned_range_2.
-  rewrite MachineIntegers.unsigned_repr.
-  1: reflexivity.  
-  split.
-  1: apply Znat.Nat2Z.is_nonneg.
-  Search BinInt.Z.ge BinInt.Z.of_nat MachineIntegers.max_unsigned.
-  all: admit.
-Admitted.
-
-  
- *)
-
-(* Lemma NatToInt_IntToNat_Eq  :
-  ∀ {n: MachineIntegers.int128} `{(BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0)}, 
-    (NatToInt (IntToNat n) = n) ∧ (BinInt.Z.ge (MachineIntegers.signed n) BinNums.Z0).
-Proof.
-  move => n.
-  unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
-  simpl.
-  unfold Hacspec_Lib.cast, Hacspec_Lib.cast_transitive, Hacspec_Lib.cast_int_to_nat, 
-  Hacspec_Lib.cast_nat_to_N, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_Z_to_int.
-  rewrite Znat.nat_N_Z.
-  split.
-  2: apply H.
-  rewrite Znat.Z2Nat.id.
-  1: apply MachineIntegers.repr_signed.
-  eapply OrdersEx.Z_as_DT.ge_le.
-  apply H.
-Qed. *)
-
-(* 
-  unfold Hacspec_Lib.cast, Hacspec_Lib.cast_int_to_nat, Hacspec_Lib.cast_transitive,
-   Hacspec_Lib.cast_Z_to_int, Hacspec_Lib.cast_N_to_Z, Hacspec_Lib.cast_nat_to_N.
-  rewrite Znat.nat_N_Z.
-  unfold MachineIntegers.signed.
-  rewrite Coqlib.zlt_true.
-  Set Printing All.
-  1: rewrite ZifyInst.Op_Z_to_nat.
-BinInt.Z.to_nat
-
- *)
 
 Axiom Remove_Classify  :
   ∀ {n: MachineIntegers.int128}, 
@@ -461,29 +402,7 @@ Axiom asd:
   ∀ {n z: BinNums.Z},
   BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
  
-  Search BinInt.Z.modulo BinInt.Z.mul.
 
-
-(* 
-BinInt.Z.pow
-        (BinInt.Z.modulo
-           (BinInt.Z.pow_pos (MachineIntegers.unsigned secret_g_v)
-              (BinNums.xO (BinNums.xO 1%AC)))
-           (MachineIntegers.unsigned secret_q_v))
-        (BinInt.Z.opp (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC))))))
- *)
-
-(* 
-Axiom m_lt_q : 
-  ∀ {m:(Choice.sort chPlain)}{q_v : Hacspec_Lib.uint128},
-
-    q_v<m.
- *)(* 
-Axiom Remove_FinToInt_IntToFin :
- {k:nat} `{Positive k}
-  ∀ {n: MachineIntegers.int128} ,
-   @FinToInt k _ (IntToFin n) = MachineIntegers.modu n (NatToInt k).  (* mod k *)
- *)
 Lemma reprmod :
   ∀ {n: BinNums.Z} {q: nat} {h: Positive q} {H1: BinInt.Z.le BinNums.Z0 n} {H2: BinInt.Z.le n (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)},
   IntToFin (MachineIntegers.repr n) = IntToFin (MachineIntegers.repr (BinInt.Z.modulo n (BinInt.Z.of_nat q))).
