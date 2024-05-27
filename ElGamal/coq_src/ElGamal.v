@@ -401,7 +401,16 @@ Axiom Remove_mod_gT :
 Axiom asd:
   ∀ {n z: BinNums.Z},
   BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
- 
+
+Lemma unsigned_reprx :
+  ∀ {n: BinNums.Z},
+    @MachineIntegers.unsigned MachineIntegers.WORDSIZE128 (MachineIntegers.repr n) = n.
+Proof.
+  intros.
+  apply MachineIntegers.unsigned_repr.
+  split.
+Qed.
+
 
 Lemma reprmod :
   ∀ {n: BinNums.Z} {q: nat} {h: Positive q} {H1: BinInt.Z.le BinNums.Z0 n} {H2: BinInt.Z.le n (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)},
@@ -412,33 +421,41 @@ Proof.
   eapply ord_inj.
   simpl.
   unfold IntToNat.
-  repeat rewrite MachineIntegers.unsigned_repr.
-  2: split.
-  2: apply Zdiv.Z_mod_nonneg_nonneg.
-  2: apply H1.
-  2: apply Znat.Nat2Z.is_nonneg.
-  3: split.
-  3: apply H1.
-  Search BinInt.Z.modulo BinInt.Z.le BinNums.Z0.
-  3: apply H2.
-  Search BinInt.Z.le BinInt.Z.modulo.
-  2: {erewrite BinInt.Z.mod_le.
-  1: apply H2.
-
-  1: apply H1.
-  admit.
-  }
+  repeat rewrite MachineIntegers.unsigned_repr_eq.  
   rewrite -(Znat.Z2Nat.id n).
   2: done.
   rewrite -ssrZ.modnZE.
   2: apply lt0n_neq0.
   2: done.
   rewrite (Znat.Z2Nat.id n).
-  1: rewrite (Znat.Nat2Z.id).
   2: done.
+  assert ((BinInt.Z.modulo n (@MachineIntegers.modulus MachineIntegers.WORDSIZE128)) = n).
+  1: rewrite -MachineIntegers.unsigned_repr_eq.
+  1: rewrite MachineIntegers.unsigned_repr.
+  1: reflexivity.
+  1: split.
+  1: apply H1.
+  1: apply H2.
+  rewrite H.
+  rewrite -MachineIntegers.unsigned_repr_eq.
+  rewrite unsigned_repr.
+  rewrite Znat.Nat2Z.id.
   rewrite modn_mod.
   reflexivity.
-Admitted.
+(* 
+  1: apply Znat.Nat2Z.is_nonneg.
+  rewrite ssrZ.modnZE.
+  2: eapply lt0n_neq0.
+  2: done.
+  rewrite -ssrZ.modnZE.
+  2: eapply lt0n_neq0.
+  2: done.
+  rewrite modn_small.
+  1: rewrite Znat.Z2Nat.id.
+  1: apply H2.
+  1: apply H1.
+  admit. *)
+Qed.
 
 
 Lemma Hacspec_Enc_Dec_Perfect :
@@ -474,7 +491,6 @@ Proof.
 
   unfold MachineIntegers.modu, MachineIntegers.mul, MachineIntegers.sub, 
     powmod.uint128_pow_mod, powmod.pow, powmod.uint128_modulo, MachineIntegers.modu.
-  
   repeat rewrite unsigned_repr.
   repeat rewrite Znat.nat_N_Z.
   rewrite Remove_mod_gT.
