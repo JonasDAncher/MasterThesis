@@ -402,15 +402,6 @@ Axiom asd:
   ∀ {n z: BinNums.Z},
   BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
 
-Lemma unsigned_reprx :
-  ∀ {n: BinNums.Z},
-    @MachineIntegers.unsigned MachineIntegers.WORDSIZE128 (MachineIntegers.repr n) = n.
-Proof.
-  intros.
-  apply MachineIntegers.unsigned_repr.
-  split.
-Qed.
-
 
 Lemma reprmod :
   ∀ {n: BinNums.Z} {q: nat} {h: Positive q} {H1: BinInt.Z.le BinNums.Z0 n} {H2: BinInt.Z.le n (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)},
