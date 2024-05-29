@@ -1,4 +1,4 @@
-DIGEST 46325552e6ba283f59ddcb9e354d6bad
+DIGEST 076f3eb57fdf2ba75931a9190b7e6627
 FDiffie.coq_src.El_Gamal
 R129:139 Hacspec.Hacspec_Lib <> <> lib
 R141:155 Hacspec.MachineIntegers <> <> lib
@@ -28,119 +28,104 @@ def 586:589 <> sk_v
 R593:598 Hacspec.MachineIntegers <> int128 def
 R606:609 Hacspec.MachineIntegers <> repr def
 R611:621 Hacspec.MachineIntegers <> WORDSIZE128 inst
-def 638:644 <> enc_aux
-R670:676 Hacspec.Hacspec_Lib <> uint128 def
-binder 649:666 <> secret_source_sk_0:1
-R696:701 Hacspec.MachineIntegers <> int128 def
-binder 682:692 <> target_pk_1:2
-R713:718 Hacspec.MachineIntegers <> int128 def
-binder 707:709 <> m_2:3
-R735:739 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R729:734 Hacspec.MachineIntegers <> int128 def
-R740:745 Hacspec.MachineIntegers <> int128 def
-R793:808 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R811:821 Diffie.coq_src.El_Gamal <> target_pk_1:2 var
-R778:784 Hacspec.Hacspec_Lib <> uint128 def
-binder 757:774 <> secret_target_pk_3:4
-R862:877 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R880:882 Diffie.coq_src.El_Gamal <> m_2:3 var
-R847:853 Hacspec.Hacspec_Lib <> uint128 def
-binder 834:843 <> secret_m_4:5
-R923:937 Diffie.coq_src.powmod <> uint128_pow_mod def
-R940:957 Diffie.coq_src.El_Gamal <> secret_target_pk_3:4 var
-R961:978 Diffie.coq_src.El_Gamal <> secret_source_sk_0:1 var
-R982:991 Diffie.coq_src.El_Gamal <> secret_q_v def
-R908:914 Hacspec.Hacspec_Lib <> uint128 def
-binder 895:904 <> secret_s_5:6
-R1033:1047 Diffie.coq_src.powmod <> uint128_pow_mod def
-R1050:1059 Diffie.coq_src.El_Gamal <> secret_g_v def
-R1063:1080 Diffie.coq_src.El_Gamal <> secret_source_sk_0:1 var
-R1084:1093 Diffie.coq_src.El_Gamal <> secret_q_v def
-R1018:1024 Hacspec.Hacspec_Lib <> uint128 def
-binder 1004:1014 <> secret_c1_6:7
-R1135:1135 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
-R1146:1151 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
-R1162:1162 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
-R1136:1145 Diffie.coq_src.El_Gamal <> secret_m_4:5 var
-R1152:1161 Diffie.coq_src.El_Gamal <> secret_s_5:6 var
-R1120:1126 Hacspec.Hacspec_Lib <> uint128 def
-binder 1106:1116 <> secret_c2_7:8
-R1170:1170 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1203:1204 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1237:1237 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1171:1188 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R1191:1201 Diffie.coq_src.El_Gamal <> secret_c1_6:7 var
-R1205:1222 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R1225:1235 Diffie.coq_src.El_Gamal <> secret_c2_7:8 var
-def 1252:1257 <> keygen
-R1270:1274 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R1264:1269 Hacspec.MachineIntegers <> int128 def
-R1275:1281 Hacspec.Hacspec_Lib <> uint128 def
-R1322:1337 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R1340:1343 Diffie.coq_src.El_Gamal <> sk_v def
-R1307:1313 Hacspec.Hacspec_Lib <> uint128 def
-binder 1293:1303 <> secret_sk_8:9
-R1377:1394 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R1397:1411 Diffie.coq_src.powmod <> uint128_pow_mod def
-R1414:1423 Diffie.coq_src.El_Gamal <> secret_g_v def
-R1427:1437 Diffie.coq_src.El_Gamal <> secret_sk_8:9 var
-R1450:1459 Diffie.coq_src.El_Gamal <> secret_q_v def
-R1363:1368 Hacspec.MachineIntegers <> int128 def
-binder 1356:1359 <> pk_9:10
-R1469:1469 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1474:1475 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1487:1487 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1470:1473 Diffie.coq_src.El_Gamal <> pk_9:10 var
-R1476:1486 Diffie.coq_src.El_Gamal <> secret_sk_8:9 var
-def 1502:1504 <> enc
-R1522:1527 Hacspec.MachineIntegers <> int128 def
-binder 1507:1518 <> target_pk_10:11
-R1538:1543 Hacspec.MachineIntegers <> int128 def
-binder 1531:1534 <> m_11:12
-R1556:1560 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R1550:1555 Hacspec.MachineIntegers <> int128 def
+def 638:643 <> keygen
+R656:660 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R650:655 Hacspec.MachineIntegers <> int128 def
+R661:667 Hacspec.Hacspec_Lib <> uint128 def
+R708:723 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R726:729 Diffie.coq_src.El_Gamal <> sk_v def
+R693:699 Hacspec.Hacspec_Lib <> uint128 def
+binder 679:689 <> secret_sk_0:1
+R763:780 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R783:797 Diffie.coq_src.powmod <> uint128_pow_mod def
+R800:809 Diffie.coq_src.El_Gamal <> secret_g_v def
+R813:823 Diffie.coq_src.El_Gamal <> secret_sk_0:1 var
+R836:845 Diffie.coq_src.El_Gamal <> secret_q_v def
+R749:754 Hacspec.MachineIntegers <> int128 def
+binder 742:745 <> pk_1:2
+R855:855 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R860:861 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R873:873 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R856:859 Diffie.coq_src.El_Gamal <> pk_1:2 var
+R862:872 Diffie.coq_src.El_Gamal <> secret_sk_0:1 var
+def 888:890 <> enc
+R907:912 Hacspec.MachineIntegers <> int128 def
+binder 893:903 <> target_pk_2:3
+R922:927 Hacspec.MachineIntegers <> int128 def
+binder 916:918 <> m_3:4
+R940:944 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
+R934:939 Hacspec.MachineIntegers <> int128 def
+R945:950 Hacspec.MachineIntegers <> int128 def
+R997:1002 Diffie.coq_src.El_Gamal <> keygen def
+R963:963 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R968:969 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R988:988 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1051:1066 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R1069:1079 Diffie.coq_src.El_Gamal <> target_pk_2:3 var
+R1036:1042 Hacspec.Hacspec_Lib <> uint128 def
+binder 1015:1032 <> secret_target_pk_6:5
+R1120:1135 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R1138:1140 Diffie.coq_src.El_Gamal <> m_3:4 var
+R1105:1111 Hacspec.Hacspec_Lib <> uint128 def
+binder 1092:1101 <> secret_m_7:6
+R1181:1195 Diffie.coq_src.powmod <> uint128_pow_mod def
+R1198:1215 Diffie.coq_src.El_Gamal <> secret_target_pk_6:5 var
+R1240:1249 Diffie.coq_src.El_Gamal <> secret_q_v def
+R1166:1172 Hacspec.Hacspec_Lib <> uint128 def
+binder 1153:1162 <> secret_s_8:7
+R1291:1305 Diffie.coq_src.powmod <> uint128_pow_mod def
+R1308:1317 Diffie.coq_src.El_Gamal <> secret_g_v def
+R1342:1351 Diffie.coq_src.El_Gamal <> secret_q_v def
+R1276:1282 Hacspec.Hacspec_Lib <> uint128 def
+binder 1262:1272 <> secret_c1_9:8
+R1394:1394 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R1405:1410 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R1421:1421 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R1395:1404 Diffie.coq_src.El_Gamal <> secret_m_7:6 var
+R1411:1420 Diffie.coq_src.El_Gamal <> secret_s_8:7 var
+R1379:1385 Hacspec.Hacspec_Lib <> uint128 def
+binder 1364:1375 <> secret_c2_10:9
+R1429:1429 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1462:1463 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1497:1497 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1430:1447 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R1450:1460 Diffie.coq_src.El_Gamal <> secret_c1_9:8 var
+R1464:1481 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R1484:1495 Diffie.coq_src.El_Gamal <> secret_c2_10:9 var
+def 1512:1514 <> dec
+R1541:1547 Hacspec.Hacspec_Lib <> uint128 def
+binder 1519:1537 <> secret_target_sk_11:10
+R1567:1571 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
 R1561:1566 Hacspec.MachineIntegers <> int128 def
-R1600:1605 Diffie.coq_src.El_Gamal <> keygen def
-R1579:1579 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1585:1586 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1591:1591 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1614:1620 Diffie.coq_src.El_Gamal <> enc_aux def
-R1630:1641 Diffie.coq_src.El_Gamal <> target_pk_10:11 var
-R1645:1648 Diffie.coq_src.El_Gamal <> m_11:12 var
-def 1664:1666 <> dec
-R1693:1699 Hacspec.Hacspec_Lib <> uint128 def
-binder 1671:1689 <> secret_target_sk_14:13
-R1719:1723 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'''×'_x not
-R1713:1718 Hacspec.MachineIntegers <> int128 def
-R1724:1729 Hacspec.MachineIntegers <> int128 def
-binder 1705:1708 <> c_15:14
-R1740:1745 Hacspec.MachineIntegers <> int128 def
-R1779:1782 Diffie.coq_src.El_Gamal <> c_15:14 var
-R1757:1757 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1763:1764 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1770:1770 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1824:1839 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R1809:1815 Hacspec.Hacspec_Lib <> uint128 def
-binder 1794:1805 <> secret_c1_18:16
-R1889:1904 Hacspec.Hacspec_Lib <> uint128_classify prfax
-R1874:1880 Hacspec.Hacspec_Lib <> uint128 def
-binder 1859:1870 <> secret_c2_19:17
-R1961:1975 Diffie.coq_src.powmod <> uint128_pow_mod def
-R1978:1989 Diffie.coq_src.El_Gamal <> secret_c1_18:16 var
-R1993:2015 Hacspec.Hacspec_Lib <> ::hacspec_scope:'-' not
-R1996:2014 Diffie.coq_src.El_Gamal <> secret_target_sk_14:13 var
-R2019:2028 Diffie.coq_src.El_Gamal <> secret_q_v def
-R1946:1952 Hacspec.Hacspec_Lib <> uint128 def
-binder 1924:1942 <> secret_s_inverse_20:18
-R2070:2070 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
-R2083:2088 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
-R2108:2108 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
-R2071:2082 Diffie.coq_src.El_Gamal <> secret_c2_19:17 var
-R2089:2107 Diffie.coq_src.El_Gamal <> secret_s_inverse_20:18 var
-R2055:2061 Hacspec.Hacspec_Lib <> uint128 def
-binder 2041:2051 <> secret_m_21:19
-R2141:2158 Hacspec.Hacspec_Lib <> uint128_declassify prfax
-R2161:2171 Diffie.coq_src.El_Gamal <> secret_m_21:19 var
-R2127:2132 Hacspec.MachineIntegers <> int128 def
-binder 2120:2123 <> m_22:20
-R2180:2183 Diffie.coq_src.El_Gamal <> m_22:20 var
+R1572:1577 Hacspec.MachineIntegers <> int128 def
+binder 1553:1556 <> c_12:11
+R1588:1593 Hacspec.MachineIntegers <> int128 def
+R1627:1630 Diffie.coq_src.El_Gamal <> c_12:11 var
+R1605:1605 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1611:1612 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1618:1618 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1672:1687 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R1657:1663 Hacspec.Hacspec_Lib <> uint128 def
+binder 1642:1653 <> secret_c1_15:13
+R1737:1752 Hacspec.Hacspec_Lib <> uint128_classify prfax
+R1722:1728 Hacspec.Hacspec_Lib <> uint128 def
+binder 1707:1718 <> secret_c2_16:14
+R1809:1823 Diffie.coq_src.powmod <> uint128_pow_mod def
+R1826:1837 Diffie.coq_src.El_Gamal <> secret_c1_15:13 var
+R1841:1863 Hacspec.Hacspec_Lib <> ::hacspec_scope:'-' not
+R1844:1862 Diffie.coq_src.El_Gamal <> secret_target_sk_11:10 var
+R1867:1876 Diffie.coq_src.El_Gamal <> secret_q_v def
+R1794:1800 Hacspec.Hacspec_Lib <> uint128 def
+binder 1772:1790 <> secret_s_inverse_17:15
+R1918:1918 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R1931:1936 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R1956:1956 Hacspec.Hacspec_Lib <> ::hacspec_scope:x_'.*'_x not
+R1919:1930 Diffie.coq_src.El_Gamal <> secret_c2_16:14 var
+R1937:1955 Diffie.coq_src.El_Gamal <> secret_s_inverse_17:15 var
+R1903:1909 Hacspec.Hacspec_Lib <> uint128 def
+binder 1889:1899 <> secret_m_18:16
+R1989:2006 Hacspec.Hacspec_Lib <> uint128_declassify prfax
+R2009:2019 Diffie.coq_src.El_Gamal <> secret_m_18:16 var
+R1975:1980 Hacspec.MachineIntegers <> int128 def
+binder 1968:1971 <> m_19:17
+R2028:2031 Diffie.coq_src.El_Gamal <> m_19:17 var

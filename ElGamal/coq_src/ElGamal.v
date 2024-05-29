@@ -159,58 +159,7 @@ Module MyAlg <: AsymmetricSchemeAlgorithms MyParam.
   Definition i_bool := 2.
  
 
-  (* nat to ordinal *)
-  Definition NatToOrd {d} `{p:Positive d} : nat -> 'I_d := fun n => Ordinal (ltn_pmod n p).
 
-  (* nat to MachineIntegers version of int128 *)
-  Definition NatToInt : nat -> Hacspec_Lib.uint128 := fun x => MachineIntegers.repr (BinInt.Z.of_N (BinNat.N.of_nat x)). 
-
-  (* 'fin to MachineIntegers version of int128 *)
-  Definition FinToInt {n} `{Positive n} : 'fin n -> Hacspec_Lib.uint128 := fun x => NatToInt ((nat_of_ord x)). 
- 
-  (* Ordinal to nat *)
-  Definition OrdToNat {d} `{p:Positive d} : 'I_d -> nat := fun n => (nat_of_ord n) .
-
-  (* MachineIntergers version of int128 to nat *)
-  Definition IntToNat : Hacspec_Lib.uint128 -> nat := fun x => (BinInt.Z.to_nat (MachineIntegers.unsigned x)).
- 
-  (* MachineIntergers version of int128 to 'fin *)
-  Definition IntToFin {n} `{Positive n} : Hacspec_Lib.uint128 -> 'fin n := fun x => NatToOrd (IntToNat x) .
-  
-  (* ElGamal translated from rust to coq with Hacspec: Key generation algorithm *)
-  Definition hacspec_gen {L : {fset Location}} :
-    code L [interface] (chPubKey × chSecKey) :=
-    {code
-      let '(c1Int,c2Int) := El_Gamal.keygen in
-      let c1Key := IntToFin c1Int in
-      let c2Key := IntToFin c2Int in
-      ret (c1Key,c2Key)
-    }.
-  
-  (* ElGamal translated from rust to coq with Hacspec: Encryption algorithm *)
-  Definition hacspec_enc {L : {fset Location}} (pkKey : chPubKey) (m : chPlain) :
-    code L [interface] chCipher := 
-    {code
-      let pkInt     := FinToInt pkKey in
-      let mInt      := FinToInt m in
-      let cipherInt := El_Gamal.enc pkInt mInt in
-      let cipher    := fto(
-                        otf (IntToFin cipherInt.1),
-                        otf (IntToFin cipherInt.2)) in
-      ret cipher
-    }.
-  
-  (* ElGamal translated from rust to coq with Hacspec: Decryption algorithm *)
-  Definition hacspec_dec {L : {fset Location}} (skKey : chSecKey) (cipher : chCipher) :
-    code L [interface] chPlain :=
-    {code
-      let skInt  := FinToInt skKey in
-      let cipher := (
-                      FinToInt (fto (fst (otf cipher))),
-                      FinToInt (fto (snd (otf cipher)))) in
-      let mInt   := El_Gamal.dec skInt cipher in
-      ret (IntToFin(mInt))
-    }.
 
   (** Key Generation algorithm *)
   Definition KeyGen {L : {fset Location}} :
@@ -275,298 +224,6 @@ Proof.
   auto_in_fset.
 Qed.
 
-Definition Enc_Dec_real :
-  package fset0 [interface]
-    [interface #val #[10] : 'plain → 'plain ] :=
-    [package
-      #def #[10] (m : 'plain) : 'plain
-      {
-        '(pk, sk) ← KeyGen ;;
-        c ← Enc pk m ;;
-        m ← Dec_open sk c ;;
-        ret m
-      }
-    ].
-
-Definition Hacspec_Enc_Dec_real :
-  package fset0 [interface]
-    [interface #val #[10] : 'plain → 'plain ] :=
-    [package
-      #def #[10] (m : 'plain) : 'plain
-      {
-        '(pk, sk) ← hacspec_gen ;;
-        c ← hacspec_enc pk m ;;
-        m ← hacspec_dec sk c ;;
-        ret m
-      }
-    ].
-
-
-Definition Enc_Dec_ideal :
-  package fset0 [interface]
-    [interface #val #[10] : 'plain → 'plain ] :=
-    [package
-      #def #[10] (m : 'plain) : 'plain
-      {
-        ret m
-      }
-    ].
-
-Lemma Enc_Dec_Perfect :
-  Enc_Dec_real ≈₀ Enc_Dec_ideal.
-Proof.
-(* We go to the relation logic using equality as invariant. *)
-  eapply eq_rel_perf_ind_eq.
-  simplify_eq_rel m.
-  apply r_const_sample_L.
-  2: intros sk.
-  2: apply r_const_sample_L.
-  1,2: apply LosslessOp_uniform.
-  intros pk.
-  apply r_ret.
-  intros s0 s1 e1.
-  split.
-  2: apply e1.
-  repeat rewrite otf_fto.
-  simpl.
-  rewrite -2!expgM.
-  rewrite mulnC.
-  rewrite mulgA.
-  rewrite mulVg.
-  rewrite mul1g.
-  rewrite fto_otf.
-  reflexivity.
-Qed.
-
-Lemma FinToInt_IntToFin_Eq {k:nat} `{Positive k} {H1: BinInt.Z.le (BinInt.Z.of_nat k) (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)}:
-  ∀ {n: MachineIntegers.int128} , @FinToInt k _ (IntToFin n) = MachineIntegers.modu n (NatToInt k).  (* mod k *)
-Proof.
-  move => n.
-  unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
-  simpl.
-(*   above is prebwork, proof starts here *)
-  unfold MachineIntegers.modu.
-  repeat rewrite Znat.nat_N_Z.
-  rewrite ssrZ.modnZE.
-  2: apply lt0n_neq0.
-  2: apply is_positive.
-  repeat rewrite Znat.Z2Nat.id.
-  2: apply MachineIntegers.unsigned_range_2.
-  Search   MachineIntegers.unsigned MachineIntegers.repr.
-  do 2 f_equal.
-  rewrite MachineIntegers.unsigned_repr.
-  1: reflexivity.
-  split.
-  2: apply H1.
-  apply Znat.Nat2Z.is_nonneg.
-Qed.
-
-
-
-
-Lemma NatToInt_IntToNat_Eq:
-  forall {n: Hacspec_Lib.uint128} , 
-    NatToInt (IntToNat n) = n.
-Proof.
-  intros n.
-  unfold NatToInt, IntToNat.
-  repeat rewrite Znat.nat_N_Z.
-  rewrite Znat.Z2Nat.id.
-  2: apply MachineIntegers.unsigned_range_2.
-  apply MachineIntegers.repr_unsigned.
-Qed.
-
-
-
-Axiom Remove_Classify  :
-  ∀ {n: MachineIntegers.int128}, 
-    Hacspec_Lib.uint128_classify(n) = n.
-
-Axiom Remove_Declassify  :
-  ∀ {n: MachineIntegers.int128}, 
-    Hacspec_Lib.uint128_declassify(n) = n.
-
-Axiom Remove_Secret :
-  ∀ {n: MachineIntegers.int128},
-    Hacspec_Lib.secret n = n.
-
-Axiom unsigned_repr :
-  ∀ {n: BinNums.Z},
-    @MachineIntegers.unsigned MachineIntegers.WORDSIZE128 (MachineIntegers.repr n) = n.
-
-Axiom Remove_mod_gT :
-  ∀ {n: BinNums.Z},
-    (BinInt.Z.modulo n (BinInt.Z.of_nat #|gT|)) = n.
-
-Axiom asd:
-  ∀ {n z: BinNums.Z},
-  BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
-
-
-Lemma reprmod :
-  ∀ {n: BinNums.Z} {q: nat} {h: Positive q} {H1: BinInt.Z.le BinNums.Z0 n} {H2: BinInt.Z.le n (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)},
-  IntToFin (MachineIntegers.repr n) = IntToFin (MachineIntegers.repr (BinInt.Z.modulo n (BinInt.Z.of_nat q))).
-Proof.
-  intros.
-  simpl.
-  eapply ord_inj.
-  simpl.
-  unfold IntToNat.
-  repeat rewrite MachineIntegers.unsigned_repr_eq.  
-  rewrite -(Znat.Z2Nat.id n).
-  2: done.
-  rewrite -ssrZ.modnZE.
-  2: apply lt0n_neq0.
-  2: done.
-  rewrite (Znat.Z2Nat.id n).
-  2: done.
-  assert ((BinInt.Z.modulo n (@MachineIntegers.modulus MachineIntegers.WORDSIZE128)) = n).
-  1: rewrite -MachineIntegers.unsigned_repr_eq.
-  1: rewrite MachineIntegers.unsigned_repr.
-  1: reflexivity.
-  1: split.
-  1: apply H1.
-  1: apply H2.
-  rewrite H.
-  rewrite -MachineIntegers.unsigned_repr_eq.
-  rewrite unsigned_repr.
-  rewrite Znat.Nat2Z.id.
-  rewrite modn_mod.
-  reflexivity.
-(* 
-  1: apply Znat.Nat2Z.is_nonneg.
-  rewrite ssrZ.modnZE.
-  2: eapply lt0n_neq0.
-  2: done.
-  rewrite -ssrZ.modnZE.
-  2: eapply lt0n_neq0.
-  2: done.
-  rewrite modn_small.
-  1: rewrite Znat.Z2Nat.id.
-  1: apply H2.
-  1: apply H1.
-  admit. *)
-Qed.
-
-
-Lemma Hacspec_Enc_Dec_Perfect :
-  Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
-Proof.
-  eapply eq_rel_perf_ind_eq.
-  simplify_eq_rel m.
-  apply r_ret.
-  intros s0 s1.
-  intros e1.
-  split.
-  2: apply e1.
-  repeat rewrite otf_fto.
-  repeat rewrite fto_otf.
-  repeat rewrite Remove_Declassify.
-  repeat rewrite Remove_Classify.
-  assert (BinInt.Z.of_nat #|gT| = MachineIntegers.unsigned secret_q_v).
-  1: rewrite g_gt_eq.
-  1: rewrite q_eq.
-  1: unfold secret_q_v.
-  1: rewrite Remove_Secret.
-  1: done.  
-  repeat rewrite FinToInt_IntToFin_Eq.
-  3,4: rewrite H.
-  3,4: unfold secret_q_v.
-  3,4: rewrite Remove_Secret.
-  3,4: apply MachineIntegers.unsigned_range_2.
-  2: admit.
-  unfold MachineIntegers.modu.
-
-(*   unfold secret_q_v, secret_g_v. *)
-  repeat rewrite Remove_Secret.
-
-  unfold MachineIntegers.modu, MachineIntegers.mul, MachineIntegers.sub, 
-    powmod.uint128_pow_mod, powmod.pow, powmod.uint128_modulo, MachineIntegers.modu.
-  repeat rewrite unsigned_repr.
-  repeat rewrite Znat.nat_N_Z.
-  rewrite Remove_mod_gT.
-  rewrite (Zdiv.Zmod_small (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC)))).
-  2: split.
-  2: done.
-  2 : admit.
-
-  repeat rewrite Zdiv.Zmod_mod.
-  rewrite -BinInt.Z.mul_assoc.
-  repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
-  Import BinInt.Z.
-  rewrite reprmod.
-  2: {
-  repeat rewrite -Zpow_facts.Zpower_mod.
-  
-
-  rewrite H.
-  repeat rewrite -Zpow_facts.Zpower_mod.
-  2,3,4,5: unfold secret_q_v.
-  2,3,4,5: repeat rewrite Remove_Secret.
-  2,3,4,5: done.
-  simpl.
-  rewrite Zdiv.Zmod_0_l.
-  repeat rewrite mul_0_r.
-  done.
-}
-  2: {
-  repeat rewrite -Zpow_facts.Zpower_mod.
-  rewrite H.
-  repeat rewrite -Zpow_facts.Zpower_mod.
-  2,3,4,5: unfold secret_q_v.
-  2,3,4,5: repeat rewrite Remove_Secret.
-  2,3,4,5: done.
-  simpl.
-  rewrite Zdiv.Zmod_0_l.
-  repeat rewrite mul_0_r.
-  done.
-}  
-  rewrite Zdiv.Zmult_mod.
-  rewrite H.
-  repeat rewrite -Zpow_facts.Zpower_mod.
-  2,3,4,5: unfold secret_q_v.
-  2,3,4,5: rewrite Remove_Secret.
-  2,3,4,5: done.  
-  rewrite -(Zdiv.Zmult_mod ((MachineIntegers.unsigned secret_g_v ^ 4) ^ 4)).
-  rewrite -Zdiv.Zmult_mod.
-  rewrite -H.
-  rewrite -reprmod.
-  2: {rewrite asd.
-  rewrite mul_1_r.
-  eapply Znat.Nat2Z.is_nonneg.
-  }
-  2:{
-  unfold secret_g_v.
-  rewrite Remove_Secret.
-  rewrite asd.
-  rewrite OrdersEx.Z_as_OT.mul_1_r.
-  admit. 
-}  
-  rewrite asd.
-  erewrite BinInt.Z.mul_1_r.
-  unfold IntToFin, NatToOrd, IntToNat.
-  eapply ord_inj.
-  simpl.
-  rewrite MachineIntegers.Z_mod_modulus_eq.
-  rewrite -(Znat.Z2Nat.id MachineIntegers.modulus).
-  2: done.  
-  rewrite -ssrZ.modnZE.
-  2: done.
-  rewrite Znat.Nat2Z.id.
-  rewrite (@modn_small m).
-  2:{ eapply ltn_trans.
-  1: eapply ltn_ord.
-  simpl.
-  rewrite -(Znat.Nat2Z.id (#|gT|)).
-  rewrite H.
-  unfold secret_q_v.
-  rewrite Remove_Secret.
-  done.
-  }
-  rewrite (@modn_small m).
-  2: apply ltn_ord.
-  reflexivity.
-Qed.
 
 
 (*
@@ -840,6 +497,356 @@ Proof.
   rewrite -Advantage_link. auto.
 Qed.
 
+
+  (* nat to ordinal *)
+  Definition NatToOrd {d} `{p:Positive d} : nat -> 'I_d := fun n => Ordinal (ltn_pmod n p).
+
+  (* nat to MachineIntegers version of int128 *)
+  Definition NatToInt : nat -> Hacspec_Lib.uint128 := fun x => MachineIntegers.repr (BinInt.Z.of_N (BinNat.N.of_nat x)). 
+
+  (* 'fin to MachineIntegers version of int128 *)
+  Definition FinToInt {n} `{Positive n} : 'fin n -> Hacspec_Lib.uint128 := fun x => NatToInt ((nat_of_ord x)). 
+ 
+  (* Ordinal to nat *)
+  Definition OrdToNat {d} `{p:Positive d} : 'I_d -> nat := fun n => (nat_of_ord n) .
+
+  (* MachineIntergers version of int128 to nat *)
+  Definition IntToNat : Hacspec_Lib.uint128 -> nat := fun x => (BinInt.Z.to_nat (MachineIntegers.unsigned x)).
+ 
+  (* MachineIntergers version of int128 to 'fin *)
+  Definition IntToFin {n} `{Positive n} : Hacspec_Lib.uint128 -> 'fin n := fun x => NatToOrd (IntToNat x) .
+  
+  (* ElGamal translated from rust to coq with Hacspec: Key generation algorithm *)
+  Definition hacspec_gen {L : {fset Location}} :
+    code L [interface] (chPubKey × chSecKey) :=
+    {code
+      let '(c1Int,c2Int) := El_Gamal.keygen in
+      let c1Key := IntToFin c1Int in
+      let c2Key := IntToFin c2Int in
+      ret (c1Key,c2Key)
+    }.
+  
+  (* ElGamal translated from rust to coq with Hacspec: Encryption algorithm *)
+  Definition hacspec_enc {L : {fset Location}} (pkKey : chPubKey) (m : chPlain) :
+    code L [interface] chCipher := 
+    {code
+      let pkInt     := FinToInt pkKey in
+      let mInt      := FinToInt m in
+      let cipherInt := El_Gamal.enc pkInt mInt in
+      let cipher    := fto(
+                        otf (IntToFin cipherInt.1),
+                        otf (IntToFin cipherInt.2)) in
+      ret cipher
+    }.
+  
+  (* ElGamal translated from rust to coq with Hacspec: Decryption algorithm *)
+  Definition hacspec_dec {L : {fset Location}} (skKey : chSecKey) (cipher : chCipher) :
+    code L [interface] chPlain :=
+    {code
+      let skInt  := FinToInt skKey in
+      let cipher := (
+                      FinToInt (fto (fst (otf cipher))),
+                      FinToInt (fto (snd (otf cipher)))) in
+      let mInt   := El_Gamal.dec skInt cipher in
+      ret (IntToFin(mInt))
+    }.
+
+
+Definition Enc_Dec_real :
+  package fset0 [interface]
+    [interface #val #[10] : 'plain → 'plain ] :=
+    [package
+      #def #[10] (m : 'plain) : 'plain
+      {
+        '(pk, sk) ← KeyGen ;;
+        c ← Enc pk m ;;
+        m ← Dec_open sk c ;;
+        ret m
+      }
+    ].
+
+Definition Hacspec_Enc_Dec_real :
+  package fset0 [interface]
+    [interface #val #[10] : 'plain → 'plain ] :=
+    [package
+      #def #[10] (m : 'plain) : 'plain
+      {
+        '(pk, sk) ← hacspec_gen ;;
+        c ← hacspec_enc pk m ;;
+        m ← hacspec_dec sk c ;;
+        ret m
+      }
+    ].
+
+
+Definition Enc_Dec_ideal :
+  package fset0 [interface]
+    [interface #val #[10] : 'plain → 'plain ] :=
+    [package
+      #def #[10] (m : 'plain) : 'plain
+      {
+        ret m
+      }
+    ].
+
+Lemma Enc_Dec_Perfect :
+  Enc_Dec_real ≈₀ Enc_Dec_ideal.
+Proof.
+(* We go to the relation logic using equality as invariant. *)
+  eapply eq_rel_perf_ind_eq.
+  simplify_eq_rel m.
+  apply r_const_sample_L.
+  2: intros sk.
+  2: apply r_const_sample_L.
+  1,2: apply LosslessOp_uniform.
+  intros pk.
+  apply r_ret.
+  intros s0 s1 e1.
+  split.
+  2: apply e1.
+  repeat rewrite otf_fto.
+  simpl.
+  rewrite -2!expgM.
+  rewrite mulnC.
+  rewrite mulgA.
+  rewrite mulVg.
+  rewrite mul1g.
+  rewrite fto_otf.
+  reflexivity.
+Qed.
+
+Lemma FinToInt_IntToFin_Eq {k:nat} `{Positive k} {H1: BinInt.Z.le (BinInt.Z.of_nat k) (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)}:
+  ∀ {n: MachineIntegers.int128} , @FinToInt k _ (IntToFin n) = MachineIntegers.modu n (NatToInt k).  (* mod k *)
+Proof.
+  move => n.
+  unfold FinToInt, IntToFin, NatToInt, NatToOrd, IntToNat, fto.
+  simpl.
+(*   above is prebwork, proof starts here *)
+  unfold MachineIntegers.modu.
+  repeat rewrite Znat.nat_N_Z.
+  rewrite ssrZ.modnZE.
+  2: apply lt0n_neq0.
+  2: apply is_positive.
+  repeat rewrite Znat.Z2Nat.id.
+  2: apply MachineIntegers.unsigned_range_2.
+  Search   MachineIntegers.unsigned MachineIntegers.repr.
+  do 2 f_equal.
+  rewrite MachineIntegers.unsigned_repr.
+  1: reflexivity.
+  split.
+  2: apply H1.
+  apply Znat.Nat2Z.is_nonneg.
+Qed.
+
+
+
+
+Lemma NatToInt_IntToNat_Eq:
+  forall {n: Hacspec_Lib.uint128} , 
+    NatToInt (IntToNat n) = n.
+Proof.
+  intros n.
+  unfold NatToInt, IntToNat.
+  repeat rewrite Znat.nat_N_Z.
+  rewrite Znat.Z2Nat.id.
+  2: apply MachineIntegers.unsigned_range_2.
+  apply MachineIntegers.repr_unsigned.
+Qed.
+
+
+
+Axiom Remove_Classify  :
+  ∀ {n: MachineIntegers.int128}, 
+    Hacspec_Lib.uint128_classify(n) = n.
+
+Axiom Remove_Declassify  :
+  ∀ {n: MachineIntegers.int128}, 
+    Hacspec_Lib.uint128_declassify(n) = n.
+
+Axiom Remove_Secret :
+  ∀ {n: MachineIntegers.int128},
+    Hacspec_Lib.secret n = n.
+
+Axiom unsigned_repr :
+  ∀ {n: BinNums.Z},
+    @MachineIntegers.unsigned MachineIntegers.WORDSIZE128 (MachineIntegers.repr n) = n.
+
+Axiom Remove_mod_gT :
+  ∀ {n: BinNums.Z},
+    (BinInt.Z.modulo n (BinInt.Z.of_nat #|gT|)) = n.
+
+Axiom asd:
+  ∀ {n z: BinNums.Z},
+  BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
+
+
+Lemma reprmod :
+  ∀ {n: BinNums.Z} {q: nat} {h: Positive q} {H1: BinInt.Z.le BinNums.Z0 n} {H2: BinInt.Z.le n (@MachineIntegers.max_unsigned MachineIntegers.WORDSIZE128)},
+  IntToFin (MachineIntegers.repr n) = IntToFin (MachineIntegers.repr (BinInt.Z.modulo n (BinInt.Z.of_nat q))).
+Proof.
+  intros.
+  simpl.
+  eapply ord_inj.
+  simpl.
+  unfold IntToNat.
+  repeat rewrite MachineIntegers.unsigned_repr_eq.  
+  rewrite -(Znat.Z2Nat.id n).
+  2: done.
+  rewrite -ssrZ.modnZE.
+  2: apply lt0n_neq0.
+  2: done.
+  rewrite (Znat.Z2Nat.id n).
+  2: done.
+  assert ((BinInt.Z.modulo n (@MachineIntegers.modulus MachineIntegers.WORDSIZE128)) = n).
+  1: rewrite -MachineIntegers.unsigned_repr_eq.
+  1: rewrite MachineIntegers.unsigned_repr.
+  1: reflexivity.
+  1: split.
+  1: apply H1.
+  1: apply H2.
+  rewrite H.
+  rewrite -MachineIntegers.unsigned_repr_eq.
+  rewrite unsigned_repr.
+  rewrite Znat.Nat2Z.id.
+  rewrite modn_mod.
+  reflexivity.
+(* 
+  1: apply Znat.Nat2Z.is_nonneg.
+  rewrite ssrZ.modnZE.
+  2: eapply lt0n_neq0.
+  2: done.
+  rewrite -ssrZ.modnZE.
+  2: eapply lt0n_neq0.
+  2: done.
+  rewrite modn_small.
+  1: rewrite Znat.Z2Nat.id.
+  1: apply H2.
+  1: apply H1.
+  admit. *)
+
+Qed.
+
+ 
+Lemma Hacspec_Enc_Dec_Perfect :
+  Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
+Proof.
+  eapply eq_rel_perf_ind_eq.
+  simplify_eq_rel m.
+  apply r_ret.
+  intros s0 s1.
+  intros e1.
+  split.
+  2: apply e1.
+  repeat rewrite otf_fto.
+  repeat rewrite fto_otf.
+  repeat rewrite Remove_Declassify.
+  repeat rewrite Remove_Classify.
+  assert (BinInt.Z.of_nat #|gT| = MachineIntegers.unsigned secret_q_v).
+  1: rewrite g_gt_eq.
+  1: rewrite q_eq.
+  1: unfold secret_q_v.
+  1: rewrite Remove_Secret.
+  1: done.  
+  repeat rewrite FinToInt_IntToFin_Eq.
+  3,4: rewrite H.
+  3,4: unfold secret_q_v.
+  3,4: rewrite Remove_Secret.
+  3,4: apply MachineIntegers.unsigned_range_2.
+  2: admit.
+  unfold MachineIntegers.modu.
+
+(*   unfold secret_q_v, secret_g_v. *)
+  repeat rewrite Remove_Secret.
+
+  unfold MachineIntegers.modu, MachineIntegers.mul, MachineIntegers.sub, 
+    powmod.uint128_pow_mod, powmod.pow, powmod.uint128_modulo, MachineIntegers.modu.
+  repeat rewrite unsigned_repr.
+  repeat rewrite Znat.nat_N_Z.
+  rewrite Remove_mod_gT.
+  rewrite (Zdiv.Zmod_small (BinNums.Zpos (BinNums.xO (BinNums.xO 1%AC)))).
+  2: split.
+  2: done.
+  2 : admit.
+
+  repeat rewrite Zdiv.Zmod_mod.
+  rewrite -BinInt.Z.mul_assoc.
+  repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
+  Import BinInt.Z.
+  rewrite reprmod.
+  2: {
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  
+
+  rewrite H.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  2,3,4,5: unfold secret_q_v.
+  2,3,4,5: repeat rewrite Remove_Secret.
+  2,3,4,5: done.
+  simpl.
+  rewrite Zdiv.Zmod_0_l.
+  repeat rewrite mul_0_r.
+  done.
+}
+  2: {
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  rewrite H.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  2,3,4,5: unfold secret_q_v.
+  2,3,4,5: repeat rewrite Remove_Secret.
+  2,3,4,5: done.
+  simpl.
+  rewrite Zdiv.Zmod_0_l.
+  repeat rewrite mul_0_r.
+  done.
+}  
+  rewrite Zdiv.Zmult_mod.
+  rewrite H.
+  repeat rewrite -Zpow_facts.Zpower_mod.
+  2,3,4,5: unfold secret_q_v.
+  2,3,4,5: rewrite Remove_Secret.
+  2,3,4,5: done.  
+  rewrite -(Zdiv.Zmult_mod ((MachineIntegers.unsigned secret_g_v ^ 4) ^ 4)).
+  rewrite -Zdiv.Zmult_mod.
+  rewrite -H.
+  rewrite -reprmod.
+  2: {rewrite asd.
+  rewrite mul_1_r.
+  eapply Znat.Nat2Z.is_nonneg.
+  }
+  2:{
+  unfold secret_g_v.
+  rewrite Remove_Secret.
+  rewrite asd.
+  rewrite OrdersEx.Z_as_OT.mul_1_r.
+  admit. 
+}  
+  rewrite asd.
+  erewrite BinInt.Z.mul_1_r.
+  unfold IntToFin, NatToOrd, IntToNat.
+  eapply ord_inj.
+  simpl.
+  rewrite MachineIntegers.Z_mod_modulus_eq.
+  rewrite -(Znat.Z2Nat.id MachineIntegers.modulus).
+  2: done.  
+  rewrite -ssrZ.modnZE.
+  2: done.
+  rewrite Znat.Nat2Z.id.
+  rewrite (@modn_small m).
+  2:{ eapply ltn_trans.
+  1: eapply ltn_ord.
+  simpl.
+  rewrite -(Znat.Nat2Z.id (#|gT|)).
+  rewrite H.
+  unfold secret_q_v.
+  rewrite Remove_Secret.
+  done.
+  }
+  rewrite (@modn_small m).
+  2: apply ltn_ord.
+  reflexivity.
+Admitted.
+
+
 End ElGamal.
 
 Module EGP_Z3 <: ElGamalParam.
@@ -859,7 +866,11 @@ Module EGP_Z3 <: ElGamalParam.
     rewrite order_Zp1.
     reflexivity.
   Qed.
+  
+  Axiom q_eq : BinInt.Z.of_nat #[g] = MachineIntegers.unsigned q_v. 
 
 End EGP_Z3.
 
 Module ElGamal_Z3 := ElGamal EGP_Z3.
+
+

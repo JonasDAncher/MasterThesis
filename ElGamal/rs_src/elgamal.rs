@@ -7,7 +7,14 @@ const SECRET_G : U128 = U128(G);
 const sk:u128 = 4u128;
 
 
-pub fn enc_aux(secret_source_sk: U128, target_pk: u128, m: u128) -> (u128, u128) {
+pub fn keygen() -> (u128, U128){
+	let secret_sk = U128::classify(sk);
+	let pk 		  = (SECRET_G.pow_mod(secret_sk,SECRET_Q)).declassify();
+	(pk,secret_sk)
+}
+
+pub fn enc(target_pk: u128, m: u128) -> (u128, u128){
+	let (_gy,secret_source_sk) = keygen();
 	let secret_target_pk = U128::classify(target_pk);
 	let secret_m         = U128::classify(m);
 
@@ -16,17 +23,6 @@ pub fn enc_aux(secret_source_sk: U128, target_pk: u128, m: u128) -> (u128, u128)
 	let secret_c2 		 = secret_m * secret_s;
     
 	(secret_c1.declassify(), secret_c2.declassify())
-}
-
-pub fn keygen() -> (u128, U128){
-	let secret_sk = U128::classify(sk);
-	let pk 		  = (SECRET_G.pow_mod(secret_sk,SECRET_Q)).declassify();
-	(pk,secret_sk)
-}
-
-pub fn enc(target_pk: u128, m: u128) -> (u128, u128){
-	let (_gy,y) = keygen();
-	enc_aux(y,target_pk,m)
 }
 
 pub fn dec(secret_target_sk: U128, c: (u128,u128)) -> u128 {
