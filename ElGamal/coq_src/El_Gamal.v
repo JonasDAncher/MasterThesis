@@ -33,7 +33,7 @@ Definition keygen   : (int128 '× uint128) :=
   (pk_1, secret_sk_0).
 
 Definition enc (target_pk_2 : int128) (m_3 : int128)  : (int128 '× int128) :=
-  let '(gy_4, secret_source_sk_5) :=
+  let '(source_pk_4, secret_source_sk_5) :=
     keygen  in 
   let secret_target_pk_6 : uint128 :=
     uint128_classify (target_pk_2) in 
@@ -41,11 +41,11 @@ Definition enc (target_pk_2 : int128) (m_3 : int128)  : (int128 '× int128) :=
     uint128_classify (m_3) in 
   let secret_s_8 : uint128 :=
     uint128_pow_mod (secret_target_pk_6) (secret_source_sk_5) (secret_q_v) in 
-  let secret_c1_9 : uint128 :=
-    uint128_pow_mod (secret_g_v) (secret_source_sk_5) (secret_q_v) in 
-  let secret_c2_10 : uint128 :=
-    (secret_m_7) .* (secret_s_8) in 
-  (uint128_declassify (secret_c1_9), uint128_declassify (secret_c2_10)).
+  let c1_9 : int128 :=
+    source_pk_4 in 
+  let c2_10 : int128 :=
+    uint128_declassify ((secret_m_7) .* (secret_s_8)) in 
+  (c1_9, c2_10).
 
 Definition dec
   (secret_target_sk_11 : uint128)

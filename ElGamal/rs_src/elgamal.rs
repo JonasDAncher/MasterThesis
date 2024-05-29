@@ -14,15 +14,15 @@ pub fn keygen() -> (u128, U128){
 }
 
 pub fn enc(target_pk: u128, m: u128) -> (u128, u128){
-	let (_gy,secret_source_sk) = keygen();
+	let (source_pk,secret_source_sk) = keygen();
 	let secret_target_pk = U128::classify(target_pk);
 	let secret_m         = U128::classify(m);
 
-	let secret_s  		 = secret_target_pk.pow_mod(secret_source_sk,SECRET_Q);
-	let secret_c1 		 = SECRET_G.pow_mod(secret_source_sk, SECRET_Q);
-	let secret_c2 		 = secret_m * secret_s;
+	let secret_s  	     = secret_target_pk.pow_mod(secret_source_sk,SECRET_Q);
+	let c1 		     = source_pk;
+	let c2 		     = (secret_m * secret_s).declassify();
     
-	(secret_c1.declassify(), secret_c2.declassify())
+	(c1, c2)
 }
 
 pub fn dec(secret_target_sk: U128, c: (u128,u128)) -> u128 {
