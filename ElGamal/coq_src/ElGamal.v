@@ -67,10 +67,8 @@ Definition q : nat := #[g].
 Lemma g_gt_eq : 
   #|gT| = #[g].
 Proof.
-  Search (#[_]).
   pose proof generator_cycle.
   unfold generator in H.
-  Search ([set : _]) (#|_|).
   rewrite -cardsT.
   simpl.
   fold ζ.
@@ -629,7 +627,6 @@ Proof.
   2: apply is_positive.
   repeat rewrite Znat.Z2Nat.id.
   2: apply MachineIntegers.unsigned_range_2.
-  Search   MachineIntegers.unsigned MachineIntegers.repr.
   do 2 f_equal.
   rewrite MachineIntegers.unsigned_repr.
   1: reflexivity.
