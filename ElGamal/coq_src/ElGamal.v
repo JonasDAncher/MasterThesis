@@ -672,7 +672,7 @@ Axiom Remove_mod_gT :
   ∀ {n: BinNums.Z},
     (BinInt.Z.modulo n (BinInt.Z.of_nat #|gT|)) = n.
 
-Axiom mul_prod_zero:
+Axiom mul_inv:
   ∀ {n z: BinNums.Z},
   BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
 
@@ -806,18 +806,18 @@ Proof.
   rewrite -Zdiv.Zmult_mod.
   rewrite -H.
   rewrite -reprmod.
-  2: {rewrite mul_prod_zero.
+  2: {rewrite mul_inv.
   rewrite mul_1_r.
   eapply Znat.Nat2Z.is_nonneg.
   }
   2:{
   unfold secret_g_v.
   rewrite Remove_Secret.
-  rewrite mul_prod_zero.
+  rewrite mul_inv.
   rewrite OrdersEx.Z_as_OT.mul_1_r.
   admit. 
 }  
-  rewrite mul_prod_zero.
+  rewrite mul_inv.
   erewrite BinInt.Z.mul_1_r.
   unfold IntToFin, NatToOrd, IntToNat.
   eapply ord_inj.
