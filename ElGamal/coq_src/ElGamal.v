@@ -503,7 +503,7 @@ Qed.
 
   (* nat to MachineIntegers version of int128 *)
   Definition NatToInt : nat -> Hacspec_Lib.uint128 := fun x => MachineIntegers.repr (BinInt.Z.of_N (BinNat.N.of_nat x)). 
-
+  
   (* 'fin to MachineIntegers version of int128 *)
   Definition FinToInt {n} `{Positive n} : 'fin n -> Hacspec_Lib.uint128 := fun x => NatToInt ((nat_of_ord x)). 
  
@@ -642,7 +642,7 @@ Qed.
 
 
 Lemma NatToInt_IntToNat_Eq:
-  forall {n: Hacspec_Lib.uint128} , 
+  ∀ {n: Hacspec_Lib.uint128} , 
     NatToInt (IntToNat n) = n.
 Proof.
   intros n.
@@ -675,7 +675,7 @@ Axiom Remove_mod_gT :
   ∀ {n: BinNums.Z},
     (BinInt.Z.modulo n (BinInt.Z.of_nat #|gT|)) = n.
 
-Axiom asd:
+Axiom mul_prod_zero:
   ∀ {n z: BinNums.Z},
   BinInt.Z.mul (OrdersEx.Z_as_OT.pow n z) (BinInt.Z.pow n (BinInt.Z.opp z)) = (BinNums.Zpos 1%AC).
 
