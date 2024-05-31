@@ -809,18 +809,18 @@ Proof.
   rewrite -Zdiv.Zmult_mod.
   rewrite -H.
   rewrite -reprmod.
-  2: {rewrite asd.
+  2: {rewrite mul_prod_zero.
   rewrite mul_1_r.
   eapply Znat.Nat2Z.is_nonneg.
   }
   2:{
   unfold secret_g_v.
   rewrite Remove_Secret.
-  rewrite asd.
+  rewrite mul_prod_zero.
   rewrite OrdersEx.Z_as_OT.mul_1_r.
   admit. 
 }  
-  rewrite asd.
+  rewrite mul_prod_zero.
   erewrite BinInt.Z.mul_1_r.
   unfold IntToFin, NatToOrd, IntToNat.
   eapply ord_inj.
