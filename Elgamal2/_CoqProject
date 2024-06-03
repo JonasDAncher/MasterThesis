@@ -1,8 +1,0 @@
--docroot "~/Documents/MasterThesisProject"
--Q . Hacspec
--Q . Diffie
--arg -w
--arg all
-powmod.v
-El_Gamal.v
-ElGamal.v
