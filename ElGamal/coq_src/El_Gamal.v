@@ -2,7 +2,7 @@
 Set Warnings "-notation-overridden,-ambiguous-paths".
 Require Import Hacspec_Lib MachineIntegers.
 From Coq Require Import ZArith.
-From Diffie Require Import powmod.
+From ElGamal Require Import powmod.
 Import List.ListNotations.
 Open Scope Z_scope.
 Open Scope bool_scope.

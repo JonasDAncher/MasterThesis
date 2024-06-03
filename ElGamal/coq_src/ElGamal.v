@@ -19,7 +19,7 @@ From Crypt Require Import Axioms ChoiceAsOrd SubDistr Couplings
   pkg_core_definition choice_type pkg_composition pkg_rhl Package Prelude
   AsymScheme.
 
-From Diffie Require Import El_Gamal.
+From ElGamal Require Import El_Gamal.
 
 From Coq Require Import Utf8.
 From extructures Require Import ord fset fmap.

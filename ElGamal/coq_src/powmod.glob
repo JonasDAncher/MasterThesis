@@ -1,5 +1,5 @@
 DIGEST 3b37c807d124b099bd36560449318628
-FDiffie.coq_src.powmod
+FElGamal.coq_src.powmod
 R15:25 Hacspec.Hacspec_Lib <> <> lib
 R27:41 Hacspec.MachineIntegers <> <> lib
 R68:73 Coq.ZArith.ZArith <> <> lib
@@ -12,9 +12,9 @@ R131:136 Hacspec.MachineIntegers <> int128 def
 R142:145 Hacspec.MachineIntegers <> repr def
 R160:162 Coq.ZArith.BinInt <> ::Z_scope:x_'^'_x not
 R148:155 Hacspec.MachineIntegers <> unsigned def
-R157:159 Diffie.coq_src.powmod <> g_3:1 var
+R157:159 ElGamal.coq_src.powmod <> g_3:1 var
 R163:170 Hacspec.MachineIntegers <> unsigned def
-R172:174 Diffie.coq_src.powmod <> x_4:2 var
+R172:174 ElGamal.coq_src.powmod <> x_4:2 var
 def 199:212 <> uint128_modulo
 R221:226 Hacspec.MachineIntegers <> int128 def
 binder 216:218 <> n_5:3
@@ -22,8 +22,8 @@ R236:241 Hacspec.MachineIntegers <> int128 def
 binder 231:233 <> n_6:4
 R249:254 Hacspec.MachineIntegers <> int128 def
 R261:280 Hacspec.MachineIntegers <> modu def
-R282:284 Diffie.coq_src.powmod <> n_5:3 var
-R286:288 Diffie.coq_src.powmod <> n_6:4 var
+R282:284 ElGamal.coq_src.powmod <> n_5:3 var
+R286:288 ElGamal.coq_src.powmod <> n_6:4 var
 def 303:317 <> uint128_pow_mod
 R327:332 Hacspec.MachineIntegers <> int128 def
 binder 322:324 <> g_0:5
@@ -32,10 +32,10 @@ binder 338:340 <> x_1:6
 R359:364 Hacspec.MachineIntegers <> int128 def
 binder 354:356 <> n_2:7
 R372:377 Hacspec.MachineIntegers <> int128 def
-R386:399 Diffie.coq_src.powmod <> uint128_modulo def
-R402:404 Diffie.coq_src.powmod <> pow def
-R406:408 Diffie.coq_src.powmod <> g_0:5 var
-R410:412 Diffie.coq_src.powmod <> x_1:6 var
-R415:417 Diffie.coq_src.powmod <> n_2:7 var
-R514:516 Diffie.coq_src.powmod <> pow def
+R386:399 ElGamal.coq_src.powmod <> uint128_modulo def
+R402:404 ElGamal.coq_src.powmod <> pow def
+R406:408 ElGamal.coq_src.powmod <> g_0:5 var
+R410:412 ElGamal.coq_src.powmod <> x_1:6 var
+R415:417 ElGamal.coq_src.powmod <> n_2:7 var
+R514:516 ElGamal.coq_src.powmod <> pow def
 not 500:500 <> :::x_'.^^'_x

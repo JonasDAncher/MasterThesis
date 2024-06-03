@@ -1,6 +1,6 @@
 -docroot "~/Documents/MasterThesisProject"
 -R ../../hacspec/coq/src/ Hacspec
--Q . Diffie
+-Q . ElGamal
 -arg -w
 -arg all
 coq_src/powmod.v
