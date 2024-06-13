@@ -707,6 +707,8 @@ Proof.
   rewrite Znat.Nat2Z.id.
   rewrite modn_mod.
   reflexivity.
+Qed.
+
 (* 
   1: apply Znat.Nat2Z.is_nonneg.
   rewrite ssrZ.modnZE.
@@ -720,9 +722,6 @@ Proof.
   1: apply H2.
   1: apply H1.
   admit. *)
-
-Qed.
-
  
 Lemma Hacspec_Enc_Dec_Perfect :
   Hacspec_Enc_Dec_real ≈₀ Enc_Dec_ideal.
@@ -751,10 +750,7 @@ Proof.
   3,4: apply MachineIntegers.unsigned_range_2.
   2: admit.
   unfold MachineIntegers.modu.
-
-(*   unfold secret_q_v, secret_g_v. *)
   repeat rewrite Remove_Secret.
-
   unfold MachineIntegers.modu, MachineIntegers.mul, MachineIntegers.sub, 
     powmod.uint128_pow_mod, powmod.pow, powmod.uint128_modulo, MachineIntegers.modu.
   repeat rewrite unsigned_repr.
@@ -764,7 +760,6 @@ Proof.
   2: split.
   2: done.
   2 : admit.
-
   repeat rewrite Zdiv.Zmod_mod.
   rewrite -BinInt.Z.mul_assoc.
   repeat rewrite OrdersEx.Z_as_OT.pow_pos_fold.
@@ -772,8 +767,6 @@ Proof.
   rewrite reprmod.
   2: {
   repeat rewrite -Zpow_facts.Zpower_mod.
-  
-
   rewrite H.
   repeat rewrite -Zpow_facts.Zpower_mod.
   2,3,4,5: unfold secret_q_v.
@@ -785,7 +778,6 @@ Proof.
   done.
 }
   2: {
-  repeat rewrite -Zpow_facts.Zpower_mod.
   rewrite H.
   repeat rewrite -Zpow_facts.Zpower_mod.
   2,3,4,5: unfold secret_q_v.
