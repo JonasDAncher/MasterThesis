@@ -3,6 +3,9 @@
 ## Introduction
 This repository contains the code and documentation for our master thesis project. The aim of this project is to investigate the process of mechanising proofs for executable code using Hacspec & Coq.
 
+## Thesis
+For the full report, please see [the thesis](https://github.com/JonasDAncher/MasterThesis/blob/main/MasterThesis.pdf). This file has been updated since the deadline for the report, with corrections and adjustments. The date on the report is the date of the most recent edit.
+
 ## Installation
 To install the prerequisites of Hacspec and Rust:
 1. Install Rust on your local machine.
